@@ -209,6 +209,11 @@ export interface SbcHardwareInfo {
   formFactor?: string;
 }
 
+export interface WiringOpBoardInfo {
+  releaseId: string;
+  model: string;
+}
+
 export interface SbcRegistryEntry {
   id: string;
   platformId: string;
@@ -222,6 +227,34 @@ export interface SbcRegistryEntry {
   tags?: string[];
   hardware?: SbcHardwareInfo;
   specifications?: HardwareSpecifications;
+  /** wiringOP /etc/orangepi-release detection metadata. */
+  wiringOp?: WiringOpBoardInfo;
+}
+
+export type WiringPiCompatibility = 'high' | 'moderate' | 'low' | 'none';
+
+export interface GpioLibraryLink {
+  label: string;
+  url: string;
+}
+
+export interface GpioLibraryEntry {
+  id: string;
+  name: string;
+  shortName?: string;
+  maintainer: string;
+  description: string;
+  repositoryUrl: string;
+  documentationUrl?: string;
+  additionalUrls?: GpioLibraryLink[];
+  primaryTargets: string;
+  wiringPiCompatibility: WiringPiCompatibility;
+  languages: string[];
+  bestFor: string;
+  /** Platform IDs from this registry where the library is a practical choice. */
+  supportedPlatformIds: string[];
+  tags?: string[];
+  notes?: string;
 }
 
 export interface HardwareRegistryConfig {
@@ -229,6 +262,7 @@ export interface HardwareRegistryConfig {
   defaultPlatformId: string;
   sbcs: SbcRegistryEntry[];
   hats: HardwareDeviceConfig[];
+  gpioLibraries?: GpioLibraryEntry[];
 }
 
 export interface HardwareDevice extends Omit<HardwareDeviceConfig, 'color'> {

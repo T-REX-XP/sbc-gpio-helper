@@ -7,6 +7,7 @@ export function HardwareRegistryPage() {
       <HardwareCatalog
         sbcs={hardwareRegistry.getSbcs()}
         hats={hardwareRegistry.getHats()}
+        gpioLibraries={hardwareRegistry.getGpioLibraries()}
       />
     </div>
   );

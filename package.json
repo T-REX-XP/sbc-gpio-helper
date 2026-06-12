@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "build:pages": "node scripts/build-pages.mjs",
     "generate:og-image": "node scripts/generate-og-image.mjs",
+    "import:wiringop": "node scripts/import-wiringop-devices.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

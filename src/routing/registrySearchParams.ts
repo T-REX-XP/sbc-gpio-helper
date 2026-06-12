@@ -7,7 +7,7 @@ export interface RegistrySearchState {
   expandedId: string | null;
 }
 
-const CATEGORY_VALUES = new Set<RegistryCategoryFilter>(['all', 'sbc', 'hats']);
+const CATEGORY_VALUES = new Set<RegistryCategoryFilter>(['all', 'sbc', 'hats', 'libraries']);
 
 const COLUMN_KEYS = [
   'name',

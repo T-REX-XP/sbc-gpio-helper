@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "defaultPlatformId": "raspberry-pi-40pin",
   "sbcs": [
     {
@@ -11,7 +11,13 @@
       "description": "Standard 40-pin GPIO header on Raspberry Pi boards (BCM numbering). Supports SPI0/SPI1 and common HAT accessories.",
       "documentationUrl": "https://pinout.xyz/",
       "imageUrl": "/sbcs/raspberry-pi-40pin.webp",
-      "tags": ["raspberry-pi", "40-pin", "bcm", "spi", "i2c"],
+      "tags": [
+        "raspberry-pi",
+        "40-pin",
+        "bcm",
+        "spi",
+        "i2c"
+      ],
       "hardware": {
         "soc": "Broadcom BCM2711 / BCM2837 / BCM2835",
         "socFamily": "Broadcom VideoCore",
@@ -19,13 +25,25 @@
         "gpu": "VideoCore VI or IV (model-dependent)",
         "ram": "512 MB – 8 GB LPDDR (model-dependent)",
         "storage": "MicroSD card",
-        "connectivity": ["USB 2.0/3.0", "Ethernet (most models)", "Wi-Fi / Bluetooth (select models)", "HDMI", "CSI / DSI"],
+        "connectivity": [
+          "USB 2.0/3.0",
+          "Ethernet (most models)",
+          "Wi-Fi / Bluetooth (select models)",
+          "HDMI",
+          "CSI / DSI"
+        ],
         "formFactor": "Rpi A / Rpi B / Rpi Zero (model-dependent)"
       },
       "specifications": {
         "gpioHeader": "40-pin",
         "gpioNumbering": "BCM",
-        "interface": ["SPI0", "SPI1", "I2C", "UART", "PWM"]
+        "interface": [
+          "SPI0",
+          "SPI1",
+          "I2C",
+          "UART",
+          "PWM"
+        ]
       }
     },
     {
@@ -38,7 +56,13 @@
       "documentationUrl": "https://wiki.radxa.com/Zero/hardware/gpio",
       "productUrl": "https://docs.radxa.com/en/zero/zero",
       "imageUrl": "/sbcs/radxa-zero-40pin.webp",
-      "tags": ["radxa", "meson-g12a", "40-pin", "spi", "device-tree"],
+      "tags": [
+        "radxa",
+        "meson-g12a",
+        "40-pin",
+        "spi",
+        "device-tree"
+      ],
       "hardware": {
         "soc": "Amlogic S905Y2",
         "socFamily": "Meson G12A",
@@ -46,13 +70,25 @@
         "gpu": "ARM Mali-G31 MP2",
         "ram": "512 MB / 1 GB / 2 GB / 4 GB LPDDR4",
         "storage": "MicroSD; optional eMMC module",
-        "connectivity": ["USB 2.0", "USB 3.0 OTG", "Micro HDMI 2.0", "Wi-Fi 5", "Bluetooth 5.0"],
+        "connectivity": [
+          "USB 2.0",
+          "USB 3.0 OTG",
+          "Micro HDMI 2.0",
+          "Wi-Fi 5",
+          "Bluetooth 5.0"
+        ],
         "formFactor": "Rpi Zero · 69 × 32 mm"
       },
       "specifications": {
         "gpioHeader": "40-pin",
         "gpioNumbering": "Linux GPIO + bank name",
-        "interface": ["SPI_A", "SPI_B", "I2C", "UART", "PWM"]
+        "interface": [
+          "SPI_A",
+          "SPI_B",
+          "I2C",
+          "UART",
+          "PWM"
+        ]
       }
     },
     {
@@ -65,7 +101,13 @@
       "documentationUrl": "https://docs.radxa.com/en/zero/zero3/hardware-design/hardware-interface",
       "productUrl": "https://docs.radxa.com/en/zero/zero3",
       "imageUrl": "/sbcs/radxa-zero-3-40pin.webp",
-      "tags": ["radxa", "rk3566", "40-pin", "spi3", "device-tree"],
+      "tags": [
+        "radxa",
+        "rk3566",
+        "40-pin",
+        "spi3",
+        "device-tree"
+      ],
       "hardware": {
         "soc": "Rockchip RK3566",
         "socFamily": "RK3566 / RK3568",
@@ -73,13 +115,25 @@
         "gpu": "ARM Mali-G52 2EE",
         "ram": "1 GB / 2 GB / 4 GB / 8 GB LPDDR4",
         "storage": "MicroSD; optional eMMC module",
-        "connectivity": ["USB 2.0", "USB 3.0 OTG", "HDMI 2.1", "Wi-Fi 5", "Bluetooth 5.0"],
+        "connectivity": [
+          "USB 2.0",
+          "USB 3.0 OTG",
+          "HDMI 2.1",
+          "Wi-Fi 5",
+          "Bluetooth 5.0"
+        ],
         "formFactor": "Rpi Zero · 65 × 30 mm"
       },
       "specifications": {
         "gpioHeader": "40-pin",
         "gpioNumbering": "Linux GPIO + bank name",
-        "interface": ["SPI3", "I2C", "UART", "PWM", "I2S"]
+        "interface": [
+          "SPI3",
+          "I2C",
+          "UART",
+          "PWM",
+          "I2S"
+        ]
       }
     },
     {
@@ -92,7 +146,13 @@
       "documentationUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-3W.html",
       "productUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-3W.html",
       "imageUrl": "/sbcs/orangepi-zero-3w-40pin.webp",
-      "tags": ["orange-pi", "allwinner-a733", "40-pin", "spi3", "wifi6"],
+      "tags": [
+        "orange-pi",
+        "allwinner-a733",
+        "40-pin",
+        "spi3",
+        "wifi6"
+      ],
       "hardware": {
         "soc": "Allwinner A733",
         "socFamily": "Allwinner A733",
@@ -100,13 +160,32 @@
         "gpu": "Imagination PowerVR BXM-4-64 MC1",
         "ram": "Up to 16 GB LPDDR5",
         "storage": "TF card; optional onboard eMMC / UFS",
-        "connectivity": ["Wi-Fi 6", "Bluetooth 5.4 (BLE)", "Mini HDMI 2.0", "USB-C", "MIPI DSI/CSI", "PCIe 3.0"],
+        "connectivity": [
+          "Wi-Fi 6",
+          "Bluetooth 5.4 (BLE)",
+          "Mini HDMI 2.0",
+          "USB-C",
+          "MIPI DSI/CSI",
+          "PCIe 3.0"
+        ],
         "formFactor": "Rpi Zero · 65 × 32 mm"
       },
       "specifications": {
         "gpioHeader": "40-pin",
         "gpioNumbering": "SoC port name (PB/PE/PL/PD)",
-        "interface": ["SPI3", "TWI0", "TWI1", "TWI2", "TWI3", "UART", "PWM"]
+        "interface": [
+          "SPI3",
+          "TWI0",
+          "TWI1",
+          "TWI2",
+          "TWI3",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizero3w.",
+        "model": "PI_MODEL_ZERO_3_W"
       }
     },
     {
@@ -119,7 +198,13 @@
       "documentationUrl": "http://www.orangepi.org/orangepiwiki/index.php/26_Pin_Interface_Pin_Description",
       "productUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5.html",
       "imageUrl": "/sbcs/orangepi-5-26pin.webp",
-      "tags": ["orange-pi", "rk3588s", "26-pin", "spi4", "npu"],
+      "tags": [
+        "orange-pi",
+        "rk3588s",
+        "26-pin",
+        "spi4",
+        "npu"
+      ],
       "hardware": {
         "soc": "Rockchip RK3588S",
         "socFamily": "RK3588",
@@ -128,13 +213,32 @@
         "npu": "Up to 6 TOPS (INT4/INT8/INT16)",
         "ram": "4 GB / 8 GB / 16 GB LPDDR4/4X",
         "storage": "MicroSD; M.2 NVMe (PCIe 2.0); 16 MB QSPI NOR",
-        "connectivity": ["Gigabit Ethernet", "USB 3.0", "USB 2.0", "USB-C", "HDMI 2.1", "MIPI DSI/CSI"],
+        "connectivity": [
+          "Gigabit Ethernet",
+          "USB 3.0",
+          "USB 2.0",
+          "USB-C",
+          "HDMI 2.1",
+          "MIPI DSI/CSI"
+        ],
         "formFactor": "62 × 100 mm (26-pin, non-Pi class)"
       },
       "specifications": {
         "gpioHeader": "26-pin",
         "gpioNumbering": "Linux GPIO + bank name (GPIOx_YZ)",
-        "interface": ["SPI4", "I2C1", "I2C3", "I2C5", "UART", "PWM", "CAN"]
+        "interface": [
+          "SPI4",
+          "I2C1",
+          "I2C3",
+          "I2C5",
+          "UART",
+          "PWM",
+          "CAN"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi5.",
+        "model": "PI_MODEL_5"
       }
     },
     {
@@ -147,20 +251,40 @@
       "documentationUrl": "https://wiki.luckfox.com/Luckfox-Lyra-Zero-W",
       "productUrl": "https://www.luckfox.com/Luckfox-Lyra-Zero-W",
       "imageUrl": "/sbcs/luckfox-lyra-zero-w-40pin.webp",
-      "tags": ["luckfox", "rk3506", "40-pin", "matrix-io", "wifi6"],
+      "tags": [
+        "luckfox",
+        "rk3506",
+        "40-pin",
+        "matrix-io",
+        "wifi6"
+      ],
       "hardware": {
         "soc": "Rockchip RK3506B",
         "socFamily": "RK3506",
         "cpu": "Triple-core Cortex-A7 @ 1.2 GHz + Cortex-M0",
         "ram": "512 MB DDR3L",
         "storage": "256 MB SPI NAND; MicroSD",
-        "connectivity": ["Wi-Fi 6", "Bluetooth 5.2 / BLE", "USB-C OTG", "USB-C HOST", "MIPI DSI 2-lane"],
+        "connectivity": [
+          "Wi-Fi 6",
+          "Bluetooth 5.2 / BLE",
+          "USB-C OTG",
+          "USB-C HOST",
+          "MIPI DSI 2-lane"
+        ],
         "formFactor": "Rpi Zero class stick"
       },
       "specifications": {
         "gpioHeader": "40-pin",
         "gpioNumbering": "Rockchip GPIO + RM_IO",
-        "interface": ["Matrix IO", "UART", "I2C", "SPI", "PWM", "I2S", "CAN"]
+        "interface": [
+          "Matrix IO",
+          "UART",
+          "I2C",
+          "SPI",
+          "PWM",
+          "I2S",
+          "CAN"
+        ]
       }
     },
     {
@@ -173,7 +297,14 @@
       "documentationUrl": "https://wiki.luckfox.com/Luckfox-Aura",
       "productUrl": "https://www.luckfox.com/Luckfox-Aura",
       "imageUrl": "/sbcs/luckfox-aura-40pin.webp",
-      "tags": ["luckfox", "rv1126", "40-pin", "npu", "poe", "wifi6"],
+      "tags": [
+        "luckfox",
+        "rv1126",
+        "40-pin",
+        "npu",
+        "poe",
+        "wifi6"
+      ],
       "hardware": {
         "soc": "Rockchip RV1126B",
         "socFamily": "RV1126",
@@ -181,13 +312,28 @@
         "npu": "3 TOPS @ INT8",
         "ram": "1 GB / 2 GB / 4 GB LPDDR4X",
         "storage": "Optional 8 GB / 64 GB eMMC; MicroSD",
-        "connectivity": ["Wi-Fi 6 (2.4 / 5 GHz)", "Bluetooth 5.4 / BLE", "Gigabit PoE Ethernet", "USB 3.0 OTG", "USB 2.0 × 4", "MIPI DSI 4-lane", "MIPI CSI × 2"],
+        "connectivity": [
+          "Wi-Fi 6 (2.4 / 5 GHz)",
+          "Bluetooth 5.4 / BLE",
+          "Gigabit PoE Ethernet",
+          "USB 3.0 OTG",
+          "USB 2.0 × 4",
+          "MIPI DSI 4-lane",
+          "MIPI CSI × 2"
+        ],
         "formFactor": "Rpi B+ class"
       },
       "specifications": {
         "gpioHeader": "40-pin",
         "gpioNumbering": "Rockchip GPIO bank name",
-        "interface": ["SPI0", "SPI1", "I2C2", "I2C5", "UART", "PWM"]
+        "interface": [
+          "SPI0",
+          "SPI1",
+          "I2C2",
+          "I2C5",
+          "UART",
+          "PWM"
+        ]
       }
     },
     {
@@ -200,7 +346,14 @@
       "documentationUrl": "https://docs.radxa.com/en/cubie/a7z/hardware-use/pin-gpio",
       "productUrl": "https://radxa.com/products/cubie/a7z",
       "imageUrl": "/sbcs/cubie-a7z-40pin.webp",
-      "tags": ["radxa", "cubie", "allwinner-a733", "40-pin", "npu", "wifi6"],
+      "tags": [
+        "radxa",
+        "cubie",
+        "allwinner-a733",
+        "40-pin",
+        "npu",
+        "wifi6"
+      ],
       "hardware": {
         "soc": "Allwinner A733",
         "socFamily": "Allwinner A733",
@@ -209,13 +362,29 @@
         "npu": "3 TOPS @ INT8",
         "ram": "1 GB / 2 GB / 4 GB / 8 GB / 16 GB LPDDR4/4x",
         "storage": "MicroSD; optional onboard UFS (up to 512 GB)",
-        "connectivity": ["Wi-Fi 6", "Bluetooth 5.4 / BLE", "USB-C 2.0", "USB-C 3.1", "Micro HDMI", "MIPI CSI 4-lane", "PCIe 3.0 x1"],
+        "connectivity": [
+          "Wi-Fi 6",
+          "Bluetooth 5.4 / BLE",
+          "USB-C 2.0",
+          "USB-C 3.1",
+          "Micro HDMI",
+          "MIPI CSI 4-lane",
+          "PCIe 3.0 x1"
+        ],
         "formFactor": "Rpi Zero · 65 × 30 mm"
       },
       "specifications": {
         "gpioHeader": "40-pin",
         "gpioNumbering": "SoC port name (PB/PJ/PD/PL/PM)",
-        "interface": ["SPI1", "SPI2", "SPI3", "TWI2", "TWI7", "UART", "PWM"]
+        "interface": [
+          "SPI1",
+          "SPI2",
+          "SPI3",
+          "TWI2",
+          "TWI7",
+          "UART",
+          "PWM"
+        ]
       }
     },
     {
@@ -228,7 +397,15 @@
       "documentationUrl": "https://docs.radxa.com/en/cubie/a7s/hardware-use/hardware-info",
       "productUrl": "https://radxa.com/products/cubie/a7s",
       "imageUrl": "/sbcs/cubie-a7s-30pin.webp",
-      "tags": ["radxa", "cubie", "allwinner-a733", "30-pin", "npu", "ethernet", "wifi6"],
+      "tags": [
+        "radxa",
+        "cubie",
+        "allwinner-a733",
+        "30-pin",
+        "npu",
+        "ethernet",
+        "wifi6"
+      ],
       "hardware": {
         "soc": "Allwinner A733",
         "socFamily": "Allwinner A733",
@@ -237,13 +414,28 @@
         "npu": "3 TOPS @ INT8",
         "ram": "Up to 16 GB LPDDR5",
         "storage": "MicroSD; optional onboard eMMC (up to 256 GB)",
-        "connectivity": ["Gigabit Ethernet", "Wi-Fi 6", "Bluetooth 5.4 / BLE", "USB-C 2.0", "USB-C 3.2", "USB 2.0 Type-A", "MIPI CSI 4-lane", "PCIe 3.0 x1"],
+        "connectivity": [
+          "Gigabit Ethernet",
+          "Wi-Fi 6",
+          "Bluetooth 5.4 / BLE",
+          "USB-C 2.0",
+          "USB-C 3.2",
+          "USB 2.0 Type-A",
+          "MIPI CSI 4-lane",
+          "PCIe 3.0 x1"
+        ],
         "formFactor": "51 × 51 mm square"
       },
       "specifications": {
         "gpioHeader": "30-pin (+ separate 15-pin header)",
         "gpioNumbering": "SoC port name (PB/PJ/PD/PL/PM/PG)",
-        "interface": ["SPI1", "TWI2", "TWI7", "UART", "PWM"]
+        "interface": [
+          "SPI1",
+          "TWI2",
+          "TWI7",
+          "UART",
+          "PWM"
+        ]
       }
     }
   ],
@@ -260,27 +452,91 @@
       "documentationUrl": "https://www.waveshare.com/wiki/2.13inch_e-Paper_HAT_Manual",
       "productUrl": "https://www.waveshare.com/2.13inch-e-paper-hat.htm",
       "imageUrl": "/hats/waveshare-epaper-2.13.jpg",
-      "tags": ["epaper", "spi", "display", "low-power"],
+      "tags": [
+        "epaper",
+        "spi",
+        "display",
+        "low-power"
+      ],
       "specifications": {
         "displaySize": "2.13 inch",
         "resolution": "250×122",
-        "colors": ["black", "white"],
+        "colors": [
+          "black",
+          "white"
+        ],
         "controller": "SSD1680",
-        "interface": ["SPI"],
+        "interface": [
+          "SPI"
+        ],
         "operatingVoltage": "3.3V / 5V",
         "refreshTime": "~2s (full refresh)",
-        "features": ["Partial refresh (V3+)", "Ultra-low standby current"]
+        "features": [
+          "Partial refresh (V3+)",
+          "Ultra-low standby current"
+        ]
       },
       "pinAssignments": [
-        { "physical": 1, "signal": "VCC", "description": "3.3V power", "group": "power" },
-        { "physical": 6, "signal": "GND", "description": "Ground", "group": "ground" },
-        { "physical": 11, "signal": "RST", "description": "Reset", "group": "gpio", "bcm": 17 },
-        { "physical": 18, "signal": "BUSY", "description": "Busy status input", "group": "gpio", "bcm": 24 },
-        { "physical": 19, "signal": "DIN", "description": "SPI MOSI", "group": "spi", "bcm": 10 },
-        { "physical": 20, "signal": "GND", "description": "Ground", "group": "ground" },
-        { "physical": 22, "signal": "DC", "description": "Data/Command control", "group": "gpio", "bcm": 25 },
-        { "physical": 23, "signal": "CLK", "description": "SPI clock", "group": "spi", "bcm": 11 },
-        { "physical": 24, "signal": "CS", "description": "Chip select CE0", "group": "spi", "bcm": 8 }
+        {
+          "physical": 1,
+          "signal": "VCC",
+          "description": "3.3V power",
+          "group": "power"
+        },
+        {
+          "physical": 6,
+          "signal": "GND",
+          "description": "Ground",
+          "group": "ground"
+        },
+        {
+          "physical": 11,
+          "signal": "RST",
+          "description": "Reset",
+          "group": "gpio",
+          "bcm": 17
+        },
+        {
+          "physical": 18,
+          "signal": "BUSY",
+          "description": "Busy status input",
+          "group": "gpio",
+          "bcm": 24
+        },
+        {
+          "physical": 19,
+          "signal": "DIN",
+          "description": "SPI MOSI",
+          "group": "spi",
+          "bcm": 10
+        },
+        {
+          "physical": 20,
+          "signal": "GND",
+          "description": "Ground",
+          "group": "ground"
+        },
+        {
+          "physical": 22,
+          "signal": "DC",
+          "description": "Data/Command control",
+          "group": "gpio",
+          "bcm": 25
+        },
+        {
+          "physical": 23,
+          "signal": "CLK",
+          "description": "SPI clock",
+          "group": "spi",
+          "bcm": 11
+        },
+        {
+          "physical": 24,
+          "signal": "CS",
+          "description": "Chip select CE0",
+          "group": "spi",
+          "bcm": 8
+        }
       ]
     },
     {
@@ -295,31 +551,130 @@
       "documentationUrl": "https://www.waveshare.com/wiki/1.3inch_LCD_HAT",
       "productUrl": "https://www.waveshare.com/1.3inch-lcd-hat.htm",
       "imageUrl": "/hats/waveshare-lcd-1.3.jpg",
-      "tags": ["lcd", "spi", "display", "joystick", "buttons"],
+      "tags": [
+        "lcd",
+        "spi",
+        "display",
+        "joystick",
+        "buttons"
+      ],
       "specifications": {
         "displaySize": "1.3 inch",
         "resolution": "240×240",
-        "colors": ["RGB 65K"],
+        "colors": [
+          "RGB 65K"
+        ],
         "controller": "ST7789VM",
-        "interface": ["SPI"],
+        "interface": [
+          "SPI"
+        ],
         "operatingVoltage": "3.3V",
-        "features": ["IPS panel", "Joystick", "3× push buttons", "Backlight control"]
+        "features": [
+          "IPS panel",
+          "Joystick",
+          "3× push buttons",
+          "Backlight control"
+        ]
       },
       "pinAssignments": [
-        { "physical": 13, "signal": "RST", "description": "Reset", "group": "gpio", "bcm": 27 },
-        { "physical": 18, "signal": "BL", "description": "Backlight", "group": "gpio", "bcm": 24 },
-        { "physical": 19, "signal": "MOSI", "description": "SPI data", "group": "spi", "bcm": 10 },
-        { "physical": 22, "signal": "DC", "description": "Data/Command control", "group": "gpio", "bcm": 25 },
-        { "physical": 23, "signal": "SCLK", "description": "SPI clock", "group": "spi", "bcm": 11 },
-        { "physical": 24, "signal": "CS", "description": "Chip select CE0", "group": "spi", "bcm": 8 },
-        { "physical": 29, "signal": "JOY_L", "description": "Joystick left", "group": "input", "bcm": 5 },
-        { "physical": 31, "signal": "JOY_U", "description": "Joystick up", "group": "input", "bcm": 6 },
-        { "physical": 33, "signal": "JOY_P", "description": "Joystick press", "group": "input", "bcm": 13 },
-        { "physical": 35, "signal": "JOY_D", "description": "Joystick down", "group": "input", "bcm": 19 },
-        { "physical": 36, "signal": "KEY3", "description": "Button 3", "group": "input", "bcm": 16 },
-        { "physical": 37, "signal": "JOY_R", "description": "Joystick right", "group": "input", "bcm": 26 },
-        { "physical": 38, "signal": "KEY2", "description": "Button 2", "group": "input", "bcm": 20 },
-        { "physical": 40, "signal": "KEY1", "description": "Button 1", "group": "input", "bcm": 21 }
+        {
+          "physical": 13,
+          "signal": "RST",
+          "description": "Reset",
+          "group": "gpio",
+          "bcm": 27
+        },
+        {
+          "physical": 18,
+          "signal": "BL",
+          "description": "Backlight",
+          "group": "gpio",
+          "bcm": 24
+        },
+        {
+          "physical": 19,
+          "signal": "MOSI",
+          "description": "SPI data",
+          "group": "spi",
+          "bcm": 10
+        },
+        {
+          "physical": 22,
+          "signal": "DC",
+          "description": "Data/Command control",
+          "group": "gpio",
+          "bcm": 25
+        },
+        {
+          "physical": 23,
+          "signal": "SCLK",
+          "description": "SPI clock",
+          "group": "spi",
+          "bcm": 11
+        },
+        {
+          "physical": 24,
+          "signal": "CS",
+          "description": "Chip select CE0",
+          "group": "spi",
+          "bcm": 8
+        },
+        {
+          "physical": 29,
+          "signal": "JOY_L",
+          "description": "Joystick left",
+          "group": "input",
+          "bcm": 5
+        },
+        {
+          "physical": 31,
+          "signal": "JOY_U",
+          "description": "Joystick up",
+          "group": "input",
+          "bcm": 6
+        },
+        {
+          "physical": 33,
+          "signal": "JOY_P",
+          "description": "Joystick press",
+          "group": "input",
+          "bcm": 13
+        },
+        {
+          "physical": 35,
+          "signal": "JOY_D",
+          "description": "Joystick down",
+          "group": "input",
+          "bcm": 19
+        },
+        {
+          "physical": 36,
+          "signal": "KEY3",
+          "description": "Button 3",
+          "group": "input",
+          "bcm": 16
+        },
+        {
+          "physical": 37,
+          "signal": "JOY_R",
+          "description": "Joystick right",
+          "group": "input",
+          "bcm": 26
+        },
+        {
+          "physical": 38,
+          "signal": "KEY2",
+          "description": "Button 2",
+          "group": "input",
+          "bcm": 20
+        },
+        {
+          "physical": 40,
+          "signal": "KEY1",
+          "description": "Button 1",
+          "group": "input",
+          "bcm": 21
+        }
       ]
     },
     {
@@ -334,31 +689,129 @@
       "documentationUrl": "https://www.waveshare.com/wiki/1.44inch_LCD_HAT",
       "productUrl": "https://www.waveshare.com/1.44inch-lcd-hat.htm",
       "imageUrl": "/hats/waveshare-lcd-1.44.jpg",
-      "tags": ["lcd", "spi", "display", "joystick", "buttons"],
+      "tags": [
+        "lcd",
+        "spi",
+        "display",
+        "joystick",
+        "buttons"
+      ],
       "specifications": {
         "displaySize": "1.44 inch",
         "resolution": "128×128",
-        "colors": ["RGB 65K"],
+        "colors": [
+          "RGB 65K"
+        ],
         "controller": "ST7735S",
-        "interface": ["SPI"],
+        "interface": [
+          "SPI"
+        ],
         "operatingVoltage": "3.3V",
-        "features": ["Joystick (5-position)", "3× push buttons", "Backlight control"]
+        "features": [
+          "Joystick (5-position)",
+          "3× push buttons",
+          "Backlight control"
+        ]
       },
       "pinAssignments": [
-        { "physical": 13, "signal": "RST", "description": "Reset", "group": "gpio", "bcm": 27 },
-        { "physical": 18, "signal": "BL", "description": "Backlight", "group": "gpio", "bcm": 24 },
-        { "physical": 19, "signal": "MOSI", "description": "SPI data", "group": "spi", "bcm": 10 },
-        { "physical": 22, "signal": "DC", "description": "Data/Command control", "group": "gpio", "bcm": 25 },
-        { "physical": 23, "signal": "SCLK", "description": "SPI clock", "group": "spi", "bcm": 11 },
-        { "physical": 24, "signal": "CS", "description": "Chip select CE0", "group": "spi", "bcm": 8 },
-        { "physical": 29, "signal": "JOY_L", "description": "Joystick left", "group": "input", "bcm": 5 },
-        { "physical": 31, "signal": "JOY_U", "description": "Joystick up", "group": "input", "bcm": 6 },
-        { "physical": 33, "signal": "JOY_P", "description": "Joystick press", "group": "input", "bcm": 13 },
-        { "physical": 35, "signal": "JOY_D", "description": "Joystick down", "group": "input", "bcm": 19 },
-        { "physical": 36, "signal": "KEY3", "description": "Button 3", "group": "input", "bcm": 16 },
-        { "physical": 37, "signal": "JOY_R", "description": "Joystick right", "group": "input", "bcm": 26 },
-        { "physical": 38, "signal": "KEY2", "description": "Button 2", "group": "input", "bcm": 20 },
-        { "physical": 40, "signal": "KEY1", "description": "Button 1", "group": "input", "bcm": 21 }
+        {
+          "physical": 13,
+          "signal": "RST",
+          "description": "Reset",
+          "group": "gpio",
+          "bcm": 27
+        },
+        {
+          "physical": 18,
+          "signal": "BL",
+          "description": "Backlight",
+          "group": "gpio",
+          "bcm": 24
+        },
+        {
+          "physical": 19,
+          "signal": "MOSI",
+          "description": "SPI data",
+          "group": "spi",
+          "bcm": 10
+        },
+        {
+          "physical": 22,
+          "signal": "DC",
+          "description": "Data/Command control",
+          "group": "gpio",
+          "bcm": 25
+        },
+        {
+          "physical": 23,
+          "signal": "SCLK",
+          "description": "SPI clock",
+          "group": "spi",
+          "bcm": 11
+        },
+        {
+          "physical": 24,
+          "signal": "CS",
+          "description": "Chip select CE0",
+          "group": "spi",
+          "bcm": 8
+        },
+        {
+          "physical": 29,
+          "signal": "JOY_L",
+          "description": "Joystick left",
+          "group": "input",
+          "bcm": 5
+        },
+        {
+          "physical": 31,
+          "signal": "JOY_U",
+          "description": "Joystick up",
+          "group": "input",
+          "bcm": 6
+        },
+        {
+          "physical": 33,
+          "signal": "JOY_P",
+          "description": "Joystick press",
+          "group": "input",
+          "bcm": 13
+        },
+        {
+          "physical": 35,
+          "signal": "JOY_D",
+          "description": "Joystick down",
+          "group": "input",
+          "bcm": 19
+        },
+        {
+          "physical": 36,
+          "signal": "KEY3",
+          "description": "Button 3",
+          "group": "input",
+          "bcm": 16
+        },
+        {
+          "physical": 37,
+          "signal": "JOY_R",
+          "description": "Joystick right",
+          "group": "input",
+          "bcm": 26
+        },
+        {
+          "physical": 38,
+          "signal": "KEY2",
+          "description": "Button 2",
+          "group": "input",
+          "bcm": 20
+        },
+        {
+          "physical": 40,
+          "signal": "KEY1",
+          "description": "Button 1",
+          "group": "input",
+          "bcm": 21
+        }
       ]
     },
     {
@@ -373,30 +826,314 @@
       "documentationUrl": "https://www.waveshare.com/wiki/1.3inch_OLED_HAT",
       "productUrl": "https://www.waveshare.com/1.3inch-oled-hat.htm",
       "imageUrl": "/hats/waveshare-oled-1.3.jpg",
-      "tags": ["oled", "spi", "i2c", "display", "joystick", "buttons"],
+      "tags": [
+        "oled",
+        "spi",
+        "i2c",
+        "display",
+        "joystick",
+        "buttons"
+      ],
       "specifications": {
         "displaySize": "1.3 inch",
         "resolution": "128×64",
-        "colors": ["blue"],
+        "colors": [
+          "blue"
+        ],
         "controller": "SH1106",
-        "interface": ["SPI", "I2C"],
+        "interface": [
+          "SPI",
+          "I2C"
+        ],
         "operatingVoltage": "3.3V",
-        "features": ["5-position joystick", "3× push buttons", "SPI/I2C selectable via onboard resistor"]
+        "features": [
+          "5-position joystick",
+          "3× push buttons",
+          "SPI/I2C selectable via onboard resistor"
+        ]
       },
       "pinAssignments": [
-        { "physical": 19, "signal": "MOSI", "description": "SPI data", "group": "spi", "bcm": 10 },
-        { "physical": 22, "signal": "RST", "description": "Reset (active low)", "group": "gpio", "bcm": 25 },
-        { "physical": 23, "signal": "SCLK", "description": "SPI clock", "group": "spi", "bcm": 11 },
-        { "physical": 24, "signal": "CS", "description": "Chip select CE0", "group": "spi", "bcm": 8 },
-        { "physical": 18, "signal": "DC", "description": "Data/Command control", "group": "gpio", "bcm": 24 },
-        { "physical": 29, "signal": "JOY_L", "description": "Joystick left", "group": "input", "bcm": 5 },
-        { "physical": 31, "signal": "JOY_U", "description": "Joystick up", "group": "input", "bcm": 6 },
-        { "physical": 33, "signal": "JOY_P", "description": "Joystick press", "group": "input", "bcm": 13 },
-        { "physical": 35, "signal": "JOY_D", "description": "Joystick down", "group": "input", "bcm": 19 },
-        { "physical": 36, "signal": "KEY3", "description": "Button 3", "group": "input", "bcm": 16 },
-        { "physical": 37, "signal": "JOY_R", "description": "Joystick right", "group": "input", "bcm": 26 },
-        { "physical": 38, "signal": "KEY2", "description": "Button 2", "group": "input", "bcm": 20 },
-        { "physical": 40, "signal": "KEY1", "description": "Button 1", "group": "input", "bcm": 21 }
+        {
+          "physical": 19,
+          "signal": "MOSI",
+          "description": "SPI data",
+          "group": "spi",
+          "bcm": 10
+        },
+        {
+          "physical": 22,
+          "signal": "RST",
+          "description": "Reset (active low)",
+          "group": "gpio",
+          "bcm": 25
+        },
+        {
+          "physical": 23,
+          "signal": "SCLK",
+          "description": "SPI clock",
+          "group": "spi",
+          "bcm": 11
+        },
+        {
+          "physical": 24,
+          "signal": "CS",
+          "description": "Chip select CE0",
+          "group": "spi",
+          "bcm": 8
+        },
+        {
+          "physical": 18,
+          "signal": "DC",
+          "description": "Data/Command control",
+          "group": "gpio",
+          "bcm": 24
+        },
+        {
+          "physical": 29,
+          "signal": "JOY_L",
+          "description": "Joystick left",
+          "group": "input",
+          "bcm": 5
+        },
+        {
+          "physical": 31,
+          "signal": "JOY_U",
+          "description": "Joystick up",
+          "group": "input",
+          "bcm": 6
+        },
+        {
+          "physical": 33,
+          "signal": "JOY_P",
+          "description": "Joystick press",
+          "group": "input",
+          "bcm": 13
+        },
+        {
+          "physical": 35,
+          "signal": "JOY_D",
+          "description": "Joystick down",
+          "group": "input",
+          "bcm": 19
+        },
+        {
+          "physical": 36,
+          "signal": "KEY3",
+          "description": "Button 3",
+          "group": "input",
+          "bcm": 16
+        },
+        {
+          "physical": 37,
+          "signal": "JOY_R",
+          "description": "Joystick right",
+          "group": "input",
+          "bcm": 26
+        },
+        {
+          "physical": 38,
+          "signal": "KEY2",
+          "description": "Button 2",
+          "group": "input",
+          "bcm": 20
+        },
+        {
+          "physical": 40,
+          "signal": "KEY1",
+          "description": "Button 1",
+          "group": "input",
+          "bcm": 21
+        }
+      ]
+    }
+  ],
+  "gpioLibraries": [
+    {
+      "id": "wiringpi",
+      "name": "WiringPi",
+      "shortName": "WiringPi",
+      "maintainer": "Community (WiringPi/WiringPi)",
+      "description": "Unofficial community continuation of Gordon Henderson's original WiringPi. High performance comes from direct Broadcom and RP1 register access via DMA. Supports Raspberry Pi models through Pi 5 only — architecturally incompatible with Allwinner (Orange Pi) and Rockchip (Radxa) SoCs.",
+      "repositoryUrl": "https://github.com/WiringPi/WiringPi",
+      "documentationUrl": "https://github.com/WiringPi/WiringPi",
+      "primaryTargets": "Raspberry Pi",
+      "wiringPiCompatibility": "high",
+      "languages": [
+        "C",
+        "C++",
+        "Python"
+      ],
+      "bestFor": "Native Raspberry Pi GPIO with the classic WiringPi API (wiringPiSetup, digitalWrite, BCM numbering).",
+      "supportedPlatformIds": [
+        "raspberry-pi-40pin"
+      ],
+      "tags": [
+        "raspberry-pi",
+        "bcm",
+        "wiringpi-api",
+        "dma"
+      ]
+    },
+    {
+      "id": "wiringop",
+      "name": "WiringOP",
+      "shortName": "WiringOP",
+      "maintainer": "Orange Pi (orangepi-xunlong)",
+      "description": "Direct fork of WiringPi modified for Orange Pi boards with Allwinner and Rockchip SoCs. Keeps the same API surface as WiringPi, making it the easiest drop-in replacement when porting existing Raspberry Pi C/C++ code to Orange Pi.",
+      "repositoryUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "additionalUrls": [
+        {
+          "label": "Python bindings",
+          "url": "https://github.com/orangepi-xunlong/wiringOP-Python"
+        }
+      ],
+      "primaryTargets": "Orange Pi (Allwinner / Rockchip)",
+      "wiringPiCompatibility": "high",
+      "languages": [
+        "C",
+        "C++",
+        "Python"
+      ],
+      "bestFor": "Porting legacy Raspberry Pi WiringPi code to Orange Pi with minimal rewrites.",
+      "supportedPlatformIds": [
+        "orangepi-3b-40pin",
+        "orangepi-3plus-40pin",
+        "orangepi-4a-40pin",
+        "orangepi-4pro-40pin",
+        "orangepi-5-26pin",
+        "orangepi-5plus-40pin",
+        "orangepi-800-40pin",
+        "orangepi-900-40pin",
+        "orangepi-a64-40pin-win",
+        "orangepi-aipro-40pin",
+        "orangepi-aistation-40pin",
+        "orangepi-cm4-40pin",
+        "orangepi-h2-26pin",
+        "orangepi-h3-26pin-zero-plus-2",
+        "orangepi-h3-40pin",
+        "orangepi-h5-26pin-zero-plus",
+        "orangepi-h5-40pin-pc2",
+        "orangepi-h5-40pin-prime",
+        "orangepi-h6-26pin-3",
+        "orangepi-h6-26pin-lite2",
+        "orangepi-h616-26pin-zero2",
+        "orangepi-kunpeng-pro-40pin",
+        "orangepi-r1-plus-26pin",
+        "orangepi-rk3399-40pin",
+        "orangepi-rk3399-40pin-4",
+        "orangepi-rv-40pin",
+        "orangepi-rv2-40pin",
+        "orangepi-zero-3-plus-40pin",
+        "orangepi-zero-3w-40pin"
+      ],
+      "tags": [
+        "orange-pi",
+        "wiringpi-api",
+        "allwinner",
+        "rockchip"
+      ],
+      "notes": "60 Orange Pi boards detected from wiringOP piBoardId() release strings. Pinouts from wiringOP gpio readall where documented."
+    },
+    {
+      "id": "wiringx",
+      "name": "wiringX",
+      "shortName": "wiringX",
+      "maintainer": "wiringX project",
+      "description": "Modular, hardware-agnostic GPIO library with a uniform API across Raspberry Pi, Radxa, Orange Pi, Banana Pi, ODROID, and other Linux SBCs. Auto-detects the host platform at runtime so the same program can target multiple boards.",
+      "repositoryUrl": "https://github.com/wiringX/wiringX",
+      "documentationUrl": "https://wiringx.org/",
+      "primaryTargets": "Radxa, Orange Pi, Banana Pi, ODROID, Raspberry Pi",
+      "wiringPiCompatibility": "moderate",
+      "languages": [
+        "C",
+        "Python"
+      ],
+      "bestFor": "Cross-platform C/Python projects that must run on several alternative SBC families with one codebase.",
+      "supportedPlatformIds": [
+        "raspberry-pi-40pin",
+        "radxa-zero-40pin",
+        "orangepi-5-26pin"
+      ],
+      "tags": [
+        "cross-platform",
+        "radxa",
+        "orange-pi",
+        "raspberry-pi"
+      ],
+      "notes": "Platform coverage depends on wiringX SoC support — verify your exact board on wiringx.org before relying on it."
+    },
+    {
+      "id": "libmraa",
+      "name": "Eclipse MRAA (libmraa)",
+      "shortName": "MRAA",
+      "maintainer": "Eclipse IoT (eclipse-mraa)",
+      "description": "Robust C/C++ hardware abstraction layer with official bindings for Python, Node.js, and Java. Detects the board at runtime and exposes GPIO, I²C, SPI, UART, and PWM through a portable API unrelated to WiringPi syntax.",
+      "repositoryUrl": "https://github.com/eclipse-mraa/mraa",
+      "documentationUrl": "https://github.com/eclipse-mraa/mraa#supported-platforms",
+      "primaryTargets": "Raspberry Pi, Radxa, Orange Pi Prime, x86 SBCs",
+      "wiringPiCompatibility": "low",
+      "languages": [
+        "C",
+        "C++",
+        "Python",
+        "Java",
+        "Node.js"
+      ],
+      "bestFor": "Enterprise or multi-language projects needing runtime board detection and a stable abstraction layer beyond WiringPi.",
+      "supportedPlatformIds": [
+        "raspberry-pi-40pin",
+        "radxa-zero-3-40pin"
+      ],
+      "tags": [
+        "abstraction",
+        "python",
+        "java",
+        "nodejs",
+        "radxa",
+        "raspberry-pi"
+      ],
+      "notes": "Board files exist for Radxa ZERO 3 and Raspberry Pi; other registered platforms may work via generic Linux GPIO but are not officially documented in MRAA."
+    },
+    {
+      "id": "libgpiod",
+      "name": "libgpiod",
+      "shortName": "libgpiod",
+      "maintainer": "Linux GPIO subsystem (kernel.org)",
+      "description": "Modern Linux standard for GPIO access through the gpiochip character device (/dev/gpiochip*). Works on any board running a recent Linux kernel with GPIO chardev support — no WiringPi-style API, but the recommended kernel-native approach.",
+      "repositoryUrl": "https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git",
+      "documentationUrl": "https://libgpiod.readthedocs.io/",
+      "additionalUrls": [
+        {
+          "label": "GitHub mirror",
+          "url": "https://github.com/brgl/libgpiod"
+        }
+      ],
+      "primaryTargets": "Any modern Linux SBC",
+      "wiringPiCompatibility": "none",
+      "languages": [
+        "C",
+        "C++",
+        "Python",
+        "Rust"
+      ],
+      "bestFor": "Future-proof Linux GPIO development using the official kernel character-device interface instead of legacy WiringPi syntax.",
+      "supportedPlatformIds": [
+        "raspberry-pi-40pin",
+        "radxa-zero-40pin",
+        "radxa-zero-3-40pin",
+        "orangepi-zero-3w-40pin",
+        "orangepi-5-26pin",
+        "luckfox-lyra-zero-w-40pin",
+        "luckfox-aura-40pin",
+        "cubie-a7z-40pin",
+        "cubie-a7s-30pin"
+      ],
+      "tags": [
+        "linux",
+        "gpiochip",
+        "universal",
+        "kernel"
       ]
     }
   ]

@@ -1,0 +1,158 @@
+{
+  "id": "orangepi-r1-plus-26pin",
+  "name": "Orange Pi R1 Plus GPIO Header",
+  "shortName": "Orange Pi R1 Plus",
+  "pinCount": 26,
+  "orientationHint": "GPIO header at the top — pin 1 is top-left (wiringOP gpio readall layout)",
+  "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+  "productUrl": "http://www.orangepi.org/",
+  "notes": "wiringOP-supported board. Detailed pinout pending — see wiringOP gpio readall on device.",
+  "gpioNumberLabel": "wPi / GPIO",
+  "formFactor": {
+    "widthMm": 65,
+    "heightMm": 32,
+    "label": "26-pin header",
+    "gpioHeader": {
+      "pin1": {
+        "x": 1.27,
+        "y": 0
+      },
+      "pitchMm": 2.54,
+      "columns": 2,
+      "rows": 13
+    },
+    "notes": "Documented in wiringOP for Orange Pi R1 Plus GPIO Header."
+  },
+  "pins": [
+    {
+      "physical": 1,
+      "name": "PIN1",
+      "type": "gpio"
+    },
+    {
+      "physical": 2,
+      "name": "PIN2",
+      "type": "power5v"
+    },
+    {
+      "physical": 3,
+      "name": "PIN3",
+      "type": "gpio"
+    },
+    {
+      "physical": 4,
+      "name": "PIN4",
+      "type": "power5v"
+    },
+    {
+      "physical": 5,
+      "name": "PIN5",
+      "type": "gpio"
+    },
+    {
+      "physical": 6,
+      "name": "PIN6",
+      "type": "gpio"
+    },
+    {
+      "physical": 7,
+      "name": "PIN7",
+      "type": "gpio"
+    },
+    {
+      "physical": 8,
+      "name": "PIN8",
+      "type": "gpio"
+    },
+    {
+      "physical": 9,
+      "name": "PIN9",
+      "type": "gpio"
+    },
+    {
+      "physical": 10,
+      "name": "PIN10",
+      "type": "gpio"
+    },
+    {
+      "physical": 11,
+      "name": "PIN11",
+      "type": "gpio"
+    },
+    {
+      "physical": 12,
+      "name": "PIN12",
+      "type": "gpio"
+    },
+    {
+      "physical": 13,
+      "name": "PIN13",
+      "type": "gpio"
+    },
+    {
+      "physical": 14,
+      "name": "PIN14",
+      "type": "gpio"
+    },
+    {
+      "physical": 15,
+      "name": "PIN15",
+      "type": "gpio"
+    },
+    {
+      "physical": 16,
+      "name": "PIN16",
+      "type": "gpio"
+    },
+    {
+      "physical": 17,
+      "name": "PIN17",
+      "type": "gpio"
+    },
+    {
+      "physical": 18,
+      "name": "PIN18",
+      "type": "gpio"
+    },
+    {
+      "physical": 19,
+      "name": "PIN19",
+      "type": "gpio"
+    },
+    {
+      "physical": 20,
+      "name": "PIN20",
+      "type": "gpio"
+    },
+    {
+      "physical": 21,
+      "name": "PIN21",
+      "type": "gpio"
+    },
+    {
+      "physical": 22,
+      "name": "PIN22",
+      "type": "gpio"
+    },
+    {
+      "physical": 23,
+      "name": "PIN23",
+      "type": "gpio"
+    },
+    {
+      "physical": 24,
+      "name": "PIN24",
+      "type": "gpio"
+    },
+    {
+      "physical": 25,
+      "name": "PIN25",
+      "type": "gpio"
+    },
+    {
+      "physical": 26,
+      "name": "PIN26",
+      "type": "gpio"
+    }
+  ]
+}

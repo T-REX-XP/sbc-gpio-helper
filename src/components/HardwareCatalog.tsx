@@ -1,5 +1,5 @@
 import { Fragment, useMemo } from 'react';
-import type { HardwareDevice } from '../hardware';
+import type { GpioLibraryEntry, HardwareDevice } from '../hardware';
 import { getFormFactorClassLabel, hardwareRegistry } from '../hardware';
 import {
   buildRegistryTableRows,
@@ -17,6 +17,101 @@ import { ButtonIcon, ButtonLabel, type ButtonIconName } from './icons';
 interface HardwareCatalogProps {
   sbcs: Parameters<typeof buildRegistryTableRows>[0];
   hats: Parameters<typeof buildRegistryTableRows>[1];
+  gpioLibraries: readonly GpioLibraryEntry[];
+}
+
+function formatWiringPiCompatibility(
+  value: GpioLibraryEntry['wiringPiCompatibility'],
+  t: (key: string) => string,
+): string {
+  return t(`registry.wiringPiCompat.${value}`);
+}
+
+function LibraryRowDetails({ library }: { library: GpioLibraryEntry }) {
+  const { t } = useI18n();
+  const supportedBoards = library.supportedPlatformIds
+    .map((platformId) => {
+      const sbc = hardwareRegistry.getSbcForPlatform(platformId);
+      return sbc?.shortName ?? platformId;
+    })
+    .join(' · ');
+
+  return (
+    <div className="registry-table__details">
+      <p className="registry-table__details-desc">{library.description}</p>
+
+      <h4 className="registry-table__details-heading">{t('registry.libraryDetails')}</h4>
+      <dl className="registry-table__details-meta">
+        <div>
+          <dt>{t('registry.libraryMaintainer')}</dt>
+          <dd>{library.maintainer}</dd>
+        </div>
+        <div>
+          <dt>{t('registry.libraryPrimaryTargets')}</dt>
+          <dd>{library.primaryTargets}</dd>
+        </div>
+        <div>
+          <dt>{t('registry.libraryWiringPiCompat')}</dt>
+          <dd>{formatWiringPiCompatibility(library.wiringPiCompatibility, t)}</dd>
+        </div>
+        <div>
+          <dt>{t('registry.libraryLanguages')}</dt>
+          <dd>{library.languages.join(' · ')}</dd>
+        </div>
+        <div className="registry-table__details-meta--wide">
+          <dt>{t('registry.libraryBestFor')}</dt>
+          <dd>{library.bestFor}</dd>
+        </div>
+        <div className="registry-table__details-meta--wide">
+          <dt>{t('registry.librarySupportedBoards')}</dt>
+          <dd>{supportedBoards}</dd>
+        </div>
+      </dl>
+
+      {library.notes && <p className="registry-table__details-note">{library.notes}</p>}
+
+      <div className="registry-table__details-links">
+        <a href={library.repositoryUrl} target="_blank" rel="noopener noreferrer">
+          {t('registry.libraryRepository')}
+        </a>
+        {library.documentationUrl && library.documentationUrl !== library.repositoryUrl && (
+          <a href={library.documentationUrl} target="_blank" rel="noopener noreferrer">
+            {t('common.docs')}
+          </a>
+        )}
+        {library.additionalUrls?.map((link) => (
+          <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SbcGpioLibraries({ platformId }: { platformId: string }) {
+  const { t } = useI18n();
+  const libraries = hardwareRegistry.getGpioLibrariesForPlatform(platformId);
+  if (libraries.length === 0) return null;
+
+  return (
+    <>
+      <h4 className="registry-table__details-heading">{t('registry.gpioLibraries')}</h4>
+      <ul className="registry-table__library-list">
+        {libraries.map((library) => (
+          <li key={library.id} className="registry-table__library-item">
+            <span className="registry-table__library-name">{library.shortName ?? library.name}</span>
+            <span className="registry-table__library-compat">
+              {formatWiringPiCompatibility(library.wiringPiCompatibility, t)}
+            </span>
+            <a href={library.repositoryUrl} target="_blank" rel="noopener noreferrer">
+              {t('registry.libraryRepository')}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }
 
 function RegistryRowDetails({ row }: { row: RegistryTableRow }) {
@@ -163,8 +258,13 @@ function RegistryRowDetails({ row }: { row: RegistryTableRow }) {
           )}
         </dl>
         {platform?.notes && <p className="registry-table__details-note">{platform.notes}</p>}
+        <SbcGpioLibraries platformId={row.platformId} />
       </div>
     );
+  }
+
+  if (row.library) {
+    return <LibraryRowDetails library={row.library} />;
   }
 
   if (row.hat) {
@@ -219,7 +319,7 @@ function HatPinDetails({
   );
 }
 
-export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
+export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogProps) {
   const { t } = useI18n();
   const emDash = t('common.emDash');
 
@@ -228,6 +328,7 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
       { id: 'all', label: t('registry.categories.all'), icon: 'all' },
       { id: 'sbc', label: t('registry.categories.sbc'), icon: 'sbc' },
       { id: 'hats', label: t('registry.categories.hats'), icon: 'hats' },
+      { id: 'libraries', label: t('registry.categories.libraries'), icon: 'catalog' },
     ],
     [t],
   );
@@ -266,7 +367,10 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
     [t],
   );
 
-  const allRows = useMemo(() => buildRegistryTableRows(sbcs, hats), [sbcs, hats]);
+  const allRows = useMemo(
+    () => buildRegistryTableRows(sbcs, hats, gpioLibraries),
+    [sbcs, hats, gpioLibraries],
+  );
   const {
     category: categoryFilter,
     columnFilters,
@@ -283,7 +387,7 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
   );
 
   const categoryCounts = useMemo(() => {
-    const counts = { all: allRows.length, sbc: 0, hats: 0 };
+    const counts = { all: allRows.length, sbc: 0, hats: 0, libraries: 0 };
     for (const row of allRows) {
       counts[row.registryCategory] += 1;
     }
@@ -400,7 +504,9 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
                         >
                           {row.registryCategory === 'sbc'
                             ? t('registry.categories.sbc')
-                            : t('registry.categories.hats')}
+                            : row.registryCategory === 'hats'
+                              ? t('registry.categories.hats')
+                              : t('registry.categories.libraries')}
                         </span>
                       </td>
                       <td>
@@ -423,9 +529,22 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
                         <code>{row.platformId}</code>
                       </td>
                       <td>{row.kind}</td>
-                      <td>{row.productCategory}</td>
+                      <td>
+                        {row.registryCategory === 'libraries'
+                          ? formatWiringPiCompatibility(
+                              row.library!.wiringPiCompatibility,
+                              t,
+                            )
+                          : row.productCategory}
+                      </td>
                       <td className="registry-table__interfaces">{row.interfaces || emDash}</td>
-                      <td>{row.pinCount > 0 ? row.pinCount : emDash}</td>
+                      <td>
+                        {row.pinCount > 0
+                          ? row.registryCategory === 'libraries'
+                            ? t('registry.libraryPlatformCount', { count: row.pinCount })
+                            : row.pinCount
+                          : emDash}
+                      </td>
                       <td className="registry-table__form-factor">
                         {row.formFactor || emDash}
                       </td>
@@ -442,7 +561,9 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
                         )}
                         {row.productUrl && (
                           <a href={row.productUrl} target="_blank" rel="noopener noreferrer">
-                            {t('common.product')}
+                            {row.registryCategory === 'libraries'
+                              ? t('registry.libraryRepository')
+                              : t('common.product')}
                           </a>
                         )}
                       </td>

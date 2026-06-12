@@ -1,8 +1,8 @@
 import { formatPlatformFormFactor } from './formFactor';
 import { hardwareRegistry } from './registry';
-import type { HardwareDevice, SbcRegistryEntry } from './types';
+import type { GpioLibraryEntry, HardwareDevice, SbcRegistryEntry } from './types';
 
-export type RegistryCategoryFilter = 'all' | 'sbc' | 'hats';
+export type RegistryCategoryFilter = 'all' | 'sbc' | 'hats' | 'libraries';
 
 export interface RegistryColumnFilters {
   name: string;
@@ -28,7 +28,7 @@ export const EMPTY_COLUMN_FILTERS: RegistryColumnFilters = {
 
 export interface RegistryTableRow {
   id: string;
-  registryCategory: 'sbc' | 'hats';
+  registryCategory: 'sbc' | 'hats' | 'libraries';
   name: string;
   vendor: string;
   soc: string;
@@ -44,6 +44,7 @@ export interface RegistryTableRow {
   productUrl?: string;
   sbc?: SbcRegistryEntry;
   hat?: HardwareDevice;
+  library?: GpioLibraryEntry;
 }
 
 function formatInterfaces(
@@ -66,6 +67,7 @@ function getHatRegistrySoc(hat: HardwareDevice): string {
 export function buildRegistryTableRows(
   sbcs: readonly SbcRegistryEntry[],
   hats: readonly HardwareDevice[],
+  libraries: readonly GpioLibraryEntry[] = [],
 ): RegistryTableRow[] {
   const sbcRows: RegistryTableRow[] = sbcs.map((sbc) => {
     const platform = hardwareRegistry.getPlatform(sbc.platformId);
@@ -108,7 +110,28 @@ export function buildRegistryTableRows(
     hat,
   }));
 
-  return [...sbcRows, ...hatRows].sort((a, b) => a.name.localeCompare(b.name));
+  const libraryRows: RegistryTableRow[] = libraries.map((library) => ({
+    id: library.id,
+    registryCategory: 'libraries',
+    name: library.shortName ?? library.name,
+    vendor: library.maintainer,
+    soc: library.primaryTargets,
+    platformId: library.supportedPlatformIds.join(', '),
+    kind: 'GPIO library',
+    productCategory: library.wiringPiCompatibility,
+    interfaces: library.languages.join(', '),
+    pinCount: library.supportedPlatformIds.length,
+    formFactor: '',
+    tags: formatTags(library.tags),
+    description: library.description,
+    documentationUrl: library.documentationUrl ?? library.repositoryUrl,
+    productUrl: library.repositoryUrl,
+    library,
+  }));
+
+  return [...sbcRows, ...hatRows, ...libraryRows].sort((a, b) =>
+    a.name.localeCompare(b.name),
+  );
 }
 
 function matchesFilter(value: string, filter: string): boolean {

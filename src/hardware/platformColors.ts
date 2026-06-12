@@ -11,5 +11,11 @@ export const PLATFORM_ACCENT_COLORS: Record<string, string> = {
 };
 
 export function getPlatformAccentColor(platformId: string): string {
-  return PLATFORM_ACCENT_COLORS[platformId] ?? '#64748b';
+  if (PLATFORM_ACCENT_COLORS[platformId]) {
+    return PLATFORM_ACCENT_COLORS[platformId];
+  }
+  if (platformId.startsWith('orangepi-')) {
+    return '#f97316';
+  }
+  return '#64748b';
 }

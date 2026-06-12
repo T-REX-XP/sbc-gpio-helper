@@ -1,4 +1,5 @@
 import hardwareRegistryConfig from '../config/hardware-registry.json';
+import wiringOpSbcsConfig from '../config/wiringop-sbcs.json';
 import { getCanonicalDeviceColor } from './colors';
 import { PLATFORM_CONFIGS } from './platforms';
 import type {
@@ -12,6 +13,7 @@ import type {
   HardwareRegistryConfig,
   PinAssignment,
   SbcRegistryEntry,
+  GpioLibraryEntry,
 } from './types';
 
 function indexPinAssignments(assignments: PinAssignment[]): Map<number, PinAssignment> {
@@ -35,6 +37,33 @@ function normalizeDevice(config: HardwareDeviceConfig): HardwareDevice {
   };
 }
 
+function wiringOpSlugFromCuratedSbc(sbc: SbcRegistryEntry): string | undefined {
+  if (sbc.shortName) {
+    return sbc.shortName.toLowerCase().replace(/\s+/g, '-');
+  }
+  if (sbc.id.startsWith('orangepi-')) {
+    return sbc.id.replace(/^orangepi-/, 'orange-pi-').replace(/-(26|30|40)pin$/, '');
+  }
+  return undefined;
+}
+
+function shouldIncludeWiringOpSbc(
+  sbc: SbcRegistryEntry,
+  config: HardwareRegistryConfig,
+): boolean {
+  if (config.sbcs.some((entry) => entry.id === sbc.id)) {
+    return false;
+  }
+
+  const curated = config.sbcs.find((entry) => entry.platformId === sbc.platformId);
+  if (!curated || curated.id !== sbc.platformId) {
+    return true;
+  }
+
+  const curatedSlug = wiringOpSlugFromCuratedSbc(curated);
+  return curatedSlug !== sbc.id;
+}
+
 function validateRegistry(config: HardwareRegistryConfig): void {
   const platformIds = new Set(PLATFORM_CONFIGS.map((platform) => platform.id));
 
@@ -53,6 +82,17 @@ function validateRegistry(config: HardwareRegistryConfig): void {
 
     if (!platformIds.has(sbc.platformId)) {
       throw new Error(`SBC "${sbc.id}" references unknown platform "${sbc.platformId}"`);
+    }
+    registeredPlatformIds.add(sbc.platformId);
+  }
+
+  for (const sbc of wiringOpSbcsConfig.sbcs) {
+    if (!shouldIncludeWiringOpSbc(sbc, config)) continue;
+    if (sbcIds.has(sbc.id)) continue;
+    sbcIds.add(sbc.id);
+
+    if (!platformIds.has(sbc.platformId)) {
+      throw new Error(`wiringOP SBC "${sbc.id}" references unknown platform "${sbc.platformId}"`);
     }
     registeredPlatformIds.add(sbc.platformId);
   }
@@ -85,6 +125,22 @@ function validateRegistry(config: HardwareRegistryConfig): void {
       }
     }
   }
+
+  const libraryIds = new Set<string>();
+  for (const library of config.gpioLibraries ?? []) {
+    if (libraryIds.has(library.id)) {
+      throw new Error(`Duplicate GPIO library id "${library.id}" in hardware registry`);
+    }
+    libraryIds.add(library.id);
+
+    for (const platformId of library.supportedPlatformIds) {
+      if (!registeredPlatformIds.has(platformId)) {
+        throw new Error(
+          `GPIO library "${library.id}" references unknown platform "${platformId}"`,
+        );
+      }
+    }
+  }
 }
 
 export class HardwareRegistry {
@@ -92,6 +148,7 @@ export class HardwareRegistry {
   readonly defaultPlatformId: string;
   readonly sbcs: readonly SbcRegistryEntry[];
   readonly hats: readonly HardwareDevice[];
+  readonly gpioLibraries: readonly GpioLibraryEntry[];
   readonly platforms: readonly GpioPlatform[];
 
   private readonly platformById: ReadonlyMap<string, GpioPlatform>;
@@ -99,17 +156,26 @@ export class HardwareRegistry {
   private readonly pinByPlatform: ReadonlyMap<string, ReadonlyMap<number, GpioPin>>;
   private readonly hatById: ReadonlyMap<string, HardwareDevice>;
   private readonly hatsByPlatform: ReadonlyMap<string, HardwareDevice[]>;
+  private readonly libraryById: ReadonlyMap<string, GpioLibraryEntry>;
+  private readonly librariesByPlatform: ReadonlyMap<string, GpioLibraryEntry[]>;
 
   constructor(config: HardwareRegistryConfig) {
     validateRegistry(config);
 
     this.version = config.version;
     this.defaultPlatformId = config.defaultPlatformId;
-    this.sbcs = config.sbcs;
+
+    const wiringOpSbcs = wiringOpSbcsConfig.sbcs.filter((sbc) =>
+      shouldIncludeWiringOpSbc(sbc, config),
+    );
+    this.sbcs = [...config.sbcs, ...wiringOpSbcs];
+    this.gpioLibraries = config.gpioLibraries ?? [];
 
     this.platformById = new Map(PLATFORM_CONFIGS.map((platform) => [platform.id, platform]));
-    this.platforms = config.sbcs
-      .map((sbc) => this.platformById.get(sbc.platformId))
+
+    const platformIdsFromSbcs = [...new Set(this.sbcs.map((sbc) => sbc.platformId))];
+    this.platforms = platformIdsFromSbcs
+      .map((platformId) => this.platformById.get(platformId))
       .filter((platform): platform is GpioPlatform => platform !== undefined);
 
     this.pinsByPlatform = new Map(
@@ -133,6 +199,22 @@ export class HardwareRegistry {
       hatsByPlatform.get(hat.platformId)!.push(hat);
     }
     this.hatsByPlatform = hatsByPlatform;
+
+    this.libraryById = new Map(this.gpioLibraries.map((library) => [library.id, library]));
+
+    const librariesByPlatform = new Map<string, GpioLibraryEntry[]>();
+    for (const platform of this.platforms) {
+      librariesByPlatform.set(platform.id, []);
+    }
+    for (const library of this.gpioLibraries) {
+      for (const platformId of library.supportedPlatformIds) {
+        librariesByPlatform.get(platformId)?.push(library);
+      }
+    }
+    for (const libraries of librariesByPlatform.values()) {
+      libraries.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    this.librariesByPlatform = librariesByPlatform;
   }
 
   getPlatform(platformId: string): GpioPlatform | undefined {
@@ -149,6 +231,18 @@ export class HardwareRegistry {
 
   getSbcs(): readonly SbcRegistryEntry[] {
     return this.sbcs;
+  }
+
+  getGpioLibraries(): readonly GpioLibraryEntry[] {
+    return this.gpioLibraries;
+  }
+
+  getGpioLibrary(id: string): GpioLibraryEntry | undefined {
+    return this.libraryById.get(id);
+  }
+
+  getGpioLibrariesForPlatform(platformId: string): readonly GpioLibraryEntry[] {
+    return this.librariesByPlatform.get(platformId) ?? [];
   }
 
   getHats(platformId?: string): readonly HardwareDevice[] {

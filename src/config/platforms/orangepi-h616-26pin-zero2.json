@@ -1,0 +1,244 @@
+{
+  "id": "orangepi-h616-26pin-zero2",
+  "name": "Orange Pi Zero2/Zero2 LTS/Zero2 B GPIO Header",
+  "shortName": "Orange Pi Zero2/Zero2 LTS/Zero2 B",
+  "pinCount": 33,
+  "orientationHint": "GPIO header at the top — pin 1 is top-left (wiringOP gpio readall layout)",
+  "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+  "productUrl": "http://www.orangepi.org/",
+  "notes": "Pinout from wiringOP gpio readall. Uses wiringPi (wPi) numbering — see wiringOP README.",
+  "gpioNumberLabel": "wPi / GPIO",
+  "formFactor": {
+    "widthMm": 65,
+    "heightMm": 32,
+    "label": "26-pin header",
+    "gpioHeader": {
+      "pin1": {
+        "x": 1.27,
+        "y": 0
+      },
+      "pitchMm": 2.54,
+      "columns": 2,
+      "rows": 16.5
+    },
+    "notes": "Documented in wiringOP for Orange Pi Zero2/Zero2 LTS/Zero2 B GPIO Header."
+  },
+  "pins": [
+    {
+      "physical": 1,
+      "name": "3.3V",
+      "type": "power3v3"
+    },
+    {
+      "physical": 2,
+      "name": "5V",
+      "type": "power5v"
+    },
+    {
+      "physical": 3,
+      "name": "SDA.3",
+      "gpioNumber": 229,
+      "bankName": "wPi 0",
+      "type": "i2c",
+      "altFunctions": [
+        "SDA.3"
+      ]
+    },
+    {
+      "physical": 4,
+      "name": "5V",
+      "type": "power5v"
+    },
+    {
+      "physical": 5,
+      "name": "SCL.3",
+      "gpioNumber": 228,
+      "bankName": "wPi 1",
+      "type": "i2c",
+      "altFunctions": [
+        "SCL.3"
+      ]
+    },
+    {
+      "physical": 6,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 7,
+      "name": "PC9",
+      "gpioNumber": 73,
+      "bankName": "wPi 2",
+      "type": "gpio"
+    },
+    {
+      "physical": 8,
+      "name": "TXD.5",
+      "gpioNumber": 226,
+      "bankName": "wPi 3",
+      "type": "uart",
+      "altFunctions": [
+        "TXD.5"
+      ]
+    },
+    {
+      "physical": 9,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 10,
+      "name": "RXD.5",
+      "gpioNumber": 227,
+      "bankName": "wPi 4",
+      "type": "uart",
+      "altFunctions": [
+        "RXD.5"
+      ]
+    },
+    {
+      "physical": 11,
+      "name": "PC6",
+      "gpioNumber": 70,
+      "bankName": "wPi 5",
+      "type": "gpio"
+    },
+    {
+      "physical": 12,
+      "name": "PC11",
+      "gpioNumber": 75,
+      "bankName": "wPi 6",
+      "type": "gpio"
+    },
+    {
+      "physical": 13,
+      "name": "PC5",
+      "gpioNumber": 69,
+      "bankName": "wPi 7",
+      "type": "gpio"
+    },
+    {
+      "physical": 14,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 15,
+      "name": "PC8",
+      "gpioNumber": 72,
+      "bankName": "wPi 8",
+      "type": "gpio"
+    },
+    {
+      "physical": 16,
+      "name": "PC15",
+      "gpioNumber": 79,
+      "bankName": "wPi 9",
+      "type": "gpio"
+    },
+    {
+      "physical": 17,
+      "name": "3.3V",
+      "type": "power3v3"
+    },
+    {
+      "physical": 18,
+      "name": "PC14",
+      "gpioNumber": 78,
+      "bankName": "wPi 10",
+      "type": "gpio"
+    },
+    {
+      "physical": 19,
+      "name": "MOSI.1",
+      "gpioNumber": 231,
+      "bankName": "wPi 11",
+      "type": "spi",
+      "altFunctions": [
+        "MOSI.1"
+      ]
+    },
+    {
+      "physical": 20,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 21,
+      "name": "MISO.1",
+      "gpioNumber": 232,
+      "bankName": "wPi 12",
+      "type": "spi",
+      "altFunctions": [
+        "MISO.1"
+      ]
+    },
+    {
+      "physical": 22,
+      "name": "PC7",
+      "gpioNumber": 71,
+      "bankName": "wPi 13",
+      "type": "gpio"
+    },
+    {
+      "physical": 23,
+      "name": "SCLK.1",
+      "gpioNumber": 230,
+      "bankName": "wPi 14",
+      "type": "i2c",
+      "altFunctions": [
+        "SCLK.1"
+      ]
+    },
+    {
+      "physical": 24,
+      "name": "CE.1",
+      "gpioNumber": 233,
+      "bankName": "wPi 15",
+      "type": "spi",
+      "altFunctions": [
+        "CE.1"
+      ]
+    },
+    {
+      "physical": 25,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 26,
+      "name": "PC10",
+      "gpioNumber": 74,
+      "bankName": "wPi 16",
+      "type": "gpio"
+    },
+    {
+      "physical": 27,
+      "name": "PC1",
+      "gpioNumber": 65,
+      "bankName": "wPi 17",
+      "type": "gpio"
+    },
+    {
+      "physical": 29,
+      "name": "PI16",
+      "gpioNumber": 272,
+      "bankName": "wPi 18",
+      "type": "gpio"
+    },
+    {
+      "physical": 31,
+      "name": "PI6",
+      "gpioNumber": 262,
+      "bankName": "wPi 19",
+      "type": "gpio"
+    },
+    {
+      "physical": 33,
+      "name": "PH10",
+      "gpioNumber": 234,
+      "bankName": "wPi 20",
+      "type": "gpio"
+    }
+  ]
+}

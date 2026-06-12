@@ -1,0 +1,2164 @@
+{
+  "sbcs": [
+    {
+      "id": "orange-pi-3",
+      "platformId": "orangepi-h6-26pin-3",
+      "name": "Orange Pi 3 GPIO Header",
+      "shortName": "Orange Pi 3",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 3 (Allwinner H6). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi3.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h6",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H6",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi3.",
+        "model": "PI_MODEL_3"
+      }
+    },
+    {
+      "id": "orange-pi-3-lts",
+      "platformId": "orangepi-h6-26pin-3",
+      "name": "Orange Pi 3 LTS GPIO Header",
+      "shortName": "Orange Pi 3 LTS",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 3 LTS (Allwinner H6). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi3-lts.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h6",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H6",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi3-lts.",
+        "model": "PI_MODEL_3"
+      }
+    },
+    {
+      "id": "orange-pi-one-plus",
+      "platformId": "orangepi-h6-26pin-lite2",
+      "name": "Orange Pi One Plus GPIO Header",
+      "shortName": "Orange Pi One Plus",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi One Plus (Allwinner H6). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepioneplus.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h6",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H6",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepioneplus.",
+        "model": "PI_MODEL_LTIE_2"
+      }
+    },
+    {
+      "id": "orange-pi-lite-2",
+      "platformId": "orangepi-h6-26pin-lite2",
+      "name": "Orange Pi Lite 2 GPIO Header",
+      "shortName": "Orange Pi Lite 2",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Lite 2 (Allwinner H6). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepilite2.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h6",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H6",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepilite2.",
+        "model": "PI_MODEL_LTIE_2"
+      }
+    },
+    {
+      "id": "orange-pi-zero",
+      "platformId": "orangepi-h2-26pin",
+      "name": "Orange Pi Zero GPIO Header",
+      "shortName": "Orange Pi Zero",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero (Allwinner H2+). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizero.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h2",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H2+",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizero.",
+        "model": "PI_MODEL_ZERO"
+      }
+    },
+    {
+      "id": "orange-pi-zero-lts",
+      "platformId": "orangepi-h2-26pin",
+      "name": "Orange Pi Zero LTS GPIO Header",
+      "shortName": "Orange Pi Zero LTS",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero LTS (Allwinner H2+). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizerolts.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h2",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H2+",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizerolts.",
+        "model": "PI_MODEL_ZERO"
+      }
+    },
+    {
+      "id": "orange-pi-zero-lts",
+      "platformId": "orangepi-h2-26pin",
+      "name": "Orange Pi Zero LTS GPIO Header",
+      "shortName": "Orange Pi Zero LTS",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero LTS (Allwinner H2+). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizero-lts.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h2",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H2+",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizero-lts.",
+        "model": "PI_MODEL_ZERO"
+      }
+    },
+    {
+      "id": "orange-pi-r1",
+      "platformId": "orangepi-h2-26pin",
+      "name": "Orange Pi R1 GPIO Header",
+      "shortName": "Orange Pi R1",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi R1 (Allwinner H2+). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepir1.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h2",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H2+",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepir1.",
+        "model": "PI_MODEL_ZERO"
+      }
+    },
+    {
+      "id": "orange-pi-r1",
+      "platformId": "orangepi-h2-26pin",
+      "name": "Orange Pi R1 GPIO Header",
+      "shortName": "Orange Pi R1",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi R1 (Allwinner H2+). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi-r1.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h2",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H2+",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi-r1.",
+        "model": "PI_MODEL_ZERO"
+      }
+    },
+    {
+      "id": "orange-pi-pc",
+      "platformId": "orangepi-h3-40pin",
+      "name": "Orange Pi PC GPIO Header",
+      "shortName": "Orange Pi PC",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi PC (Allwinner H3). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepipc.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h3",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H3",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepipc.",
+        "model": "PI_MODEL_H3"
+      }
+    },
+    {
+      "id": "orange-pi-pc-plus",
+      "platformId": "orangepi-h3-40pin",
+      "name": "Orange Pi PC Plus GPIO Header",
+      "shortName": "Orange Pi PC Plus",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi PC Plus (Allwinner H3). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepipcplus.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h3",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H3",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepipcplus.",
+        "model": "PI_MODEL_H3"
+      }
+    },
+    {
+      "id": "orange-pi-one",
+      "platformId": "orangepi-h3-40pin",
+      "name": "Orange Pi One GPIO Header",
+      "shortName": "Orange Pi One",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi One (Allwinner H3). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepione.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h3",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H3",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepione.",
+        "model": "PI_MODEL_H3"
+      }
+    },
+    {
+      "id": "orange-pi-lite",
+      "platformId": "orangepi-h3-40pin",
+      "name": "Orange Pi Lite GPIO Header",
+      "shortName": "Orange Pi Lite",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Lite (Allwinner H3). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepilite.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h3",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H3",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepilite.",
+        "model": "PI_MODEL_H3"
+      }
+    },
+    {
+      "id": "orange-pi-plus",
+      "platformId": "orangepi-h3-40pin",
+      "name": "Orange Pi Plus GPIO Header",
+      "shortName": "Orange Pi Plus",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Plus (Allwinner H3). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepiplus.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h3",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H3",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepiplus.",
+        "model": "PI_MODEL_H3"
+      }
+    },
+    {
+      "id": "orange-pi-plus-2e",
+      "platformId": "orangepi-h3-40pin",
+      "name": "Orange Pi Plus 2E GPIO Header",
+      "shortName": "Orange Pi Plus 2E",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Plus 2E (Allwinner H3). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepiplue2e.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h3",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H3",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepiplue2e.",
+        "model": "PI_MODEL_H3"
+      }
+    },
+    {
+      "id": "orange-pi-zero-plus-2-h3",
+      "platformId": "orangepi-h3-26pin-zero-plus-2",
+      "name": "Orange Pi Zero Plus 2 (H3) GPIO Header",
+      "shortName": "Orange Pi Zero Plus 2 (H3)",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero Plus 2 (H3) (Allwinner H3 / H5). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizeroplus2h3.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h3-h5",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H3 / H5",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizeroplus2h3.",
+        "model": "PI_MODEL_ZERO_PLUS_2"
+      }
+    },
+    {
+      "id": "orange-pi-zero-plus-2-h3",
+      "platformId": "orangepi-h3-26pin-zero-plus-2",
+      "name": "Orange Pi Zero Plus 2 (H3) GPIO Header",
+      "shortName": "Orange Pi Zero Plus 2 (H3)",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero Plus 2 (H3) (Allwinner H3 / H5). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizeroplus2-h3.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h3-h5",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H3 / H5",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizeroplus2-h3.",
+        "model": "PI_MODEL_ZERO_PLUS_2"
+      }
+    },
+    {
+      "id": "orange-pi-win",
+      "platformId": "orangepi-a64-40pin-win",
+      "name": "Orange Pi Win GPIO Header",
+      "shortName": "Orange Pi Win",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Win (Allwinner A64). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepiwin.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-a64",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner A64",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepiwin.",
+        "model": "PI_MODEL_WIN"
+      }
+    },
+    {
+      "id": "orange-pi-win-plus",
+      "platformId": "orangepi-a64-40pin-win",
+      "name": "Orange Pi Win Plus GPIO Header",
+      "shortName": "Orange Pi Win Plus",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Win Plus (Allwinner A64). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepiwinplus.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-a64",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner A64",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepiwinplus.",
+        "model": "PI_MODEL_WIN"
+      }
+    },
+    {
+      "id": "orange-pi-prime",
+      "platformId": "orangepi-h5-40pin-prime",
+      "name": "Orange Pi Prime GPIO Header",
+      "shortName": "Orange Pi Prime",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Prime (Allwinner H5). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepiprime.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h5",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H5",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepiprime.",
+        "model": "PI_MODEL_PRIME"
+      }
+    },
+    {
+      "id": "orange-pi-pc-2",
+      "platformId": "orangepi-h5-40pin-pc2",
+      "name": "Orange Pi PC 2 GPIO Header",
+      "shortName": "Orange Pi PC 2",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi PC 2 (Allwinner H5). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepipc2.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h5",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H5",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepipc2.",
+        "model": "PI_MODEL_PC_2"
+      }
+    },
+    {
+      "id": "orange-pi-zero-plus",
+      "platformId": "orangepi-h5-26pin-zero-plus",
+      "name": "Orange Pi Zero Plus GPIO Header",
+      "shortName": "Orange Pi Zero Plus",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero Plus (Allwinner H5). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizeroplus.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h5",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H5",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizeroplus.",
+        "model": "PI_MODEL_ZERO_PLUS"
+      }
+    },
+    {
+      "id": "orange-pi-zero-plus-2-h5",
+      "platformId": "orangepi-h3-26pin-zero-plus-2",
+      "name": "Orange Pi Zero Plus 2 (H5) GPIO Header",
+      "shortName": "Orange Pi Zero Plus 2 (H5)",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero Plus 2 (H5) (Allwinner H3 / H5). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizeroplus2h5.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h3-h5",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H3 / H5",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizeroplus2h5.",
+        "model": "PI_MODEL_ZERO_PLUS_2"
+      }
+    },
+    {
+      "id": "orange-pi-zero-plus-2-h5",
+      "platformId": "orangepi-h3-26pin-zero-plus-2",
+      "name": "Orange Pi Zero Plus 2 (H5) GPIO Header",
+      "shortName": "Orange Pi Zero Plus 2 (H5)",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero Plus 2 (H5) (Allwinner H3 / H5). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizeroplus2-h5.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h3-h5",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H3 / H5",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizeroplus2-h5.",
+        "model": "PI_MODEL_ZERO_PLUS_2"
+      }
+    },
+    {
+      "id": "orange-pi-zero-2",
+      "platformId": "orangepi-h616-26pin-zero2",
+      "name": "Orange Pi Zero 2 GPIO Header",
+      "shortName": "Orange Pi Zero 2",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero 2 (Allwinner H616). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizero2.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h616",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H616",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizero2.",
+        "model": "PI_MODEL_ZERO_2"
+      }
+    },
+    {
+      "id": "orange-pi-zero-2w",
+      "platformId": "orangepi-h616-26pin-zero2",
+      "name": "Orange Pi Zero 2W GPIO Header",
+      "shortName": "Orange Pi Zero 2W",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero 2W (Allwinner H616). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizero2w.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h616",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H616",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizero2w.",
+        "model": "PI_MODEL_ZERO_2_W"
+      }
+    },
+    {
+      "id": "orange-pi-zero-3",
+      "platformId": "orangepi-h616-26pin-zero2",
+      "name": "Orange Pi Zero 3 GPIO Header",
+      "shortName": "Orange Pi Zero 3",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero 3 (Allwinner H616). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizero3.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h616",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H616",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizero3.",
+        "model": "PI_MODEL_ZERO_2"
+      }
+    },
+    {
+      "id": "orange-pi-zero-3w",
+      "platformId": "orangepi-zero-3w-40pin",
+      "name": "Orange Pi Zero 3W GPIO Header",
+      "shortName": "Orange Pi Zero 3W",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero 3W (Allwinner A733). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizero3w.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-a733",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner A733",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizero3w.",
+        "model": "PI_MODEL_ZERO_3_W"
+      }
+    },
+    {
+      "id": "orange-pi-zero-3-plus",
+      "platformId": "orangepi-zero-3-plus-40pin",
+      "name": "Orange Pi Zero 3 Plus GPIO Header",
+      "shortName": "Orange Pi Zero 3 Plus",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Zero 3 Plus (Allwinner H618). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepizero3plus.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h618",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H618",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepizero3plus.",
+        "model": "PI_MODEL_ZERO_3_PLUS"
+      }
+    },
+    {
+      "id": "orange-pi-rk3399",
+      "platformId": "orangepi-rk3399-40pin",
+      "name": "Orange Pi RK3399 GPIO Header",
+      "shortName": "Orange Pi RK3399",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi RK3399 (Rockchip RK3399). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepirk3399.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3399",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3399",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepirk3399.",
+        "model": "PI_MODEL_RK3399"
+      }
+    },
+    {
+      "id": "orange-pi-rk3399",
+      "platformId": "orangepi-rk3399-40pin",
+      "name": "Orange Pi RK3399 GPIO Header",
+      "shortName": "Orange Pi RK3399",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi RK3399 (Rockchip RK3399). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi-rk3399.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3399",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3399",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi-rk3399.",
+        "model": "PI_MODEL_RK3399"
+      }
+    },
+    {
+      "id": "orange-pi-800",
+      "platformId": "orangepi-800-40pin",
+      "name": "Orange Pi 800 GPIO Header",
+      "shortName": "Orange Pi 800",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 800 (Rockchip RK3399). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi800.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3399",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3399",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi800.",
+        "model": "PI_MODEL_800"
+      }
+    },
+    {
+      "id": "orange-pi-4",
+      "platformId": "orangepi-rk3399-40pin-4",
+      "name": "Orange Pi 4 GPIO Header",
+      "shortName": "Orange Pi 4",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 4 (Rockchip RK3399). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi4.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3399",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3399",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi4.",
+        "model": "PI_MODEL_4"
+      }
+    },
+    {
+      "id": "orange-pi-4a",
+      "platformId": "orangepi-4a-40pin",
+      "name": "Orange Pi 4A GPIO Header",
+      "shortName": "Orange Pi 4A",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 4A (Allwinner T527). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi4a.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-t527",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner T527",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi4a.",
+        "model": "PI_MODEL_4A"
+      }
+    },
+    {
+      "id": "orange-pi-4-pro",
+      "platformId": "orangepi-4pro-40pin",
+      "name": "Orange Pi 4 Pro GPIO Header",
+      "shortName": "Orange Pi 4 Pro",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 4 Pro (Allwinner T527). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi4pro.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-t527",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner T527",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi4pro.",
+        "model": "PI_MODEL_4_PRO"
+      }
+    },
+    {
+      "id": "orange-pi-4-lts",
+      "platformId": "orangepi-rk3399-40pin-4",
+      "name": "Orange Pi 4 LTS GPIO Header",
+      "shortName": "Orange Pi 4 LTS",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 4 LTS (Rockchip RK3399). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi4-lts.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3399",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3399",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi4-lts.",
+        "model": "PI_MODEL_4_LTS"
+      }
+    },
+    {
+      "id": "orange-pi-r1-plus",
+      "platformId": "orangepi-r1-plus-26pin",
+      "name": "Orange Pi R1 Plus GPIO Header",
+      "shortName": "Orange Pi R1 Plus",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi R1 Plus (Rockchip RK3328). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepir1plus.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3328",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3328",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepir1plus.",
+        "model": "PI_MODEL_R1_PLUS"
+      }
+    },
+    {
+      "id": "orange-pi-r1-plus",
+      "platformId": "orangepi-r1-plus-26pin",
+      "name": "Orange Pi R1 Plus GPIO Header",
+      "shortName": "Orange Pi R1 Plus",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi R1 Plus (Rockchip RK3328). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi-r1plus.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3328",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3328",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi-r1plus.",
+        "model": "PI_MODEL_R1_PLUS"
+      }
+    },
+    {
+      "id": "orange-pi-r1-plus-lts",
+      "platformId": "orangepi-r1-plus-26pin",
+      "name": "Orange Pi R1 Plus LTS GPIO Header",
+      "shortName": "Orange Pi R1 Plus LTS",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi R1 Plus LTS (Rockchip RK3328). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepir1plus-lts.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3328",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3328",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepir1plus-lts.",
+        "model": "PI_MODEL_R1_PLUS"
+      }
+    },
+    {
+      "id": "orange-pi-r1-plus-lts",
+      "platformId": "orangepi-r1-plus-26pin",
+      "name": "Orange Pi R1 Plus LTS GPIO Header",
+      "shortName": "Orange Pi R1 Plus LTS",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi R1 Plus LTS (Rockchip RK3328). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi-r1plus-lts.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3328",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3328",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi-r1plus-lts.",
+        "model": "PI_MODEL_R1_PLUS"
+      }
+    },
+    {
+      "id": "orange-pi-5",
+      "platformId": "orangepi-5-26pin",
+      "name": "Orange Pi 5 GPIO Header",
+      "shortName": "Orange Pi 5",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 5 (Rockchip RK3588S). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi5.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588s",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588S",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi5.",
+        "model": "PI_MODEL_5"
+      }
+    },
+    {
+      "id": "orange-pi-5b",
+      "platformId": "orangepi-5-26pin",
+      "name": "Orange Pi 5B GPIO Header",
+      "shortName": "Orange Pi 5B",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 5B (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi5b.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi5b.",
+        "model": "PI_MODEL_5B"
+      }
+    },
+    {
+      "id": "orange-pi-5-pro",
+      "platformId": "orangepi-5-26pin",
+      "name": "Orange Pi 5 Pro GPIO Header",
+      "shortName": "Orange Pi 5 Pro",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 5 Pro (Rockchip RK3588S). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi5pro.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588s",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588S",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi5pro.",
+        "model": "PI_MODEL_5_PRO"
+      }
+    },
+    {
+      "id": "orange-pi-5-max",
+      "platformId": "orangepi-5-26pin",
+      "name": "Orange Pi 5 Max GPIO Header",
+      "shortName": "Orange Pi 5 Max",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 5 Max (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi5max.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi5max.",
+        "model": "PI_MODEL_5_MAX"
+      }
+    },
+    {
+      "id": "orange-pi-5-ultra",
+      "platformId": "orangepi-5-26pin",
+      "name": "Orange Pi 5 Ultra GPIO Header",
+      "shortName": "Orange Pi 5 Ultra",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 5 Ultra (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi5ultra.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi5ultra.",
+        "model": "PI_MODEL_5_ULTRA"
+      }
+    },
+    {
+      "id": "orange-pi-5-plus",
+      "platformId": "orangepi-5plus-40pin",
+      "name": "Orange Pi 5 Plus GPIO Header",
+      "shortName": "Orange Pi 5 Plus",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 5 Plus (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi5plus.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi5plus.",
+        "model": "PI_MODEL_5_PLUS"
+      }
+    },
+    {
+      "id": "orange-pi-ai-max",
+      "platformId": "orangepi-5-26pin",
+      "name": "Orange Pi AI Max GPIO Header",
+      "shortName": "Orange Pi AI Max",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi AI Max (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepiaimax.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepiaimax.",
+        "model": "PI_MODEL_AI_MAX"
+      }
+    },
+    {
+      "id": "orange-pi-900",
+      "platformId": "orangepi-900-40pin",
+      "name": "Orange Pi 900 GPIO Header",
+      "shortName": "Orange Pi 900",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 900 (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi900.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi900.",
+        "model": "PI_MODEL_900"
+      }
+    },
+    {
+      "id": "orange-pi-cm5",
+      "platformId": "orangepi-5-26pin",
+      "name": "Orange Pi CM5 GPIO Header",
+      "shortName": "Orange Pi CM5",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi CM5 (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepicm5.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepicm5.",
+        "model": "PI_MODEL_CM5"
+      }
+    },
+    {
+      "id": "orange-pi-cm5-tablet",
+      "platformId": "orangepi-5-26pin",
+      "name": "Orange Pi CM5 Tablet GPIO Header",
+      "shortName": "Orange Pi CM5 Tablet",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi CM5 Tablet (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepicm5-tablet.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepicm5-tablet.",
+        "model": "PI_MODEL_CM5_TABLET"
+      }
+    },
+    {
+      "id": "orange-pi-cm5-tablet",
+      "platformId": "orangepi-5-26pin",
+      "name": "Orange Pi CM5 Tablet GPIO Header",
+      "shortName": "Orange Pi CM5 Tablet",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi CM5 Tablet (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepicm5_tablet.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "26-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepicm5_tablet.",
+        "model": "PI_MODEL_CM5_TABLET"
+      }
+    },
+    {
+      "id": "orange-pi-cm4",
+      "platformId": "orangepi-cm4-40pin",
+      "name": "Orange Pi CM4 GPIO Header",
+      "shortName": "Orange Pi CM4",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi CM4 (Rockchip RK3566). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepicm4.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3566",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3566",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepicm4.",
+        "model": "PI_MODEL_CM4"
+      }
+    },
+    {
+      "id": "orange-pi-3b",
+      "platformId": "orangepi-3b-40pin",
+      "name": "Orange Pi 3B GPIO Header",
+      "shortName": "Orange Pi 3B",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 3B (Allwinner H618). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi3b.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h618",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H618",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi3b.",
+        "model": "PI_MODEL_3B"
+      }
+    },
+    {
+      "id": "orange-pi-3-plus",
+      "platformId": "orangepi-3plus-40pin",
+      "name": "Orange Pi 3 Plus GPIO Header",
+      "shortName": "Orange Pi 3 Plus",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi 3 Plus (Allwinner H618). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepi3plus.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-h618",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner H618",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepi3plus.",
+        "model": "PI_MODEL_3_PLUS"
+      }
+    },
+    {
+      "id": "orange-pi-ai-pro",
+      "platformId": "orangepi-aipro-40pin",
+      "name": "Orange Pi AI Pro GPIO Header",
+      "shortName": "Orange Pi AI Pro",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi AI Pro (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepiaipro.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepiaipro.",
+        "model": "PI_MODEL_AI_PRO"
+      }
+    },
+    {
+      "id": "orange-pi-ai-pro-20t",
+      "platformId": "orangepi-aipro-40pin",
+      "name": "Orange Pi AI Pro 20T GPIO Header",
+      "shortName": "Orange Pi AI Pro 20T",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi AI Pro 20T (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepiaipro-20t.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepiaipro-20t.",
+        "model": "PI_MODEL_AI_PRO"
+      }
+    },
+    {
+      "id": "orange-pi-kunpeng-pro",
+      "platformId": "orangepi-kunpeng-pro-40pin",
+      "name": "Orange Pi Kunpeng Pro GPIO Header",
+      "shortName": "Orange Pi Kunpeng Pro",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi Kunpeng Pro (Huawei Kunpeng). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepikunpengpro.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "huawei-kunpeng",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Huawei Kunpeng",
+        "socFamily": "Huawei",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepikunpengpro.",
+        "model": "PI_MODEL_KUNPENG_PRO"
+      }
+    },
+    {
+      "id": "orange-pi-ai-station",
+      "platformId": "orangepi-aistation-40pin",
+      "name": "Orange Pi AI Station GPIO Header",
+      "shortName": "Orange Pi AI Station",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi AI Station (Rockchip RK3588). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepiaistation.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "rockchip-rk3588",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3588",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepiaistation.",
+        "model": "PI_MODEL_AI_STATION"
+      }
+    },
+    {
+      "id": "orange-pi-rv",
+      "platformId": "orangepi-rv-40pin",
+      "name": "Orange Pi RV GPIO Header",
+      "shortName": "Orange Pi RV",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi RV (Allwinner T113). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepirv.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-t113",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner T113",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepirv.",
+        "model": "PI_MODEL_RV"
+      }
+    },
+    {
+      "id": "orange-pi-rv2",
+      "platformId": "orangepi-rv2-40pin",
+      "name": "Orange Pi RV2 GPIO Header",
+      "shortName": "Orange Pi RV2",
+      "vendor": "Orange Pi",
+      "description": "GPIO header on Orange Pi RV2 (Allwinner T113). Supported by wiringOP — detected via /etc/orangepi-release prefix \"orangepirv2.\".",
+      "documentationUrl": "https://github.com/orangepi-xunlong/wiringOP",
+      "productUrl": "http://www.orangepi.org/",
+      "tags": [
+        "orange-pi",
+        "wiringop",
+        "allwinner-t113",
+        "40-pin"
+      ],
+      "hardware": {
+        "soc": "Allwinner T113",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringOP wPi",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART",
+          "PWM"
+        ]
+      },
+      "wiringOp": {
+        "releaseId": "orangepirv2.",
+        "model": "PI_MODEL_RV2"
+      }
+    }
+  ]
+}
