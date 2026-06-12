@@ -10,7 +10,7 @@
       "vendor": "Raspberry Pi Foundation",
       "description": "Standard 40-pin GPIO header on Raspberry Pi boards (BCM numbering). Supports SPI0/SPI1 and common HAT accessories.",
       "documentationUrl": "https://pinout.xyz/",
-      "imageUrl": "/sbcs/raspberry-pi-40pin.png",
+      "imageUrl": "/sbcs/raspberry-pi-40pin.webp",
       "tags": ["raspberry-pi", "40-pin", "bcm", "spi", "i2c"],
       "hardware": {
         "soc": "Broadcom BCM2711 / BCM2837 / BCM2835",
@@ -37,7 +37,7 @@
       "description": "40-pin header on the original Radxa Zero (Meson G12A / S905Y2). Dual SPI buses and device-tree overlays for I²C, UART, and PWM.",
       "documentationUrl": "https://wiki.radxa.com/Zero/hardware/gpio",
       "productUrl": "https://docs.radxa.com/en/zero/zero",
-      "imageUrl": "/sbcs/radxa-zero-40pin.png",
+      "imageUrl": "/sbcs/radxa-zero-40pin.webp",
       "tags": ["radxa", "meson-g12a", "40-pin", "spi", "device-tree"],
       "hardware": {
         "soc": "Amlogic S905Y2",
@@ -64,7 +64,7 @@
       "description": "40-pin header on Radxa Zero 3 (RK3566). SPI3 on the header with RK3568-family device-tree overlays.",
       "documentationUrl": "https://docs.radxa.com/en/zero/zero3/hardware-design/hardware-interface",
       "productUrl": "https://docs.radxa.com/en/zero/zero3",
-      "imageUrl": "/sbcs/radxa-zero-3-40pin.jpg",
+      "imageUrl": "/sbcs/radxa-zero-3-40pin.webp",
       "tags": ["radxa", "rk3566", "40-pin", "spi3", "device-tree"],
       "hardware": {
         "soc": "Rockchip RK3566",
@@ -91,7 +91,7 @@
       "description": "40-pin expansion header on the Orange Pi Zero 3W (Allwinner A733). SPI3, TWI/I²C, UART, and PWM on the header. Pin 4 is GND — not Pi-compatible power layout.",
       "documentationUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-3W.html",
       "productUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-3W.html",
-      "imageUrl": "/sbcs/orangepi-zero-3w-40pin.png",
+      "imageUrl": "/sbcs/orangepi-zero-3w-40pin.webp",
       "tags": ["orange-pi", "allwinner-a733", "40-pin", "spi3", "wifi6"],
       "hardware": {
         "soc": "Allwinner A733",
@@ -118,7 +118,7 @@
       "description": "26-pin expansion header on Orange Pi 5 (RK3588S). SPI4, I²C, UART, PWM, and CAN — not the same as Orange Pi 5 Plus (40-pin).",
       "documentationUrl": "http://www.orangepi.org/orangepiwiki/index.php/26_Pin_Interface_Pin_Description",
       "productUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5.html",
-      "imageUrl": "/sbcs/orangepi-5-26pin.png",
+      "imageUrl": "/sbcs/orangepi-5-26pin.webp",
       "tags": ["orange-pi", "rk3588s", "26-pin", "spi4", "npu"],
       "hardware": {
         "soc": "Rockchip RK3588S",
@@ -146,7 +146,7 @@
       "description": "40-pin header on the Luckfox Lyra Zero W (RK3506B). Rockchip Matrix IO multiplexing with 28 flexible GPIO signals. Wi-Fi 6 / Bluetooth 5.2 onboard.",
       "documentationUrl": "https://wiki.luckfox.com/Luckfox-Lyra-Zero-W",
       "productUrl": "https://www.luckfox.com/Luckfox-Lyra-Zero-W",
-      "imageUrl": "/sbcs/luckfox-lyra-zero-w-40pin.jpg",
+      "imageUrl": "/sbcs/luckfox-lyra-zero-w-40pin.webp",
       "tags": ["luckfox", "rk3506", "40-pin", "matrix-io", "wifi6"],
       "hardware": {
         "soc": "Rockchip RK3506B",
@@ -172,7 +172,7 @@
       "description": "40-pin header on the Luckfox Aura (RV1126B). Pi-compatible power layout with 3.3V GPIO. Quad-core AIoT board with 3 TOPS NPU, dual MIPI CSI, and Gigabit PoE Ethernet.",
       "documentationUrl": "https://wiki.luckfox.com/Luckfox-Aura",
       "productUrl": "https://www.luckfox.com/Luckfox-Aura",
-      "imageUrl": "/sbcs/luckfox-aura-40pin.jpg",
+      "imageUrl": "/sbcs/luckfox-aura-40pin.webp",
       "tags": ["luckfox", "rv1126", "40-pin", "npu", "poe", "wifi6"],
       "hardware": {
         "soc": "Rockchip RV1126B",
