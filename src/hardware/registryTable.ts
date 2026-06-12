@@ -59,6 +59,10 @@ function formatTags(tags: string[] | undefined): string {
   return tags?.join(', ') ?? '';
 }
 
+function getHatRegistrySoc(hat: HardwareDevice): string {
+  return hat.specifications?.controller ?? '';
+}
+
 export function buildRegistryTableRows(
   sbcs: readonly SbcRegistryEntry[],
   hats: readonly HardwareDevice[],
@@ -90,7 +94,7 @@ export function buildRegistryTableRows(
     registryCategory: 'hats',
     name: hat.shortName ?? hat.name,
     vendor: hat.vendor,
-    soc: '',
+    soc: getHatRegistrySoc(hat),
     platformId: hat.platformId,
     kind: hat.kind,
     productCategory: hat.category,

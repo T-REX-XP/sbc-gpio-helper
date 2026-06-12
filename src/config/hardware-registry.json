@@ -156,6 +156,7 @@
         "displaySize": "2.13 inch",
         "resolution": "250×122",
         "colors": ["black", "white"],
+        "controller": "SSD1680",
         "interface": ["SPI"],
         "operatingVoltage": "3.3V / 5V",
         "refreshTime": "~2s (full refresh)",
