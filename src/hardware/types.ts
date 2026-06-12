@@ -214,6 +214,13 @@ export interface WiringOpBoardInfo {
   model: string;
 }
 
+export interface WiringXBoardInfo {
+  setupId: string;
+  documentationPath: string;
+  wiringxGpioCount?: number;
+  alternateSetupIds?: string[];
+}
+
 export interface SbcRegistryEntry {
   id: string;
   platformId: string;
@@ -229,6 +236,8 @@ export interface SbcRegistryEntry {
   specifications?: HardwareSpecifications;
   /** wiringOP /etc/orangepi-release detection metadata. */
   wiringOp?: WiringOpBoardInfo;
+  /** wiringX wiringXSetup() platform string and manual reference. */
+  wiringX?: WiringXBoardInfo;
 }
 
 export type WiringPiCompatibility = 'high' | 'moderate' | 'low' | 'none';

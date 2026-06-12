@@ -1,9 +1,16 @@
 import type { GpioPlatform } from './types';
 
+import bananapi126Pin from '../config/platforms/bananapi-1-26pin.json';
+import bananapiM240Pin from '../config/platforms/bananapi-m2-40pin.json';
 import cubieA7s30Pin from '../config/platforms/cubie-a7s-30pin.json';
 import cubieA7z40Pin from '../config/platforms/cubie-a7z-40pin.json';
+import hummingboardBasePro26Pin from '../config/platforms/hummingboard-base-pro-26pin.json';
+import hummingboardEdgeGate40Pin from '../config/platforms/hummingboard-edge-gate-40pin.json';
 import luckfoxAura40Pin from '../config/platforms/luckfox-aura-40pin.json';
 import luckfoxLyraZeroW40Pin from '../config/platforms/luckfox-lyra-zero-w-40pin.json';
+import odroidC140Pin from '../config/platforms/odroid-c1-40pin.json';
+import odroidC240Pin from '../config/platforms/odroid-c2-40pin.json';
+import odroidXu430Pin from '../config/platforms/odroid-xu4-30pin.json';
 import orangepi3b40Pin from '../config/platforms/orangepi-3b-40pin.json';
 import orangepi3plus40Pin from '../config/platforms/orangepi-3plus-40pin.json';
 import orangepi4a40Pin from '../config/platforms/orangepi-4a-40pin.json';
@@ -34,15 +41,26 @@ import orangepiRv40Pin from '../config/platforms/orangepi-rv-40pin.json';
 import orangepiRv240Pin from '../config/platforms/orangepi-rv2-40pin.json';
 import orangepiZero3Plus40Pin from '../config/platforms/orangepi-zero-3-plus-40pin.json';
 import orangepiZero3w40Pin from '../config/platforms/orangepi-zero-3w-40pin.json';
+import pcduino140Pin from '../config/platforms/pcduino-1-40pin.json';
+import radxaRock440Pin from '../config/platforms/radxa-rock4-40pin.json';
 import radxaZero340Pin from '../config/platforms/radxa-zero-3-40pin.json';
 import radxaZero40Pin from '../config/platforms/radxa-zero-40pin.json';
+import raspberryPi26PinRev1 from '../config/platforms/raspberry-pi-26pin-rev1.json';
+import raspberryPi26PinRev2 from '../config/platforms/raspberry-pi-26pin-rev2.json';
 import raspberryPi40Pin from '../config/platforms/raspberry-pi-40pin.json';
 
 export const PLATFORM_CONFIGS: readonly GpioPlatform[] = [
+  bananapi126Pin as GpioPlatform,
+  bananapiM240Pin as GpioPlatform,
   cubieA7s30Pin as GpioPlatform,
   cubieA7z40Pin as GpioPlatform,
+  hummingboardBasePro26Pin as GpioPlatform,
+  hummingboardEdgeGate40Pin as GpioPlatform,
   luckfoxAura40Pin as GpioPlatform,
   luckfoxLyraZeroW40Pin as GpioPlatform,
+  odroidC140Pin as GpioPlatform,
+  odroidC240Pin as GpioPlatform,
+  odroidXu430Pin as GpioPlatform,
   orangepi3b40Pin as GpioPlatform,
   orangepi3plus40Pin as GpioPlatform,
   orangepi4a40Pin as GpioPlatform,
@@ -73,7 +91,11 @@ export const PLATFORM_CONFIGS: readonly GpioPlatform[] = [
   orangepiRv240Pin as GpioPlatform,
   orangepiZero3Plus40Pin as GpioPlatform,
   orangepiZero3w40Pin as GpioPlatform,
+  pcduino140Pin as GpioPlatform,
+  radxaRock440Pin as GpioPlatform,
   radxaZero340Pin as GpioPlatform,
   radxaZero40Pin as GpioPlatform,
+  raspberryPi26PinRev1 as GpioPlatform,
+  raspberryPi26PinRev2 as GpioPlatform,
   raspberryPi40Pin as GpioPlatform,
 ].sort((a, b) => a.id.localeCompare(b.id));

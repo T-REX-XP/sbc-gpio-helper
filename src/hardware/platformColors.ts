@@ -17,5 +17,11 @@ export function getPlatformAccentColor(platformId: string): string {
   if (platformId.startsWith('orangepi-')) {
     return '#f97316';
   }
+  if (platformId.startsWith('bananapi-') || platformId.startsWith('odroid-')) {
+    return '#6366f1';
+  }
+  if (platformId.startsWith('hummingboard-') || platformId.startsWith('pcduino-')) {
+    return '#8b5cf6';
+  }
   return '#64748b';
 }

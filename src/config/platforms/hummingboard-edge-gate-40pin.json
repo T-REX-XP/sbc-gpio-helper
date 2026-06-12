@@ -1,0 +1,267 @@
+{
+  "id": "hummingboard-edge-gate-40pin",
+  "name": "Hummingboard Edge / Gate GPIO Header",
+  "shortName": "Hummingboard Edge / Gate",
+  "pinCount": 40,
+  "orientationHint": "USB/ports toward you — odd pins on the left column, even on the right (wiringX manual layout)",
+  "documentationUrl": "https://manual.wiringx.org/platforms/hummingboard/hummingboardedgegate.html",
+  "notes": "wiringX manual uses a non-standard GPIO Mapping layout — placeholder header.",
+  "gpioNumberLabel": "wiringX GPIO",
+  "formFactor": {
+    "widthMm": 85,
+    "heightMm": 56,
+    "label": "40-pin header",
+    "gpioHeader": {
+      "pin1": {
+        "x": 1.27,
+        "y": 0
+      },
+      "pitchMm": 2.54,
+      "columns": 2,
+      "rows": 20
+    },
+    "notes": "Documented on wiringX manual for Hummingboard Edge / Gate."
+  },
+  "pins": [
+    {
+      "physical": 1,
+      "name": "PIN1",
+      "type": "power3v3",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 2,
+      "name": "PIN2",
+      "type": "power5v",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 3,
+      "name": "PIN3",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 4,
+      "name": "PIN4",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 5,
+      "name": "PIN5",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 6,
+      "name": "PIN6",
+      "type": "ground",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 7,
+      "name": "PIN7",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 8,
+      "name": "PIN8",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 9,
+      "name": "PIN9",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 10,
+      "name": "PIN10",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 11,
+      "name": "PIN11",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 12,
+      "name": "PIN12",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 13,
+      "name": "PIN13",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 14,
+      "name": "PIN14",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 15,
+      "name": "PIN15",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 16,
+      "name": "PIN16",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 17,
+      "name": "PIN17",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 18,
+      "name": "PIN18",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 19,
+      "name": "PIN19",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 20,
+      "name": "PIN20",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 21,
+      "name": "PIN21",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 22,
+      "name": "PIN22",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 23,
+      "name": "PIN23",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 24,
+      "name": "PIN24",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 25,
+      "name": "PIN25",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 26,
+      "name": "PIN26",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 27,
+      "name": "PIN27",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 28,
+      "name": "PIN28",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 29,
+      "name": "PIN29",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 30,
+      "name": "PIN30",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 31,
+      "name": "PIN31",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 32,
+      "name": "PIN32",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 33,
+      "name": "PIN33",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 34,
+      "name": "PIN34",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 35,
+      "name": "PIN35",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 36,
+      "name": "PIN36",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 37,
+      "name": "PIN37",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 38,
+      "name": "PIN38",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 39,
+      "name": "PIN39",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    },
+    {
+      "physical": 40,
+      "name": "PIN40",
+      "type": "gpio",
+      "notes": "Non-standard wiringX manual layout — see GPIO Mapping on the device page."
+    }
+  ]
+}

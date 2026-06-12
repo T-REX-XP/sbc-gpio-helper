@@ -1,0 +1,401 @@
+{
+  "sbcs": [
+    {
+      "id": "bananapi-1",
+      "platformId": "bananapi-1-26pin",
+      "name": "BananaPi 1 GPIO Header",
+      "shortName": "BananaPi 1",
+      "vendor": "Banana Pi",
+      "description": "GPIO header on BananaPi 1 (Allwinner A10). Supported by wiringX — use wiringXSetup(\"bananapi1\").",
+      "documentationUrl": "https://manual.wiringx.org/platforms/bananapi/bananapi1.html",
+      "tags": [
+        "banana-pi",
+        "allwinner-a10",
+        "26-pin",
+        "wiringx"
+      ],
+      "hardware": {
+        "soc": "Allwinner A10",
+        "socFamily": "Allwinner",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringX GPIO",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART"
+        ]
+      },
+      "wiringX": {
+        "setupId": "bananapi1",
+        "documentationPath": "/platforms/bananapi/bananapi1.html",
+        "wiringxGpioCount": 21
+      }
+    },
+    {
+      "id": "bananapi-m2",
+      "platformId": "bananapi-m2-40pin",
+      "name": "BananaPi M2 GPIO Header",
+      "shortName": "BananaPi M2",
+      "vendor": "Banana Pi",
+      "description": "GPIO header on BananaPi M2 (Allwinner A31s). Supported by wiringX — use wiringXSetup(\"bananapim2\").",
+      "documentationUrl": "https://manual.wiringx.org/platforms/bananapi/bananapim2.html",
+      "tags": [
+        "banana-pi",
+        "allwinner-a31s",
+        "40-pin",
+        "wiringx"
+      ],
+      "hardware": {
+        "soc": "Allwinner A31s",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringX GPIO",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART"
+        ]
+      },
+      "wiringX": {
+        "setupId": "bananapim2",
+        "documentationPath": "/platforms/bananapi/bananapim2.html",
+        "wiringxGpioCount": 26
+      }
+    },
+    {
+      "id": "hummingboard-base-pro",
+      "platformId": "hummingboard-base-pro-26pin",
+      "name": "Hummingboard Base / Pro GPIO Header",
+      "shortName": "Hummingboard Base / Pro",
+      "vendor": "SolidRun",
+      "description": "GPIO header on Hummingboard Base / Pro (NXP IMX6SDLRM). Supported by wiringX — use wiringXSetup(\"hummingboard_base_sdl\"). Also: hummingboard_base_sdl, hummingboard_pro_sdl, hummingboard_base_dq, hummingboard_pro_dq.",
+      "documentationUrl": "https://manual.wiringx.org/platforms/hummingboard/hummingboardbasepro.html",
+      "tags": [
+        "hummingboard",
+        "nxp-imx6",
+        "26-pin",
+        "wiringx"
+      ],
+      "hardware": {
+        "soc": "NXP IMX6SDLRM",
+        "socFamily": "NXP",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringX GPIO",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART"
+        ]
+      },
+      "wiringX": {
+        "setupId": "hummingboard_base_sdl",
+        "documentationPath": "/platforms/hummingboard/hummingboardbasepro.html",
+        "wiringxGpioCount": 17,
+        "alternateSetupIds": [
+          "hummingboard_base_sdl",
+          "hummingboard_pro_sdl",
+          "hummingboard_base_dq",
+          "hummingboard_pro_dq"
+        ]
+      }
+    },
+    {
+      "id": "hummingboard-edge-gate",
+      "platformId": "hummingboard-edge-gate-40pin",
+      "name": "Hummingboard Edge / Gate GPIO Header",
+      "shortName": "Hummingboard Edge / Gate",
+      "vendor": "SolidRun",
+      "description": "GPIO header on Hummingboard Edge / Gate (NXP IMX6DQRM). Supported by wiringX — use wiringXSetup(\"hummingboard_edge_sdl\"). Also: hummingboard_edge_sdl, hummingboard_gate_sdl, hummingboard_edge_dq, hummingboard_gate_dq.",
+      "documentationUrl": "https://manual.wiringx.org/platforms/hummingboard/hummingboardedgegate.html",
+      "tags": [
+        "hummingboard",
+        "nxp-imx6",
+        "40-pin",
+        "wiringx"
+      ],
+      "hardware": {
+        "soc": "NXP IMX6DQRM",
+        "socFamily": "NXP",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringX GPIO",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART"
+        ]
+      },
+      "wiringX": {
+        "setupId": "hummingboard_edge_sdl",
+        "documentationPath": "/platforms/hummingboard/hummingboardedgegate.html",
+        "wiringxGpioCount": 33,
+        "alternateSetupIds": [
+          "hummingboard_edge_sdl",
+          "hummingboard_gate_sdl",
+          "hummingboard_edge_dq",
+          "hummingboard_gate_dq"
+        ]
+      }
+    },
+    {
+      "id": "odroid-c1",
+      "platformId": "odroid-c1-40pin",
+      "name": "Odroid C1 GPIO Header",
+      "shortName": "Odroid C1",
+      "vendor": "Hardkernel",
+      "description": "GPIO header on Odroid C1 (Amlogic S805). Supported by wiringX — use wiringXSetup(\"odroidc1\").",
+      "documentationUrl": "https://manual.wiringx.org/platforms/odroid/odroidc1.html",
+      "tags": [
+        "odroid",
+        "amlogic-s805",
+        "40-pin",
+        "wiringx"
+      ],
+      "hardware": {
+        "soc": "Amlogic S805",
+        "socFamily": "Amlogic",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringX GPIO",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART"
+        ]
+      },
+      "wiringX": {
+        "setupId": "odroidc1",
+        "documentationPath": "/platforms/odroid/odroidc1.html",
+        "wiringxGpioCount": 21
+      }
+    },
+    {
+      "id": "odroid-c2",
+      "platformId": "odroid-c2-40pin",
+      "name": "Odroid C2 GPIO Header",
+      "shortName": "Odroid C2",
+      "vendor": "Hardkernel",
+      "description": "GPIO header on Odroid C2 (Amlogic S905). Supported by wiringX — use wiringXSetup(\"odroidc2\").",
+      "documentationUrl": "https://manual.wiringx.org/platforms/odroid/odroidc2.html",
+      "tags": [
+        "odroid",
+        "amlogic-s905",
+        "40-pin",
+        "wiringx"
+      ],
+      "hardware": {
+        "soc": "Amlogic S905",
+        "socFamily": "Amlogic",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringX GPIO",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART"
+        ]
+      },
+      "wiringX": {
+        "setupId": "odroidc2",
+        "documentationPath": "/platforms/odroid/odroidc2.html",
+        "wiringxGpioCount": 21
+      }
+    },
+    {
+      "id": "odroid-xu4",
+      "platformId": "odroid-xu4-30pin",
+      "name": "Odroid XU4 GPIO Header",
+      "shortName": "Odroid XU4",
+      "vendor": "Hardkernel",
+      "description": "GPIO header on Odroid XU4 (Samsung Exynos 5422). Supported by wiringX — use wiringXSetup(\"odroidxu4\").",
+      "documentationUrl": "https://manual.wiringx.org/platforms/odroid/odroidxu4.html",
+      "tags": [
+        "odroid",
+        "samsung-exynos-5422",
+        "30-pin",
+        "wiringx"
+      ],
+      "hardware": {
+        "soc": "Samsung Exynos 5422",
+        "socFamily": "Samsung",
+        "formFactor": "30-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "30-pin",
+        "gpioNumbering": "wiringX GPIO",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART"
+        ]
+      },
+      "wiringX": {
+        "setupId": "odroidxu4",
+        "documentationPath": "/platforms/odroid/odroidxu4.html",
+        "wiringxGpioCount": 30
+      }
+    },
+    {
+      "id": "pcduino-1",
+      "platformId": "pcduino-1-40pin",
+      "name": "PCDuino 1 GPIO Header",
+      "shortName": "PCDuino 1",
+      "vendor": "LinkSprite",
+      "description": "GPIO header on PCDuino 1 (Allwinner 10). Supported by wiringX — use wiringXSetup(\"pcduino1\").",
+      "documentationUrl": "https://manual.wiringx.org/platforms/pcduino/pcduino1.html",
+      "tags": [
+        "pcduino",
+        "allwinner-a10",
+        "40-pin",
+        "wiringx"
+      ],
+      "hardware": {
+        "soc": "Allwinner 10",
+        "socFamily": "Allwinner",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringX GPIO",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART"
+        ]
+      },
+      "wiringX": {
+        "setupId": "pcduino1",
+        "documentationPath": "/platforms/pcduino/pcduino1.html",
+        "wiringxGpioCount": 17
+      }
+    },
+    {
+      "id": "radxa-rock4",
+      "platformId": "radxa-rock4-40pin",
+      "name": "Radxa ROCK 4 Series GPIO Header",
+      "shortName": "Radxa ROCK 4 Series",
+      "vendor": "Radxa",
+      "description": "GPIO header on Radxa ROCK 4 Series (Rockchip RK3399 variants). Supported by wiringX — use wiringXSetup(\"rock4\"). Covers ROCK 4A/B/C, ROCK 4A+/B+ (OP1), ROCK 4 SE, ROCK 4C+.",
+      "documentationUrl": "https://manual.wiringx.org/platforms/radxa/rock4.html",
+      "tags": [
+        "radxa",
+        "rockchip-rk3399",
+        "40-pin",
+        "wiringx"
+      ],
+      "hardware": {
+        "soc": "Rockchip RK3399 variants",
+        "socFamily": "Rockchip",
+        "formFactor": "40-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "wiringX GPIO",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART"
+        ]
+      },
+      "wiringX": {
+        "setupId": "rock4",
+        "documentationPath": "/platforms/radxa/rock4.html",
+        "wiringxGpioCount": 27
+      }
+    },
+    {
+      "id": "raspberry-pi-1b-rev1",
+      "platformId": "raspberry-pi-26pin-rev1",
+      "name": "Raspberry Pi 1A and B Revision 1 GPIO Header",
+      "shortName": "Raspberry Pi 1A and B Revision 1",
+      "vendor": "Raspberry Pi",
+      "description": "GPIO header on Raspberry Pi 1A and B Revision 1 (Broadcom 2835). Supported by wiringX — use wiringXSetup(\"raspberrypi1b1\").",
+      "documentationUrl": "https://manual.wiringx.org/platforms/raspberrypi/raspberrypi1b1.html",
+      "tags": [
+        "raspberry-pi",
+        "bcm2835",
+        "26-pin",
+        "wiringx"
+      ],
+      "hardware": {
+        "soc": "Broadcom 2835",
+        "socFamily": "Broadcom",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringX GPIO",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART"
+        ]
+      },
+      "wiringX": {
+        "setupId": "raspberrypi1b1",
+        "documentationPath": "/platforms/raspberrypi/raspberrypi1b1.html",
+        "wiringxGpioCount": 16
+      }
+    },
+    {
+      "id": "raspberry-pi-1b-rev2",
+      "platformId": "raspberry-pi-26pin-rev2",
+      "name": "Raspberry Pi 1A and B Revision 2 GPIO Header",
+      "shortName": "Raspberry Pi 1A and B Revision 2",
+      "vendor": "Raspberry Pi",
+      "description": "GPIO header on Raspberry Pi 1A and B Revision 2 (Broadcom 2835). Supported by wiringX — use wiringXSetup(\"raspberrypi1b2\").",
+      "documentationUrl": "https://manual.wiringx.org/platforms/raspberrypi/raspberrypi1b2.html",
+      "tags": [
+        "raspberry-pi",
+        "bcm2835",
+        "26-pin",
+        "wiringx"
+      ],
+      "hardware": {
+        "soc": "Broadcom 2835",
+        "socFamily": "Broadcom",
+        "formFactor": "26-pin header"
+      },
+      "specifications": {
+        "gpioHeader": "26-pin",
+        "gpioNumbering": "wiringX GPIO",
+        "interface": [
+          "GPIO",
+          "I2C",
+          "SPI",
+          "UART"
+        ]
+      },
+      "wiringX": {
+        "setupId": "raspberrypi1b2",
+        "documentationPath": "/platforms/raspberrypi/raspberrypi1b2.html",
+        "wiringxGpioCount": 20
+      }
+    }
+  ]
+}

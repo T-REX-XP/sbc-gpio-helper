@@ -1042,7 +1042,7 @@
       "maintainer": "wiringX project",
       "description": "Modular, hardware-agnostic GPIO library with a uniform API across Raspberry Pi, Radxa, Orange Pi, Banana Pi, ODROID, and other Linux SBCs. Auto-detects the host platform at runtime so the same program can target multiple boards.",
       "repositoryUrl": "https://github.com/wiringX/wiringX",
-      "documentationUrl": "https://wiringx.org/",
+      "documentationUrl": "https://manual.wiringx.org",
       "primaryTargets": "Radxa, Orange Pi, Banana Pi, ODROID, Raspberry Pi",
       "wiringPiCompatibility": "moderate",
       "languages": [
@@ -1051,9 +1051,20 @@
       ],
       "bestFor": "Cross-platform C/Python projects that must run on several alternative SBC families with one codebase.",
       "supportedPlatformIds": [
-        "raspberry-pi-40pin",
-        "radxa-zero-40pin",
-        "orangepi-5-26pin"
+        "bananapi-1-26pin",
+        "bananapi-m2-40pin",
+        "hummingboard-base-pro-26pin",
+        "hummingboard-edge-gate-40pin",
+        "odroid-c1-40pin",
+        "odroid-c2-40pin",
+        "odroid-xu4-30pin",
+        "orangepi-h3-40pin",
+        "orangepi-h5-40pin-pc2",
+        "pcduino-1-40pin",
+        "radxa-rock4-40pin",
+        "raspberry-pi-26pin-rev1",
+        "raspberry-pi-26pin-rev2",
+        "raspberry-pi-40pin"
       ],
       "tags": [
         "cross-platform",
@@ -1061,7 +1072,7 @@
         "orange-pi",
         "raspberry-pi"
       ],
-      "notes": "Platform coverage depends on wiringX SoC support — verify your exact board on wiringx.org before relying on it."
+      "notes": "18 boards from wiringX 7.0 manual — merged with existing catalog entries where duplicated."
     },
     {
       "id": "libmraa",

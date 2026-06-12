@@ -1,0 +1,221 @@
+{
+  "id": "odroid-xu4-30pin",
+  "name": "Odroid XU4 GPIO Header",
+  "shortName": "Odroid XU4",
+  "pinCount": 30,
+  "orientationHint": "USB/ports toward you — odd pins on the left column, even on the right (wiringX manual layout)",
+  "documentationUrl": "https://manual.wiringx.org/platforms/odroid/odroidxu4.html",
+  "notes": "Pinout from wiringX manual GPIO Mapping table.",
+  "gpioNumberLabel": "wiringX GPIO",
+  "formFactor": {
+    "widthMm": 65,
+    "heightMm": 32,
+    "label": "30-pin header",
+    "gpioHeader": {
+      "pin1": {
+        "x": 1.27,
+        "y": 0
+      },
+      "pitchMm": 2.54,
+      "columns": 2,
+      "rows": 15
+    },
+    "notes": "Documented on wiringX manual for Odroid XU4."
+  },
+  "pins": [
+    {
+      "physical": 1,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 2,
+      "name": "2V",
+      "type": "power3v3"
+    },
+    {
+      "physical": 3,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 4,
+      "name": "GPIO27",
+      "type": "gpio",
+      "gpioNumber": 27,
+      "bankName": "wiringX 27"
+    },
+    {
+      "physical": 5,
+      "name": "GPIO6",
+      "type": "gpio",
+      "gpioNumber": 6,
+      "bankName": "wiringX 6"
+    },
+    {
+      "physical": 6,
+      "name": "GPIO7",
+      "type": "gpio",
+      "gpioNumber": 7,
+      "bankName": "wiringX 7"
+    },
+    {
+      "physical": 7,
+      "name": "GPIO11",
+      "type": "gpio",
+      "gpioNumber": 11,
+      "bankName": "wiringX 11"
+    },
+    {
+      "physical": 8,
+      "name": "AD",
+      "type": "gpio"
+    },
+    {
+      "physical": 9,
+      "name": "GPIO23",
+      "type": "gpio",
+      "gpioNumber": 23,
+      "bankName": "wiringX 23"
+    },
+    {
+      "physical": 10,
+      "name": "GPIO26",
+      "type": "gpio",
+      "gpioNumber": 26,
+      "bankName": "wiringX 26"
+    },
+    {
+      "physical": 11,
+      "name": "GPIO21",
+      "type": "gpio",
+      "gpioNumber": 21,
+      "bankName": "wiringX 21"
+    },
+    {
+      "physical": 12,
+      "name": "GPIO22",
+      "type": "gpio",
+      "gpioNumber": 22,
+      "bankName": "wiringX 22"
+    },
+    {
+      "physical": 13,
+      "name": "GPIO4",
+      "type": "gpio",
+      "gpioNumber": 4,
+      "bankName": "wiringX 4"
+    },
+    {
+      "physical": 14,
+      "name": "GPIO3",
+      "type": "gpio",
+      "gpioNumber": 3,
+      "bankName": "wiringX 3"
+    },
+    {
+      "physical": 15,
+      "name": "GPIO8",
+      "type": "gpio",
+      "gpioNumber": 8,
+      "bankName": "wiringX 8"
+    },
+    {
+      "physical": 16,
+      "name": "GPIO7",
+      "type": "gpio",
+      "gpioNumber": 7,
+      "bankName": "wiringX 7"
+    },
+    {
+      "physical": 17,
+      "name": "GPIO9",
+      "type": "gpio",
+      "gpioNumber": 9,
+      "bankName": "wiringX 9"
+    },
+    {
+      "physical": 18,
+      "name": "GPIO2",
+      "type": "gpio",
+      "gpioNumber": 2,
+      "bankName": "wiringX 2"
+    },
+    {
+      "physical": 19,
+      "name": "PW",
+      "type": "gpio"
+    },
+    {
+      "physical": 20,
+      "name": "GPIO10",
+      "type": "gpio",
+      "gpioNumber": 10,
+      "bankName": "wiringX 10"
+    },
+    {
+      "physical": 21,
+      "name": "GPIO14",
+      "type": "gpio",
+      "gpioNumber": 14,
+      "bankName": "wiringX 14"
+    },
+    {
+      "physical": 22,
+      "name": "GPIO13",
+      "type": "gpio",
+      "gpioNumber": 13,
+      "bankName": "wiringX 13"
+    },
+    {
+      "physical": 23,
+      "name": "GPIO15",
+      "type": "gpio",
+      "gpioNumber": 15,
+      "bankName": "wiringX 15"
+    },
+    {
+      "physical": 24,
+      "name": "GPIO12",
+      "type": "gpio",
+      "gpioNumber": 12,
+      "bankName": "wiringX 12"
+    },
+    {
+      "physical": 25,
+      "name": "GPIO16",
+      "type": "gpio",
+      "gpioNumber": 16,
+      "bankName": "wiringX 16"
+    },
+    {
+      "physical": 26,
+      "name": "GPIO0",
+      "type": "gpio",
+      "gpioNumber": 0,
+      "bankName": "wiringX 0"
+    },
+    {
+      "physical": 27,
+      "name": "GPIO1",
+      "type": "gpio",
+      "gpioNumber": 1,
+      "bankName": "wiringX 1"
+    },
+    {
+      "physical": 28,
+      "name": "AD",
+      "type": "gpio"
+    },
+    {
+      "physical": 29,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 30,
+      "name": "5V",
+      "type": "power5v"
+    }
+  ]
+}

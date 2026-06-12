@@ -1,5 +1,7 @@
 import hardwareRegistryConfig from '../config/hardware-registry.json';
 import wiringOpSbcsConfig from '../config/wiringop-sbcs.json';
+import wiringxSbcsConfig from '../config/wiringx-sbcs.json';
+import wiringxOverlaysConfig from '../config/wiringx-overlays.json';
 import { getCanonicalDeviceColor } from './colors';
 import { PLATFORM_CONFIGS } from './platforms';
 import type {
@@ -64,6 +66,55 @@ function shouldIncludeWiringOpSbc(
   return curatedSlug !== sbc.id;
 }
 
+function mergeWiringXMeta(
+  existing: SbcRegistryEntry['wiringX'],
+  incoming: NonNullable<SbcRegistryEntry['wiringX']>,
+): NonNullable<SbcRegistryEntry['wiringX']> {
+  const primarySetupId = existing?.setupId ?? incoming.setupId;
+  const alternate = new Set([
+    ...(existing?.alternateSetupIds ?? []),
+    ...(existing?.setupId && existing.setupId !== primarySetupId ? [existing.setupId] : []),
+    ...(incoming.alternateSetupIds ?? []),
+    ...(incoming.setupId !== primarySetupId ? [incoming.setupId] : []),
+  ]);
+  alternate.delete(primarySetupId);
+
+  return {
+    setupId: primarySetupId,
+    documentationPath: existing?.documentationPath ?? incoming.documentationPath,
+    wiringxGpioCount: incoming.wiringxGpioCount ?? existing?.wiringxGpioCount,
+    ...(alternate.size > 0 ? { alternateSetupIds: [...alternate].sort() } : {}),
+  };
+}
+
+function applyWiringxOverlays(sbcs: SbcRegistryEntry[]): SbcRegistryEntry[] {
+  const byId = new Map(sbcs.map((sbc) => [sbc.id, { ...sbc }]));
+
+  for (const overlay of wiringxOverlaysConfig.overlays) {
+    const sbc = byId.get(overlay.sbcId);
+    if (!sbc) {
+      throw new Error(`wiringX overlay targets unknown SBC "${overlay.sbcId}"`);
+    }
+    sbc.wiringX = mergeWiringXMeta(sbc.wiringX, overlay.wiringX);
+    if (!sbc.tags?.includes('wiringx')) {
+      sbc.tags = [...(sbc.tags ?? []), 'wiringx'];
+    }
+  }
+
+  return [...byId.values()];
+}
+
+function shouldIncludeWiringxSbc(
+  sbc: SbcRegistryEntry,
+  existingSbcs: SbcRegistryEntry[],
+): boolean {
+  if (existingSbcs.some((entry) => entry.id === sbc.id)) return false;
+  if (existingSbcs.some((entry) => entry.platformId === sbc.platformId && entry.id === sbc.platformId)) {
+    return false;
+  }
+  return true;
+}
+
 function validateRegistry(config: HardwareRegistryConfig): void {
   const platformIds = new Set(PLATFORM_CONFIGS.map((platform) => platform.id));
 
@@ -95,6 +146,27 @@ function validateRegistry(config: HardwareRegistryConfig): void {
       throw new Error(`wiringOP SBC "${sbc.id}" references unknown platform "${sbc.platformId}"`);
     }
     registeredPlatformIds.add(sbc.platformId);
+  }
+
+  for (const sbc of wiringxSbcsConfig.sbcs) {
+    if (sbcIds.has(sbc.id)) continue;
+    sbcIds.add(sbc.id);
+
+    if (!platformIds.has(sbc.platformId)) {
+      throw new Error(`wiringX SBC "${sbc.id}" references unknown platform "${sbc.platformId}"`);
+    }
+    registeredPlatformIds.add(sbc.platformId);
+  }
+
+  for (const overlay of wiringxOverlaysConfig.overlays) {
+    if (!sbcIds.has(overlay.sbcId)) {
+      throw new Error(`wiringX overlay targets unknown SBC "${overlay.sbcId}"`);
+    }
+    const sbc = [...config.sbcs, ...wiringOpSbcsConfig.sbcs].find((entry) => entry.id === overlay.sbcId);
+    if (sbc && !platformIds.has(sbc.platformId)) {
+      throw new Error(`wiringX overlay SBC "${overlay.sbcId}" has unknown platform "${sbc.platformId}"`);
+    }
+    if (sbc) registeredPlatformIds.add(sbc.platformId);
   }
 
   if (!registeredPlatformIds.has(config.defaultPlatformId)) {
@@ -168,7 +240,11 @@ export class HardwareRegistry {
     const wiringOpSbcs = wiringOpSbcsConfig.sbcs.filter((sbc) =>
       shouldIncludeWiringOpSbc(sbc, config),
     );
-    this.sbcs = [...config.sbcs, ...wiringOpSbcs];
+    const mergedBeforeWiringx = [...config.sbcs, ...wiringOpSbcs];
+    const wiringxSbcs = wiringxSbcsConfig.sbcs.filter((sbc) =>
+      shouldIncludeWiringxSbc(sbc, mergedBeforeWiringx),
+    );
+    this.sbcs = applyWiringxOverlays([...mergedBeforeWiringx, ...wiringxSbcs]);
     this.gpioLibraries = config.gpioLibraries ?? [];
 
     this.platformById = new Map(PLATFORM_CONFIGS.map((platform) => [platform.id, platform]));
