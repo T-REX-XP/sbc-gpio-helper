@@ -17,6 +17,7 @@ export const uk: Messages = {
     aria: 'Сторінки застосунку',
     main: 'Головна',
     registry: 'Реєстр обладнання',
+    github: 'Переглянути код на GitHub',
   },
   common: {
     optional: 'необовʼязково',

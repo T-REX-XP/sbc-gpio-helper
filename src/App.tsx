@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AppNav, type AppPage } from './components/AppNav';
 import { DeviceColorStyles } from './components/DeviceColorStyles';
+import { GitHubLink } from './components/GitHubLink';
 import { LocaleSwitcher } from './components/LocaleSwitcher';
 import { UmamiAnalytics } from './components/UmamiAnalytics';
 import { hardwareRegistry } from './hardware';
@@ -32,6 +33,7 @@ function App() {
             {platform?.shortName ?? platform?.name ?? 'GPIO'} {t('app.titleSuffix')}
           </h1>
           <div className="app-header__actions">
+            <GitHubLink />
             <LocaleSwitcher />
             <AppNav active={page} onChange={setPage} />
           </div>

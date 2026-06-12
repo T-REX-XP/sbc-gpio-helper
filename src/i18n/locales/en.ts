@@ -15,6 +15,7 @@ export const en = {
     aria: 'Application pages',
     main: 'Main',
     registry: 'Hardware registry',
+    github: 'View source on GitHub',
   },
   common: {
     optional: 'optional',
