@@ -34,7 +34,8 @@
       "wiringOp": {
         "releaseId": "orangepi3.",
         "model": "PI_MODEL_3"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-3.jpg"
     },
     {
       "id": "orange-pi-3-lts",
@@ -70,7 +71,8 @@
       "wiringOp": {
         "releaseId": "orangepi3-lts.",
         "model": "PI_MODEL_3"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-3-lts.png"
     },
     {
       "id": "orange-pi-one-plus",
@@ -106,7 +108,8 @@
       "wiringOp": {
         "releaseId": "orangepioneplus.",
         "model": "PI_MODEL_LTIE_2"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-one-plus.jpg"
     },
     {
       "id": "orange-pi-lite-2",
@@ -142,7 +145,8 @@
       "wiringOp": {
         "releaseId": "orangepilite2.",
         "model": "PI_MODEL_LTIE_2"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-lite-2.jpg"
     },
     {
       "id": "orange-pi-zero",
@@ -178,7 +182,8 @@
       "wiringOp": {
         "releaseId": "orangepizero.",
         "model": "PI_MODEL_ZERO"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero.jpg"
     },
     {
       "id": "orange-pi-zero-lts",
@@ -214,7 +219,8 @@
       "wiringOp": {
         "releaseId": "orangepizerolts.",
         "model": "PI_MODEL_ZERO"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero-lts.jpg"
     },
     {
       "id": "orange-pi-zero-lts",
@@ -250,7 +256,8 @@
       "wiringOp": {
         "releaseId": "orangepizero-lts.",
         "model": "PI_MODEL_ZERO"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero-lts.jpg"
     },
     {
       "id": "orange-pi-r1",
@@ -286,7 +293,8 @@
       "wiringOp": {
         "releaseId": "orangepir1.",
         "model": "PI_MODEL_ZERO"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-r1.jpg"
     },
     {
       "id": "orange-pi-r1",
@@ -322,7 +330,8 @@
       "wiringOp": {
         "releaseId": "orangepi-r1.",
         "model": "PI_MODEL_ZERO"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-r1.jpg"
     },
     {
       "id": "orange-pi-pc",
@@ -358,7 +367,8 @@
       "wiringOp": {
         "releaseId": "orangepipc.",
         "model": "PI_MODEL_H3"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-pc.jpg"
     },
     {
       "id": "orange-pi-pc-plus",
@@ -394,7 +404,8 @@
       "wiringOp": {
         "releaseId": "orangepipcplus.",
         "model": "PI_MODEL_H3"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-pc-plus.jpg"
     },
     {
       "id": "orange-pi-one",
@@ -430,7 +441,8 @@
       "wiringOp": {
         "releaseId": "orangepione.",
         "model": "PI_MODEL_H3"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-one.jpg"
     },
     {
       "id": "orange-pi-lite",
@@ -466,7 +478,8 @@
       "wiringOp": {
         "releaseId": "orangepilite.",
         "model": "PI_MODEL_H3"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-lite.jpg"
     },
     {
       "id": "orange-pi-plus",
@@ -538,7 +551,8 @@
       "wiringOp": {
         "releaseId": "orangepiplue2e.",
         "model": "PI_MODEL_H3"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-plus-2e.jpg"
     },
     {
       "id": "orange-pi-zero-plus-2-h3",
@@ -574,7 +588,8 @@
       "wiringOp": {
         "releaseId": "orangepizeroplus2h3.",
         "model": "PI_MODEL_ZERO_PLUS_2"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero-plus-2-h3.jpg"
     },
     {
       "id": "orange-pi-zero-plus-2-h3",
@@ -610,7 +625,8 @@
       "wiringOp": {
         "releaseId": "orangepizeroplus2-h3.",
         "model": "PI_MODEL_ZERO_PLUS_2"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero-plus-2-h3.jpg"
     },
     {
       "id": "orange-pi-win",
@@ -718,7 +734,8 @@
       "wiringOp": {
         "releaseId": "orangepiprime.",
         "model": "PI_MODEL_PRIME"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-prime.jpg"
     },
     {
       "id": "orange-pi-pc-2",
@@ -754,7 +771,8 @@
       "wiringOp": {
         "releaseId": "orangepipc2.",
         "model": "PI_MODEL_PC_2"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-pc-2.jpg"
     },
     {
       "id": "orange-pi-zero-plus",
@@ -790,7 +808,8 @@
       "wiringOp": {
         "releaseId": "orangepizeroplus.",
         "model": "PI_MODEL_ZERO_PLUS"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero-plus.jpg"
     },
     {
       "id": "orange-pi-zero-plus-2-h5",
@@ -826,7 +845,8 @@
       "wiringOp": {
         "releaseId": "orangepizeroplus2h5.",
         "model": "PI_MODEL_ZERO_PLUS_2"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero-plus-2-h5.jpg"
     },
     {
       "id": "orange-pi-zero-plus-2-h5",
@@ -862,7 +882,8 @@
       "wiringOp": {
         "releaseId": "orangepizeroplus2-h5.",
         "model": "PI_MODEL_ZERO_PLUS_2"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero-plus-2-h5.jpg"
     },
     {
       "id": "orange-pi-zero-2",
@@ -898,7 +919,8 @@
       "wiringOp": {
         "releaseId": "orangepizero2.",
         "model": "PI_MODEL_ZERO_2"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero-2.jpg"
     },
     {
       "id": "orange-pi-zero-2w",
@@ -934,7 +956,8 @@
       "wiringOp": {
         "releaseId": "orangepizero2w.",
         "model": "PI_MODEL_ZERO_2_W"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero-2w.png"
     },
     {
       "id": "orange-pi-zero-3",
@@ -970,7 +993,8 @@
       "wiringOp": {
         "releaseId": "orangepizero3.",
         "model": "PI_MODEL_ZERO_2"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero-3.png"
     },
     {
       "id": "orange-pi-zero-3w",
@@ -1006,7 +1030,8 @@
       "wiringOp": {
         "releaseId": "orangepizero3w.",
         "model": "PI_MODEL_ZERO_3_W"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-zero-3w.webp"
     },
     {
       "id": "orange-pi-zero-3-plus",
@@ -1078,7 +1103,8 @@
       "wiringOp": {
         "releaseId": "orangepirk3399.",
         "model": "PI_MODEL_RK3399"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-rk3399.jpg"
     },
     {
       "id": "orange-pi-rk3399",
@@ -1114,7 +1140,8 @@
       "wiringOp": {
         "releaseId": "orangepi-rk3399.",
         "model": "PI_MODEL_RK3399"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-rk3399.jpg"
     },
     {
       "id": "orange-pi-800",
@@ -1150,7 +1177,8 @@
       "wiringOp": {
         "releaseId": "orangepi800.",
         "model": "PI_MODEL_800"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-800.png"
     },
     {
       "id": "orange-pi-4",
@@ -1186,7 +1214,8 @@
       "wiringOp": {
         "releaseId": "orangepi4.",
         "model": "PI_MODEL_4"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-4.png"
     },
     {
       "id": "orange-pi-4a",
@@ -1222,7 +1251,8 @@
       "wiringOp": {
         "releaseId": "orangepi4a.",
         "model": "PI_MODEL_4A"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-4a.png"
     },
     {
       "id": "orange-pi-4-pro",
@@ -1258,7 +1288,8 @@
       "wiringOp": {
         "releaseId": "orangepi4pro.",
         "model": "PI_MODEL_4_PRO"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-4-pro.webp"
     },
     {
       "id": "orange-pi-4-lts",
@@ -1294,7 +1325,8 @@
       "wiringOp": {
         "releaseId": "orangepi4-lts.",
         "model": "PI_MODEL_4_LTS"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-4-lts.png"
     },
     {
       "id": "orange-pi-r1-plus",
@@ -1330,7 +1362,8 @@
       "wiringOp": {
         "releaseId": "orangepir1plus.",
         "model": "PI_MODEL_R1_PLUS"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-r1-plus.png"
     },
     {
       "id": "orange-pi-r1-plus",
@@ -1366,7 +1399,8 @@
       "wiringOp": {
         "releaseId": "orangepi-r1plus.",
         "model": "PI_MODEL_R1_PLUS"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-r1-plus.png"
     },
     {
       "id": "orange-pi-r1-plus-lts",
@@ -1402,7 +1436,8 @@
       "wiringOp": {
         "releaseId": "orangepir1plus-lts.",
         "model": "PI_MODEL_R1_PLUS"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-r1-plus-lts.png"
     },
     {
       "id": "orange-pi-r1-plus-lts",
@@ -1438,7 +1473,8 @@
       "wiringOp": {
         "releaseId": "orangepi-r1plus-lts.",
         "model": "PI_MODEL_R1_PLUS"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-r1-plus-lts.png"
     },
     {
       "id": "orange-pi-5",
@@ -1474,7 +1510,8 @@
       "wiringOp": {
         "releaseId": "orangepi5.",
         "model": "PI_MODEL_5"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-5.png"
     },
     {
       "id": "orange-pi-5b",
@@ -1510,7 +1547,8 @@
       "wiringOp": {
         "releaseId": "orangepi5b.",
         "model": "PI_MODEL_5B"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-5b.png"
     },
     {
       "id": "orange-pi-5-pro",
@@ -1546,7 +1584,8 @@
       "wiringOp": {
         "releaseId": "orangepi5pro.",
         "model": "PI_MODEL_5_PRO"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-5-pro.png"
     },
     {
       "id": "orange-pi-5-max",
@@ -1582,7 +1621,8 @@
       "wiringOp": {
         "releaseId": "orangepi5max.",
         "model": "PI_MODEL_5_MAX"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-5-max.png"
     },
     {
       "id": "orange-pi-5-ultra",
@@ -1618,7 +1658,8 @@
       "wiringOp": {
         "releaseId": "orangepi5ultra.",
         "model": "PI_MODEL_5_ULTRA"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-5-ultra.png"
     },
     {
       "id": "orange-pi-5-plus",
@@ -1654,7 +1695,8 @@
       "wiringOp": {
         "releaseId": "orangepi5plus.",
         "model": "PI_MODEL_5_PLUS"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-5-plus.png"
     },
     {
       "id": "orange-pi-ai-max",
@@ -1762,7 +1804,8 @@
       "wiringOp": {
         "releaseId": "orangepicm5.",
         "model": "PI_MODEL_CM5"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-cm5.png"
     },
     {
       "id": "orange-pi-cm5-tablet",
@@ -1798,7 +1841,8 @@
       "wiringOp": {
         "releaseId": "orangepicm5-tablet.",
         "model": "PI_MODEL_CM5_TABLET"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-cm5-tablet.png"
     },
     {
       "id": "orange-pi-cm5-tablet",
@@ -1834,7 +1878,8 @@
       "wiringOp": {
         "releaseId": "orangepicm5_tablet.",
         "model": "PI_MODEL_CM5_TABLET"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-cm5-tablet.png"
     },
     {
       "id": "orange-pi-cm4",
@@ -1870,7 +1915,8 @@
       "wiringOp": {
         "releaseId": "orangepicm4.",
         "model": "PI_MODEL_CM4"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-cm4.png"
     },
     {
       "id": "orange-pi-3b",
@@ -1906,7 +1952,8 @@
       "wiringOp": {
         "releaseId": "orangepi3b.",
         "model": "PI_MODEL_3B"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-3b.png"
     },
     {
       "id": "orange-pi-3-plus",
@@ -1978,7 +2025,8 @@
       "wiringOp": {
         "releaseId": "orangepiaipro.",
         "model": "PI_MODEL_AI_PRO"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-ai-pro.png"
     },
     {
       "id": "orange-pi-ai-pro-20t",
@@ -2014,7 +2062,8 @@
       "wiringOp": {
         "releaseId": "orangepiaipro-20t.",
         "model": "PI_MODEL_AI_PRO"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-ai-pro-20t.png"
     },
     {
       "id": "orange-pi-kunpeng-pro",
@@ -2086,7 +2135,8 @@
       "wiringOp": {
         "releaseId": "orangepiaistation.",
         "model": "PI_MODEL_AI_STATION"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-ai-station.webp"
     },
     {
       "id": "orange-pi-rv",
@@ -2122,7 +2172,8 @@
       "wiringOp": {
         "releaseId": "orangepirv.",
         "model": "PI_MODEL_RV"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-rv.png"
     },
     {
       "id": "orange-pi-rv2",
@@ -2158,7 +2209,8 @@
       "wiringOp": {
         "releaseId": "orangepirv2.",
         "model": "PI_MODEL_RV2"
-      }
+      },
+      "imageUrl": "/sbcs/orange-pi-rv2.png"
     }
   ]
 }

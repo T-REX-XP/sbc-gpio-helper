@@ -33,7 +33,8 @@
         "setupId": "bananapi1",
         "documentationPath": "/platforms/bananapi/bananapi1.html",
         "wiringxGpioCount": 21
-      }
+      },
+      "imageUrl": "/sbcs/bananapi-1.png"
     },
     {
       "id": "bananapi-m2",
@@ -68,7 +69,8 @@
         "setupId": "bananapim2",
         "documentationPath": "/platforms/bananapi/bananapim2.html",
         "wiringxGpioCount": 26
-      }
+      },
+      "imageUrl": "/sbcs/bananapi-m2.jpg"
     },
     {
       "id": "hummingboard-base-pro",
@@ -109,7 +111,8 @@
           "hummingboard_base_dq",
           "hummingboard_pro_dq"
         ]
-      }
+      },
+      "imageUrl": "/sbcs/hummingboard-base-pro.jpg"
     },
     {
       "id": "hummingboard-edge-gate",
@@ -150,7 +153,8 @@
           "hummingboard_edge_dq",
           "hummingboard_gate_dq"
         ]
-      }
+      },
+      "imageUrl": "/sbcs/hummingboard-edge-gate.jpg"
     },
     {
       "id": "odroid-c1",
@@ -185,7 +189,8 @@
         "setupId": "odroidc1",
         "documentationPath": "/platforms/odroid/odroidc1.html",
         "wiringxGpioCount": 21
-      }
+      },
+      "imageUrl": "/sbcs/odroid-c1.jpg"
     },
     {
       "id": "odroid-c2",
@@ -220,7 +225,8 @@
         "setupId": "odroidc2",
         "documentationPath": "/platforms/odroid/odroidc2.html",
         "wiringxGpioCount": 21
-      }
+      },
+      "imageUrl": "/sbcs/odroid-c2.png"
     },
     {
       "id": "odroid-xu4",
@@ -255,7 +261,8 @@
         "setupId": "odroidxu4",
         "documentationPath": "/platforms/odroid/odroidxu4.html",
         "wiringxGpioCount": 30
-      }
+      },
+      "imageUrl": "/sbcs/odroid-xu4.png"
     },
     {
       "id": "pcduino-1",
@@ -290,7 +297,8 @@
         "setupId": "pcduino1",
         "documentationPath": "/platforms/pcduino/pcduino1.html",
         "wiringxGpioCount": 17
-      }
+      },
+      "imageUrl": "/sbcs/pcduino-1.jpg"
     },
     {
       "id": "radxa-rock4",
@@ -325,7 +333,8 @@
         "setupId": "rock4",
         "documentationPath": "/platforms/radxa/rock4.html",
         "wiringxGpioCount": 27
-      }
+      },
+      "imageUrl": "/sbcs/radxa-rock4.jpg"
     },
     {
       "id": "raspberry-pi-1b-rev1",
@@ -360,7 +369,8 @@
         "setupId": "raspberrypi1b1",
         "documentationPath": "/platforms/raspberrypi/raspberrypi1b1.html",
         "wiringxGpioCount": 16
-      }
+      },
+      "imageUrl": "/sbcs/raspberry-pi-1b-rev1.jpg"
     },
     {
       "id": "raspberry-pi-1b-rev2",
@@ -395,7 +405,8 @@
         "setupId": "raspberrypi1b2",
         "documentationPath": "/platforms/raspberrypi/raspberrypi1b2.html",
         "wiringxGpioCount": 20
-      }
+      },
+      "imageUrl": "/sbcs/raspberry-pi-1b-rev2.jpg"
     }
   ]
 }

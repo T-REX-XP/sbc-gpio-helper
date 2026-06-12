@@ -10,7 +10,7 @@
       "vendor": "Raspberry Pi Foundation",
       "description": "Standard 40-pin GPIO header on Raspberry Pi boards (BCM numbering). Supports SPI0/SPI1 and common HAT accessories.",
       "documentationUrl": "https://pinout.xyz/",
-      "imageUrl": "/sbcs/raspberry-pi-40pin.webp",
+      "imageUrl": "/sbcs/raspberry-pi-40pin.jpg",
       "tags": [
         "raspberry-pi",
         "40-pin",
@@ -197,7 +197,7 @@
       "description": "26-pin expansion header on Orange Pi 5 (RK3588S). SPI4, I²C, UART, PWM, and CAN — not the same as Orange Pi 5 Plus (40-pin).",
       "documentationUrl": "http://www.orangepi.org/orangepiwiki/index.php/26_Pin_Interface_Pin_Description",
       "productUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5.html",
-      "imageUrl": "/sbcs/orangepi-5-26pin.webp",
+      "imageUrl": "/sbcs/orangepi-5-26pin.png",
       "tags": [
         "orange-pi",
         "rk3588s",
