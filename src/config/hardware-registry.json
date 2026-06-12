@@ -136,6 +136,32 @@
         "gpioNumbering": "Linux GPIO + bank name (GPIOx_YZ)",
         "interface": ["SPI4", "I2C1", "I2C3", "I2C5", "UART", "PWM", "CAN"]
       }
+    },
+    {
+      "id": "luckfox-lyra-zero-w-40pin",
+      "platformId": "luckfox-lyra-zero-w-40pin",
+      "name": "Luckfox Lyra Zero W 40-pin GPIO Header",
+      "shortName": "Luckfox Lyra Zero W",
+      "vendor": "Luckfox",
+      "description": "40-pin header on the Luckfox Lyra Zero W (RK3506B). Rockchip Matrix IO multiplexing with 28 flexible GPIO signals. Wi-Fi 6 / Bluetooth 5.2 onboard.",
+      "documentationUrl": "https://wiki.luckfox.com/Luckfox-Lyra-Zero-W",
+      "productUrl": "https://www.luckfox.com/Luckfox-Lyra-Zero-W",
+      "imageUrl": "/sbcs/luckfox-lyra-zero-w-40pin.jpg",
+      "tags": ["luckfox", "rk3506", "40-pin", "matrix-io", "wifi6"],
+      "hardware": {
+        "soc": "Rockchip RK3506B",
+        "socFamily": "RK3506",
+        "cpu": "Triple-core Cortex-A7 @ 1.2 GHz + Cortex-M0",
+        "ram": "512 MB DDR3L",
+        "storage": "256 MB SPI NAND; MicroSD",
+        "connectivity": ["Wi-Fi 6", "Bluetooth 5.2 / BLE", "USB-C OTG", "USB-C HOST", "MIPI DSI 2-lane"],
+        "formFactor": "Rpi Zero class stick"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "Rockchip GPIO + RM_IO",
+        "interface": ["Matrix IO", "UART", "I2C", "SPI", "PWM", "I2S", "CAN"]
+      }
     }
   ],
   "hats": [

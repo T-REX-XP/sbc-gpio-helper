@@ -4,6 +4,7 @@ export const PLATFORM_ACCENT_COLORS: Record<string, string> = {
   'radxa-zero-3-40pin': '#ea580c',
   'orangepi-zero-3w-40pin': '#f97316',
   'orangepi-5-26pin': '#ea580c',
+  'luckfox-lyra-zero-w-40pin': '#0d9488',
 };
 
 export function getPlatformAccentColor(platformId: string): string {
