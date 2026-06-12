@@ -64,7 +64,7 @@
       "description": "40-pin header on Radxa Zero 3 (RK3566). SPI3 on the header with RK3568-family device-tree overlays.",
       "documentationUrl": "https://docs.radxa.com/en/zero/zero3/hardware-design/hardware-interface",
       "productUrl": "https://docs.radxa.com/en/zero/zero3",
-      "imageUrl": "/sbcs/radxa-zero-3-40pin.webp",
+      "imageUrl": "/sbcs/radxa-zero-3-40pin.jpg",
       "tags": ["radxa", "rk3566", "40-pin", "spi3", "device-tree"],
       "hardware": {
         "soc": "Rockchip RK3566",
