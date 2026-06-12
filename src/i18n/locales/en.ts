@@ -263,7 +263,7 @@ export const en = {
       name: 'Name',
       vendor: 'Vendor',
       soc: 'SoC',
-      platform: 'Platform',
+      platform: 'Pinout profile',
       kind: 'Kind',
       productCategory: 'Type',
       interfaces: 'Interfaces',

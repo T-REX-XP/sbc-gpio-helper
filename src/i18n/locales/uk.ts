@@ -265,7 +265,7 @@ export const uk: Messages = {
       name: 'Назва',
       vendor: 'Виробник',
       soc: 'SoC',
-      platform: 'Платформа',
+      platform: 'Профіль розводки',
       kind: 'Вид',
       productCategory: 'Тип',
       interfaces: 'Інтерфейси',

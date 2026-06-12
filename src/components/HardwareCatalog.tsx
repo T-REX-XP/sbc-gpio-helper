@@ -641,7 +641,9 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
                           />
                           <div className="registry-table__title-stack">
                             <span className="registry-table__title">{row.name}</span>
-                            <code className="registry-table__subtitle">{row.id}</code>
+                            {row.id !== row.platformId && (
+                              <code className="registry-table__subtitle">{row.id}</code>
+                            )}
                           </div>
                         </div>
                       </td>
