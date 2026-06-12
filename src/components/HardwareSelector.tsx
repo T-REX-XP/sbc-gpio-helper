@@ -1,8 +1,7 @@
-import type { CSSProperties } from 'react';
 import type { HardwareDevice } from '../hardware';
 import { hardwareRegistry } from '../hardware';
 import { useI18n } from '../i18n';
-import { HardwareImage } from './HardwareImage';
+import { SelectorControl } from './SelectorControl';
 
 interface HardwareSelectorProps {
   devices: readonly HardwareDevice[];
@@ -10,37 +9,6 @@ interface HardwareSelectorProps {
   compareId: string | null;
   onPrimaryChange: (id: string) => void;
   onCompareChange: (id: string | null) => void;
-}
-
-function DeviceChip({ device }: { device: HardwareDevice }) {
-  const { t } = useI18n();
-
-  return (
-    <div
-      className="selector-chip"
-      style={
-        { '--chip-accent': hardwareRegistry.getDeviceColor(device.id) } as CSSProperties
-      }
-      title={device.description}
-    >
-      <HardwareImage
-        imageUrl={device.imageUrl}
-        alt={device.name}
-        size="xs"
-        className="selector-chip__image"
-      />
-      <span className="selector-chip__title">{device.shortName ?? device.name}</span>
-      <a
-        className="selector-chip__link"
-        href={device.documentationUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={(event) => event.stopPropagation()}
-      >
-        {t('common.docs')}
-      </a>
-    </div>
-  );
 }
 
 export function HardwareSelector({
@@ -61,25 +29,37 @@ export function HardwareSelector({
         <label className="selector-slot__label" htmlFor="hat-primary">
           {t('hardwareSelector.displayHat')}
         </label>
-        <select
+        <SelectorControl
           id="hat-primary"
-          className="selector-slot__select"
           value={primaryId}
-          onChange={(e) => {
-            const nextId = e.target.value;
+          onChange={(nextId) => {
             onPrimaryChange(nextId);
             if (compareId === nextId) {
               onCompareChange(null);
             }
           }}
+          imageUrl={primaryDevice?.imageUrl}
+          imageAlt={primaryDevice?.name ?? ''}
+          accentColor={primaryDevice ? hardwareRegistry.getDeviceColor(primaryDevice.id) : undefined}
         >
           {devices.map((device) => (
             <option key={device.id} value={device.id}>
               {device.name} ({device.vendor})
             </option>
           ))}
-        </select>
-        {primaryDevice && <DeviceChip device={primaryDevice} />}
+        </SelectorControl>
+        {primaryDevice && (
+          <span className="selector-slot__links">
+            <a
+              className="selector-slot__link"
+              href={primaryDevice.documentationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('common.docs')}
+            </a>
+          </span>
+        )}
       </div>
 
       <div className="selector-slot">
@@ -87,11 +67,13 @@ export function HardwareSelector({
           {t('hardwareSelector.compareWith')}
           <span className="selector-slot__optional">{t('common.optional')}</span>
         </label>
-        <select
+        <SelectorControl
           id="hat-compare"
-          className="selector-slot__select"
           value={compareId ?? ''}
-          onChange={(e) => onCompareChange(e.target.value || null)}
+          onChange={(value) => onCompareChange(value || null)}
+          imageUrl={compareDevice?.imageUrl}
+          imageAlt={compareDevice?.name ?? ''}
+          accentColor={compareDevice ? hardwareRegistry.getDeviceColor(compareDevice.id) : undefined}
         >
           <option value="">{t('common.none')}</option>
           {compareOptions.map((device) => (
@@ -99,8 +81,19 @@ export function HardwareSelector({
               {device.name} ({device.vendor})
             </option>
           ))}
-        </select>
-        {compareDevice && <DeviceChip device={compareDevice} />}
+        </SelectorControl>
+        {compareDevice && (
+          <span className="selector-slot__links">
+            <a
+              className="selector-slot__link"
+              href={compareDevice.documentationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('common.docs')}
+            </a>
+          </span>
+        )}
       </div>
     </section>
   );

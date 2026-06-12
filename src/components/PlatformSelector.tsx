@@ -1,5 +1,3 @@
-import type { CSSProperties } from 'react';
-import { HardwareImage } from './HardwareImage';
 import type { GpioPlatform } from '../hardware';
 import {
   formatPlatformFormFactor,
@@ -7,6 +5,7 @@ import {
   hardwareRegistry,
 } from '../hardware';
 import { createFormFactorClassTranslator, useI18n } from '../i18n';
+import { SelectorControl } from './SelectorControl';
 
 interface PlatformSelectorProps {
   platforms: readonly GpioPlatform[];
@@ -15,33 +14,6 @@ interface PlatformSelectorProps {
   onPlatformChange: (platformId: string) => void;
   onComparePlatformChange: (platformId: string | null) => void;
   onSwapComparePlatforms: () => void;
-}
-
-function BoardChip({ platform }: { platform: GpioPlatform }) {
-  const { t } = useI18n();
-  const sbc = hardwareRegistry.getSbcForPlatform(platform.id);
-  const translateClass = createFormFactorClassTranslator(t);
-  const formFactorLabel = formatPlatformFormFactor(platform, translateClass);
-
-  if (!sbc?.imageUrl && !formFactorLabel) return null;
-
-  return (
-    <div
-      className="selector-chip"
-      style={{ '--chip-accent': getPlatformAccentColor(platform.id) } as CSSProperties}
-      title={formFactorLabel || undefined}
-    >
-      {sbc?.imageUrl && (
-        <HardwareImage
-          imageUrl={sbc.imageUrl}
-          alt={platform.shortName ?? platform.name}
-          size="xs"
-          className="selector-chip__image"
-        />
-      )}
-      <span className="selector-chip__title">{platform.shortName ?? platform.name}</span>
-    </div>
-  );
 }
 
 export function PlatformSelector({
@@ -53,11 +25,14 @@ export function PlatformSelector({
   onSwapComparePlatforms,
 }: PlatformSelectorProps) {
   const { t } = useI18n();
+  const translateClass = createFormFactorClassTranslator(t);
   const primary = platforms.find((p) => p.id === platformId);
   const compare = comparePlatformId
     ? platforms.find((p) => p.id === comparePlatformId)
     : undefined;
   const compareOptions = platforms.filter((p) => p.id !== platformId);
+  const primarySbc = primary ? hardwareRegistry.getSbcForPlatform(primary.id) : undefined;
+  const compareSbc = compare ? hardwareRegistry.getSbcForPlatform(compare.id) : undefined;
 
   return (
     <section className="selector-toolbar" aria-label={t('platformSelector.aria')}>
@@ -65,19 +40,25 @@ export function PlatformSelector({
         <label className="selector-slot__label" htmlFor="platform-primary">
           {t('platformSelector.boardPlatform')}
         </label>
-        <select
+        <SelectorControl
           id="platform-primary"
-          className="selector-slot__select"
           value={platformId}
-          onChange={(event) => onPlatformChange(event.target.value)}
+          onChange={onPlatformChange}
+          imageUrl={primarySbc?.imageUrl}
+          imageAlt={primary?.shortName ?? primary?.name ?? ''}
+          accentColor={primary ? getPlatformAccentColor(primary.id) : undefined}
         >
           {platforms.map((platform) => (
             <option key={platform.id} value={platform.id}>
               {platform.shortName ?? platform.name}
             </option>
           ))}
-        </select>
-        {primary && <BoardChip platform={primary} />}
+        </SelectorControl>
+        {primary && formatPlatformFormFactor(primary, translateClass) && (
+          <span className="selector-slot__hint" title={formatPlatformFormFactor(primary, translateClass)}>
+            {formatPlatformFormFactor(primary, translateClass)}
+          </span>
+        )}
         <span className="selector-slot__links">
           {primary?.documentationUrl && (
             <a
@@ -107,11 +88,13 @@ export function PlatformSelector({
           {t('platformSelector.compareWith')}
           <span className="selector-slot__optional">{t('common.optional')}</span>
         </label>
-        <select
+        <SelectorControl
           id="platform-compare"
-          className="selector-slot__select"
           value={comparePlatformId ?? ''}
-          onChange={(event) => onComparePlatformChange(event.target.value || null)}
+          onChange={(value) => onComparePlatformChange(value || null)}
+          imageUrl={compareSbc?.imageUrl}
+          imageAlt={compare?.shortName ?? compare?.name ?? ''}
+          accentColor={compare ? getPlatformAccentColor(compare.id) : undefined}
         >
           <option value="">{t('common.none')}</option>
           {compareOptions.map((platform) => (
@@ -119,8 +102,12 @@ export function PlatformSelector({
               {platform.shortName ?? platform.name}
             </option>
           ))}
-        </select>
-        {compare && <BoardChip platform={compare} />}
+        </SelectorControl>
+        {compare && formatPlatformFormFactor(compare, translateClass) && (
+          <span className="selector-slot__hint" title={formatPlatformFormFactor(compare, translateClass)}>
+            {formatPlatformFormFactor(compare, translateClass)}
+          </span>
+        )}
         <span className="selector-slot__links">
           {compare?.documentationUrl && (
             <a
