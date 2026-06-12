@@ -37,7 +37,7 @@
       "description": "40-pin header on the original Radxa Zero (Meson G12A / S905Y2). Dual SPI buses and device-tree overlays for I²C, UART, and PWM.",
       "documentationUrl": "https://wiki.radxa.com/Zero/hardware/gpio",
       "productUrl": "https://docs.radxa.com/en/zero/zero",
-      "imageUrl": "/sbcs/radxa-zero-40pin.webp",
+      "imageUrl": "/sbcs/radxa-zero-40pin.png",
       "tags": ["radxa", "meson-g12a", "40-pin", "spi", "device-tree"],
       "hardware": {
         "soc": "Amlogic S905Y2",
@@ -91,7 +91,7 @@
       "description": "40-pin expansion header on the Orange Pi Zero 3W (Allwinner A733). SPI3, TWI/I²C, UART, and PWM on the header. Pin 4 is GND — not Pi-compatible power layout.",
       "documentationUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-3W.html",
       "productUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-3W.html",
-      "imageUrl": "/sbcs/orangepi-zero-3w-40pin.webp",
+      "imageUrl": "/sbcs/orangepi-zero-3w-40pin.png",
       "tags": ["orange-pi", "allwinner-a733", "40-pin", "spi3", "wifi6"],
       "hardware": {
         "soc": "Allwinner A733",
