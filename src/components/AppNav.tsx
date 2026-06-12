@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
+import { ButtonIcon } from '../components/icons';
 import { useI18n } from '../i18n';
 import { getLastPlatformId } from '../routing/lastPlatform';
 
@@ -21,8 +22,8 @@ export function AppNav() {
     : '/registry';
 
   const tabs = [
-    { id: 'main', labelKey: 'nav.main' as const, to: mainPath, active: !isRegistry },
-    { id: 'registry', labelKey: 'nav.registry' as const, to: registryPath, active: isRegistry },
+    { id: 'main', labelKey: 'nav.main' as const, to: mainPath, active: !isRegistry, icon: 'board' as const },
+    { id: 'registry', labelKey: 'nav.registry' as const, to: registryPath, active: isRegistry, icon: 'catalog' as const },
   ];
 
   return (
@@ -33,13 +34,14 @@ export function AppNav() {
             <NavLink
               to={tab.to}
               className={() =>
-                ['app-nav__tab', tab.active ? 'app-nav__tab--active' : '']
+                ['app-nav__tab', 'btn-with-icon', tab.active ? 'app-nav__tab--active' : '']
                   .filter(Boolean)
                   .join(' ')
               }
               aria-current={tab.active ? 'page' : undefined}
             >
-              {t(tab.labelKey)}
+              <ButtonIcon name={tab.icon} />
+              <span>{t(tab.labelKey)}</span>
             </NavLink>
           </li>
         ))}

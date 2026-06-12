@@ -1,6 +1,7 @@
 import type { PinType } from '../hardware';
 import { legendFilterKey } from '../hardware/legendFilters';
 import { useI18n } from '../i18n';
+import { ButtonLabel } from './icons';
 
 const PIN_TYPES: PinType[] = [
   'gpio',
@@ -41,8 +42,8 @@ export function ColorLegend({
           <span className="color-legend__filter-count">
             {t(highlightKey, { count: pinTypeFilters.length })}
           </span>
-          <button type="button" className="color-legend__clear" onClick={onClearFilters}>
-            {t('common.clear')}
+          <button type="button" className="color-legend__clear btn-with-icon" onClick={onClearFilters}>
+            <ButtonLabel icon="clear">{t('common.clear')}</ButtonLabel>
           </button>
         </div>
       )}

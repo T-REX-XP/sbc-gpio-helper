@@ -42,6 +42,7 @@ export { getPlatformAccentColor, PLATFORM_ACCENT_COLORS } from './platformColors
 export {
   formatPlatformBoardSize,
   formatPlatformFormFactor,
+  getFamilyPortraitLayout,
   getFormFactor,
   getFormFactorClassLabel,
   getFormFactorMetrics,
@@ -51,6 +52,7 @@ export {
   getHeaderRows,
   getHeaderWidthMm,
   getPlatformHeaderRowCount,
+  getVariantCornerHoles,
   hasFormFactor,
   PI_FORM_FACTOR_LABELS,
 } from './formFactor';

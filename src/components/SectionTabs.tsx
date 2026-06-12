@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react';
+import { ButtonIcon, type ButtonIconName } from './icons';
 
 interface SectionTab {
   id: string;
   label: string;
+  icon?: ButtonIconName;
 }
 
 interface SectionTabsProps {
@@ -30,6 +32,7 @@ export function SectionTabs({
           id={`${idPrefix}-tab-${tab.id}`}
           className={[
             'section-tabs__tab',
+            'btn-with-icon',
             activeTab === tab.id ? 'section-tabs__tab--active' : '',
           ]
             .filter(Boolean)
@@ -38,7 +41,8 @@ export function SectionTabs({
           aria-controls={`${idPrefix}-panel-${tab.id}`}
           onClick={() => onTabChange(tab.id)}
         >
-          {tab.label}
+          {tab.icon && <ButtonIcon name={tab.icon} />}
+          <span>{tab.label}</span>
         </button>
       ))}
     </div>

@@ -75,6 +75,18 @@
   height: 1.05rem;
 }
 
+.btn-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.btn-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex-shrink: 0;
+}
+
 .locale-switcher {
   display: flex;
   align-items: center;
@@ -127,7 +139,9 @@
 }
 
 .app-nav__tab {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   padding: 0.35rem 0.75rem;
   border: none;
   border-radius: 7px;
@@ -542,7 +556,7 @@
 }
 
 .form-factor-compare__svg--family {
-  max-width: 28rem;
+  max-width: 16rem;
 }
 
 .form-factor-compare__table {
@@ -836,6 +850,9 @@
 }
 
 .image-export__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   padding: 0.35rem 0.65rem;
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -884,6 +901,9 @@
 }
 
 .section-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   padding: 0.35rem 0.7rem;
   border: none;
   border-radius: 6px;

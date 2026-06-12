@@ -12,6 +12,7 @@ import {
 import { createFormFactorClassTranslator, useI18n } from '../i18n';
 import { useRegistryRoute } from '../routing/useRegistryRoute';
 import { HardwareImage } from './HardwareImage';
+import { ButtonIcon, ButtonLabel, type ButtonIconName } from './icons';
 
 interface HardwareCatalogProps {
   sbcs: Parameters<typeof buildRegistryTableRows>[0];
@@ -223,10 +224,10 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
   const emDash = t('common.emDash');
 
   const categoryOptions = useMemo(
-    (): { id: RegistryCategoryFilter; label: string }[] => [
-      { id: 'all', label: t('registry.categories.all') },
-      { id: 'sbc', label: t('registry.categories.sbc') },
-      { id: 'hats', label: t('registry.categories.hats') },
+    (): { id: RegistryCategoryFilter; label: string; icon: ButtonIconName }[] => [
+      { id: 'all', label: t('registry.categories.all'), icon: 'all' },
+      { id: 'sbc', label: t('registry.categories.sbc'), icon: 'sbc' },
+      { id: 'hats', label: t('registry.categories.hats'), icon: 'hats' },
     ],
     [t],
   );
@@ -306,6 +307,7 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
               type="button"
               className={[
                 'registry-table__category-btn',
+                'btn-with-icon',
                 categoryFilter === option.id ? 'registry-table__category-btn--active' : '',
               ]
                 .filter(Boolean)
@@ -313,7 +315,8 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
               aria-pressed={categoryFilter === option.id}
               onClick={() => setCategoryFilter(option.id)}
             >
-              {option.label}
+              <ButtonIcon name={option.icon} />
+              <span>{option.label}</span>
               <span className="registry-table__category-count">
                 {categoryCounts[option.id]}
               </span>
@@ -328,10 +331,10 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
           {filtersActive && (
             <button
               type="button"
-              className="registry-table__clear-btn"
+              className="registry-table__clear-btn btn-with-icon"
               onClick={clearFilters}
             >
-              {t('registry.clearFilters')}
+              <ButtonLabel icon="clear">{t('registry.clearFilters')}</ButtonLabel>
             </button>
           )}
         </div>

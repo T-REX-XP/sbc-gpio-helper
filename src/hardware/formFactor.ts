@@ -1,14 +1,17 @@
 import type {
   BoardFormFactor,
+  BoardFormFactorFamily,
+  BoardFormFactorVariant,
   BoardGpioHeaderPlacement,
+  BoardPointMm,
   GpioPlatform,
   PiFormFactorClass,
 } from './types';
 
 export const PI_FORM_FACTOR_LABELS: Record<PiFormFactorClass, string> = {
-  'rpi-a': 'Rpi A',
-  'rpi-b': 'Rpi B',
-  'rpi-zero': 'Rpi Zero',
+  'rpi-a': 'A+',
+  'rpi-b': 'B+',
+  'rpi-zero': 'Zero',
 };
 
 const DEFAULT_PITCH_MM = 2.54;
@@ -122,4 +125,40 @@ export function getFormFactorMetrics(
     headerWidthMm: getHeaderWidthMm(formFactor.gpioHeader),
     formFactorClassLabel: getFormFactorClassLabel(formFactor, translateClass),
   };
+}
+
+/** Portrait layout for Pi family diagram (GPIO on the right, boards stacked top-left). */
+export interface FamilyPortraitLayout {
+  referenceWidthMm: number;
+  referenceHeightMm: number;
+  variants: BoardFormFactorVariant[];
+}
+
+export function getFamilyPortraitLayout(family: BoardFormFactorFamily): FamilyPortraitLayout {
+  const referenceWidthMm = family.referenceHeightMm;
+  const referenceHeightMm = family.referenceWidthMm;
+
+  const variants = family.variants.map((variant) => {
+    const widthMm = variant.heightMm;
+    const heightMm = variant.widthMm;
+    const isZero = variant.id === 'rpi-zero' || variant.formFactorClass === 'rpi-zero';
+    const offsetXMm = isZero ? referenceWidthMm - widthMm : 0;
+
+    return { ...variant, widthMm, heightMm, offsetXMm, offsetYMm: 0 };
+  });
+
+  return { referenceWidthMm, referenceHeightMm, variants };
+}
+
+export function getVariantCornerHoles(
+  widthMm: number,
+  heightMm: number,
+  marginMm = 3.5,
+): BoardPointMm[] {
+  return [
+    { x: marginMm, y: marginMm },
+    { x: widthMm - marginMm, y: marginMm },
+    { x: marginMm, y: heightMm - marginMm },
+    { x: widthMm - marginMm, y: heightMm - marginMm },
+  ];
 }

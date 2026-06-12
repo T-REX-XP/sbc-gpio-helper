@@ -66,6 +66,7 @@ export function HatSpiPinoutSection({
             tabs={(['hats', 'spi'] as const).map((tab) => ({
               id: tab,
               label: tabLabels[tab],
+              icon: tab === 'hats' ? 'hat' : 'spi',
             }))}
             activeTab={safeTab}
             onTabChange={(tabId) => onTabChange?.(tabId as PinoutView)}

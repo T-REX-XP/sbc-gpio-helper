@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type RefObject } from 'react';
+import { ButtonLabel } from './icons';
 import { copyElementImageToClipboard, saveElementImage } from '../utils/exportImage';
 import { useI18n } from '../i18n';
 
@@ -80,19 +81,23 @@ export function ImageExportButtons({ targetRef, fileName }: ImageExportButtonsPr
       )}
       <button
         type="button"
-        className="image-export__btn"
+        className="image-export__btn btn-with-icon"
         onClick={handleCopy}
         disabled={busy}
       >
-        {status === 'copying' ? t('imageExport.copying') : t('imageExport.copy')}
+        <ButtonLabel icon="copy">
+          {status === 'copying' ? t('imageExport.copying') : t('imageExport.copy')}
+        </ButtonLabel>
       </button>
       <button
         type="button"
-        className="image-export__btn"
+        className="image-export__btn btn-with-icon"
         onClick={handleSave}
         disabled={busy}
       >
-        {status === 'saving' ? t('imageExport.saving') : t('imageExport.save')}
+        <ButtonLabel icon="download">
+          {status === 'saving' ? t('imageExport.saving') : t('imageExport.save')}
+        </ButtonLabel>
       </button>
     </div>
   );

@@ -5,6 +5,7 @@ import {
   hardwareRegistry,
 } from '../hardware';
 import { createFormFactorClassTranslator, useI18n } from '../i18n';
+import { ButtonLabel } from './icons';
 import { SelectorControl } from './SelectorControl';
 
 interface PlatformSelectorProps {
@@ -135,11 +136,11 @@ export function PlatformSelector({
       {comparePlatformId && primary && compare && (
         <button
           type="button"
-          className="selector-toolbar__action"
+          className="selector-toolbar__action btn-with-icon"
           onClick={onSwapComparePlatforms}
           title={t('platformSelector.swapTitle')}
         >
-          {t('platformSelector.swapBoards')}
+          <ButtonLabel icon="swap">{t('platformSelector.swapBoards')}</ButtonLabel>
         </button>
       )}
     </section>

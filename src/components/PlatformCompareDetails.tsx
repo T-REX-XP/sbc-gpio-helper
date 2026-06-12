@@ -61,7 +61,11 @@ export function PlatformCompareDetails({
       headerExtra={
         showTabs ? (
           <SectionTabs
-            tabs={tabs.map((tab) => ({ id: tab, label: tabLabels[tab] }))}
+            tabs={tabs.map((tab) => ({
+              id: tab,
+              label: tabLabels[tab],
+              icon: tab === 'pins' ? 'pins' : tab === 'spi' ? 'spi' : 'form',
+            }))}
             activeTab={safeTab}
             onTabChange={(tabId) => setActiveTab(tabId as CompareTab)}
             ariaLabel={t('compare.viewsAria')}

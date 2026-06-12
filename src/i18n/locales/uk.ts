@@ -176,7 +176,7 @@ export const uk: Messages = {
     overlayAria: 'Накладання форм-факторів: {{primary}} та {{compare}}',
     pin1: 'Контакт 1',
     familyCaption:
-      '{{label}} — вкладені контури розмірів PCB Rpi B, Rpi A та Rpi Zero зі спільним розташуванням 40-контактного розʼєму.',
+      '{{label}} — розміри PCB B+, A+ та Zero зі спільним 40-контактним розʼємом (портретний вигляд, у масштабі).',
     missing: 'Дані форм-фактору недоступні для однієї або обох обраних платформ.',
     pcbSize: 'Розмір PCB',
     boardArea: 'Площа плати',
@@ -185,9 +185,9 @@ export const uk: Messages = {
     gpioHeader: 'GPIO-розʼєм',
     profile: 'Профіль',
     classes: {
-      'rpi-a': 'Rpi A',
-      'rpi-b': 'Rpi B',
-      'rpi-zero': 'Rpi Zero',
+      'rpi-a': 'A+',
+      'rpi-b': 'B+',
+      'rpi-zero': 'Zero',
     },
   },
   hatSpi: {

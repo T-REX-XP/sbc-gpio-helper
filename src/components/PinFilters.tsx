@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { hardwareRegistry } from '../hardware';
 import { legendFilterKey, type LegendFilter } from '../hardware/legendFilters';
 import { useI18n } from '../i18n';
+import { ButtonLabel } from './icons';
 
 interface PinFiltersProps {
   platformId: string;
@@ -72,8 +73,8 @@ export function PinFilters({
           <span className="pin-filters__filter-count">
             {t(filterKey, { count: overlayFilters.length })}
           </span>
-          <button type="button" className="pin-filters__clear" onClick={onClearFilters}>
-            {t('common.clear')}
+          <button type="button" className="pin-filters__clear btn-with-icon" onClick={onClearFilters}>
+            <ButtonLabel icon="clear">{t('common.clear')}</ButtonLabel>
           </button>
         </div>
       )}

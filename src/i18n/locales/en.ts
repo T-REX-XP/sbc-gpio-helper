@@ -174,7 +174,7 @@ export const en = {
     overlayAria: 'Form factor overlay comparing {{primary}} and {{compare}}',
     pin1: 'Pin 1',
     familyCaption:
-      '{{label}} — nested outlines for Rpi B, Rpi A, and Rpi Zero PCB sizes with shared 40-pin header placement.',
+      '{{label}} — B+, A+, and Zero PCB sizes with shared 40-pin header (portrait view, to scale).',
     missing: 'Form factor data is not available for one or both selected platforms.',
     pcbSize: 'PCB size',
     boardArea: 'Board area',
@@ -183,9 +183,9 @@ export const en = {
     gpioHeader: 'GPIO header',
     profile: 'Profile',
     classes: {
-      'rpi-a': 'Rpi A',
-      'rpi-b': 'Rpi B',
-      'rpi-zero': 'Rpi Zero',
+      'rpi-a': 'A+',
+      'rpi-b': 'B+',
+      'rpi-zero': 'Zero',
     },
   },
   hatSpi: {

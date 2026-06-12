@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import { getPinGpioRef, getPlatformAccentColor, hardwareRegistry } from '../hardware';
 import type { GpioPlatform, HardwareDevice, PinType } from '../hardware';
 import { useI18n } from '../i18n';
+import { ButtonLabel } from './icons';
 
 interface PinDetailsProps {
   platform: GpioPlatform;
@@ -115,10 +116,10 @@ export function PinDetails({
           </span>
           <button
             type="button"
-            className="pin-details__selection-clear"
+            className="pin-details__selection-clear btn-with-icon"
             onClick={onClearSelection}
           >
-            {t('pinDetails.clearSelection')}
+            <ButtonLabel icon="clear">{t('pinDetails.clearSelection')}</ButtonLabel>
           </button>
           {selectedPins.size > 1 && (
             <ul className="pin-details__selection-list">

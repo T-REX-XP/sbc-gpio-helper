@@ -1,6 +1,7 @@
 import { getPlatformAccentColor } from '../hardware';
 import type { BoardFormFactor, BoardFormFactorFamily, GpioPlatform } from '../hardware';
 import {
+  getFamilyPortraitLayout,
   getFormFactor,
   getFormFactorMetrics,
   getHeaderColumns,
@@ -8,6 +9,7 @@ import {
   getHeaderPitch,
   getHeaderRows,
   getHeaderWidthMm,
+  getVariantCornerHoles,
 } from '../hardware/formFactor';
 import { createFormFactorClassTranslator, useI18n } from '../i18n';
 
@@ -118,11 +120,7 @@ function AlignedOverlay({
   const compareColor = getPlatformAccentColor(compare.id);
   const padding = 8;
   const viewWidth = Math.max(primaryFf.widthMm, compareFf.widthMm) + padding * 2;
-  const viewHeight =
-    Math.max(primaryFf.heightMm, compareFf.heightMm) +
-    getHeaderLengthMm(primaryFf.gpioHeader) +
-    padding * 2 +
-    8;
+  const viewHeight = Math.max(primaryFf.heightMm, compareFf.heightMm) + padding * 2 + 8;
 
   const primaryOffsetX = padding - primaryFf.gpioHeader.pin1.x;
   const primaryOffsetY = padding - primaryFf.gpioHeader.pin1.y;
@@ -170,10 +168,11 @@ function AlignedOverlay({
 
 function FamilyDiagram({ family }: { family: BoardFormFactorFamily }) {
   const { t } = useI18n();
-  const { referenceWidthMm, referenceHeightMm, variants } = family;
+  const { referenceWidthMm, referenceHeightMm, variants } = getFamilyPortraitLayout(family);
   const padding = 6;
-  const viewWidth = referenceWidthMm + padding * 2 + 14;
-  const viewHeight = referenceHeightMm + padding * 2 + 8;
+  const labelSpace = 4;
+  const viewWidth = referenceWidthMm + padding * 2;
+  const viewHeight = referenceHeightMm + padding * 2 + labelSpace;
   const headerPlacement = {
     pin1: { x: 1.27, y: 0 },
     pitchMm: 2.54,
@@ -183,17 +182,22 @@ function FamilyDiagram({ family }: { family: BoardFormFactorFamily }) {
   const headerWidth = getHeaderWidthMm(headerPlacement);
   const headerLength = getHeaderLengthMm(headerPlacement);
   const pitch = getHeaderPitch(headerPlacement);
+  const holeMargin = 3.5;
+  const headerTopY = holeMargin;
 
-  const sortedVariants = [...variants].sort((a, b) => b.widthMm * b.heightMm - a.widthMm * a.heightMm);
-  const fills = ['#bbf7d0', '#4ade80', '#86efac'];
-
-  const hatHoles = [
-    { x: 3.5, y: 3.5 },
-    { x: 3.5, y: 52.5 },
-    { x: 61.5, y: 3.5 },
-    { x: 61.5, y: 52.5 },
-    { x: referenceWidthMm - 3.5, y: 3.5 },
-    { x: referenceWidthMm - 3.5, y: 52.5 },
+  const sortedVariants = [...variants].sort(
+    (a, b) => b.widthMm * b.heightMm - a.widthMm * a.heightMm,
+  );
+  const fills = ['#bbf7d0', '#86efac', '#4ade80'];
+  const headerPinColors = [
+    '#f472b6',
+    '#ef4444',
+    '#eab308',
+    '#22c55e',
+    '#3b82f6',
+    '#a855f7',
+    '#64748b',
+    '#f97316',
   ];
 
   return (
@@ -220,15 +224,29 @@ function FamilyDiagram({ family }: { family: BoardFormFactorFamily }) {
                 height={variant.heightMm}
                 rx={1.2}
                 fill={fills[index % fills.length]}
-                fillOpacity={0.35 + index * 0.12}
+                fillOpacity={0.42}
                 stroke="#15803d"
                 strokeWidth={0.5}
               />
+              {getVariantCornerHoles(variant.widthMm, variant.heightMm, holeMargin).map(
+                (hole, holeIndex) => (
+                  <circle
+                    key={`${variant.id}-hole-${holeIndex}`}
+                    cx={hole.x}
+                    cy={hole.y}
+                    r={1.2}
+                    fill="#fbbf24"
+                    stroke="#0f172a"
+                    strokeWidth={0.2}
+                  />
+                ),
+              )}
               <text
                 x={variant.widthMm / 2}
-                y={variant.heightMm - 3}
+                y={variant.heightMm / 2}
                 textAnchor="middle"
-                fontSize={3.5}
+                dominantBaseline="middle"
+                fontSize={Math.min(variant.widthMm, variant.heightMm) * 0.2}
                 fontWeight={700}
                 fill="#14532d"
               >
@@ -236,20 +254,9 @@ function FamilyDiagram({ family }: { family: BoardFormFactorFamily }) {
               </text>
             </g>
           ))}
-          {hatHoles.map((hole, index) => (
-            <circle
-              key={`family-hole-${index}`}
-              cx={hole.x}
-              cy={hole.y}
-              r={1.2}
-              fill="#fbbf24"
-              stroke="#0f172a"
-              strokeWidth={0.2}
-            />
-          ))}
-          <g transform={`translate(${referenceWidthMm - headerWidth + 1.27} 0)`}>
+          <g transform={`translate(${referenceWidthMm - headerWidth} ${headerTopY})`}>
             <rect
-              x={-pitch / 2}
+              x={0}
               y={0}
               width={headerWidth}
               height={headerLength}
@@ -266,7 +273,13 @@ function FamilyDiagram({ family }: { family: BoardFormFactorFamily }) {
                     cx={pitch / 2 + col * pitch}
                     cy={pitch / 2 + row * pitch}
                     r={0.55}
-                    fill={pin === 1 ? '#f59e0b' : '#e2e8f0'}
+                    fill={
+                      pin === 1
+                        ? '#f59e0b'
+                        : headerPinColors[(pin - 1) % headerPinColors.length]
+                    }
+                    stroke="#0f172a"
+                    strokeWidth={0.12}
                   />
                 );
               }),

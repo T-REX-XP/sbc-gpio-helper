@@ -28,9 +28,9 @@
       "referenceHeightMm": 56,
       "label": "Raspberry Pi form factors",
       "variants": [
-        { "id": "rpi-b", "label": "Rpi B", "formFactorClass": "rpi-b", "widthMm": 85, "heightMm": 56, "offsetXMm": 0, "offsetYMm": 0 },
-        { "id": "rpi-a", "label": "Rpi A", "formFactorClass": "rpi-a", "widthMm": 65, "heightMm": 56, "offsetXMm": 0, "offsetYMm": 0 },
-        { "id": "rpi-zero", "label": "Rpi Zero", "formFactorClass": "rpi-zero", "widthMm": 65, "heightMm": 30, "offsetXMm": 20, "offsetYMm": 0 }
+        { "id": "rpi-b", "label": "B+", "formFactorClass": "rpi-b", "widthMm": 85, "heightMm": 56, "offsetXMm": 0, "offsetYMm": 0 },
+        { "id": "rpi-a", "label": "A+", "formFactorClass": "rpi-a", "widthMm": 65, "heightMm": 56, "offsetXMm": 0, "offsetYMm": 0 },
+        { "id": "rpi-zero", "label": "Zero", "formFactorClass": "rpi-zero", "widthMm": 65, "heightMm": 30, "offsetXMm": 20, "offsetYMm": 0 }
       ]
     }
   },
