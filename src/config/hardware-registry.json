@@ -162,6 +162,33 @@
         "gpioNumbering": "Rockchip GPIO + RM_IO",
         "interface": ["Matrix IO", "UART", "I2C", "SPI", "PWM", "I2S", "CAN"]
       }
+    },
+    {
+      "id": "luckfox-aura-40pin",
+      "platformId": "luckfox-aura-40pin",
+      "name": "Luckfox Aura 40-pin GPIO Header",
+      "shortName": "Luckfox Aura",
+      "vendor": "Luckfox",
+      "description": "40-pin header on the Luckfox Aura (RV1126B). Pi-compatible power layout with 3.3V GPIO. Quad-core AIoT board with 3 TOPS NPU, dual MIPI CSI, and Gigabit PoE Ethernet.",
+      "documentationUrl": "https://wiki.luckfox.com/Luckfox-Aura",
+      "productUrl": "https://www.luckfox.com/Luckfox-Aura",
+      "imageUrl": "/sbcs/luckfox-aura-40pin.jpg",
+      "tags": ["luckfox", "rv1126", "40-pin", "npu", "poe", "wifi6"],
+      "hardware": {
+        "soc": "Rockchip RV1126B",
+        "socFamily": "RV1126",
+        "cpu": "Quad-core Cortex-A53 @ 1.6 GHz",
+        "npu": "3 TOPS @ INT8",
+        "ram": "1 GB / 2 GB / 4 GB LPDDR4X",
+        "storage": "Optional 8 GB / 64 GB eMMC; MicroSD",
+        "connectivity": ["Wi-Fi 6 (2.4 / 5 GHz)", "Bluetooth 5.4 / BLE", "Gigabit PoE Ethernet", "USB 3.0 OTG", "USB 2.0 × 4", "MIPI DSI 4-lane", "MIPI CSI × 2"],
+        "formFactor": "Rpi B+ class"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "Rockchip GPIO bank name",
+        "interface": ["SPI0", "SPI1", "I2C2", "I2C5", "UART", "PWM"]
+      }
     }
   ],
   "hats": [

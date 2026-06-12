@@ -1,3 +1,4 @@
+import luckfoxAura40Pin from '../config/platforms/luckfox-aura-40pin.json';
 import luckfoxLyraZeroW40Pin from '../config/platforms/luckfox-lyra-zero-w-40pin.json';
 import orangepi526Pin from '../config/platforms/orangepi-5-26pin.json';
 import orangepiZero3w40Pin from '../config/platforms/orangepi-zero-3w-40pin.json';
@@ -13,4 +14,5 @@ export const PLATFORM_CONFIGS: readonly GpioPlatform[] = [
   orangepiZero3w40Pin as GpioPlatform,
   orangepi526Pin as GpioPlatform,
   luckfoxLyraZeroW40Pin as GpioPlatform,
+  luckfoxAura40Pin as GpioPlatform,
 ];
