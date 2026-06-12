@@ -1,3 +1,4 @@
+import cubieA7s30Pin from '../config/platforms/cubie-a7s-30pin.json';
 import cubieA7z40Pin from '../config/platforms/cubie-a7z-40pin.json';
 import luckfoxAura40Pin from '../config/platforms/luckfox-aura-40pin.json';
 import luckfoxLyraZeroW40Pin from '../config/platforms/luckfox-lyra-zero-w-40pin.json';
@@ -17,4 +18,5 @@ export const PLATFORM_CONFIGS: readonly GpioPlatform[] = [
   luckfoxLyraZeroW40Pin as GpioPlatform,
   luckfoxAura40Pin as GpioPlatform,
   cubieA7z40Pin as GpioPlatform,
+  cubieA7s30Pin as GpioPlatform,
 ];

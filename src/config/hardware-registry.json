@@ -217,6 +217,34 @@
         "gpioNumbering": "SoC port name (PB/PJ/PD/PL/PM)",
         "interface": ["SPI1", "SPI2", "SPI3", "TWI2", "TWI7", "UART", "PWM"]
       }
+    },
+    {
+      "id": "cubie-a7s-30pin",
+      "platformId": "cubie-a7s-30pin",
+      "name": "Radxa Cubie A7S 30-pin GPIO Header",
+      "shortName": "Cubie A7S",
+      "vendor": "Radxa",
+      "description": "30-pin expansion header on the Radxa Cubie A7S (Allwinner A733). Pocket-sized 51 mm board with Gigabit Ethernet, 3 TOPS NPU, and a separate 15-pin GPIO header.",
+      "documentationUrl": "https://docs.radxa.com/en/cubie/a7s/hardware-use/hardware-info",
+      "productUrl": "https://radxa.com/products/cubie/a7s",
+      "imageUrl": "/sbcs/cubie-a7s-30pin.webp",
+      "tags": ["radxa", "cubie", "allwinner-a733", "30-pin", "npu", "ethernet", "wifi6"],
+      "hardware": {
+        "soc": "Allwinner A733",
+        "socFamily": "Allwinner A733",
+        "cpu": "2× Cortex-A76 + 6× Cortex-A55 @ up to 2.0 GHz",
+        "gpu": "Imagination PowerVR BXM-4-64 MC1",
+        "npu": "3 TOPS @ INT8",
+        "ram": "Up to 16 GB LPDDR5",
+        "storage": "MicroSD; optional onboard eMMC (up to 256 GB)",
+        "connectivity": ["Gigabit Ethernet", "Wi-Fi 6", "Bluetooth 5.4 / BLE", "USB-C 2.0", "USB-C 3.2", "USB 2.0 Type-A", "MIPI CSI 4-lane", "PCIe 3.0 x1"],
+        "formFactor": "51 × 51 mm square"
+      },
+      "specifications": {
+        "gpioHeader": "30-pin (+ separate 15-pin header)",
+        "gpioNumbering": "SoC port name (PB/PJ/PD/PL/PM/PG)",
+        "interface": ["SPI1", "TWI2", "TWI7", "UART", "PWM"]
+      }
     }
   ],
   "hats": [

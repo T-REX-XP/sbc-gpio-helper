@@ -1,0 +1,411 @@
+{
+  "id": "cubie-a7s-30pin",
+  "name": "Radxa Cubie A7S 30-pin GPIO Header",
+  "shortName": "Cubie A7S",
+  "pinCount": 30,
+  "orientationHint": "30-pin header on the board edge — pin 1 is top-left, pin 2 top-right. Also has a separate 15-pin GPIO header.",
+  "documentationUrl": "https://docs.radxa.com/en/cubie/a7s/hardware-use/hardware-info",
+  "productUrl": "https://radxa.com/products/cubie/a7s",
+  "notes": "30-pin expansion header (2×15). Also has a separate 15-pin GPIO header on the board — see Radxa docs. Pi-like 3.3V / 5V / GND power layout. All GPIO signals are 3.3V. Enable pin mux overlays in rsetup when needed.",
+  "gpioNumberLabel": "Line",
+  "spiPinoutDescription": "SPI1 on pins 19–24 (MOSI, MISO, CLK, CS0, HOLD). See Radxa docs for the 15-pin header (PB3, PM3, PG0–PG5, etc.).",
+  "formFactor": {
+    "widthMm": 51,
+    "heightMm": 51,
+    "label": "Cubie A7S · 51 × 51 mm",
+    "mountingHoles": [
+      {
+        "x": 3,
+        "y": 3,
+        "diameterMm": 2.5
+      },
+      {
+        "x": 3,
+        "y": 48,
+        "diameterMm": 2.5
+      },
+      {
+        "x": 48,
+        "y": 3,
+        "diameterMm": 2.5
+      },
+      {
+        "x": 48,
+        "y": 48,
+        "diameterMm": 2.5
+      }
+    ],
+    "gpioHeader": {
+      "pin1": {
+        "x": 1.27,
+        "y": 0
+      },
+      "pitchMm": 2.54,
+      "columns": 2,
+      "rows": 15
+    },
+    "notes": "51 × 51 mm square PCB with 30-pin header (2×15). Not an Rpi A / B / Zero form factor."
+  },
+  "pins": [
+    {
+      "physical": 1,
+      "name": "3.3V",
+      "type": "power3v3"
+    },
+    {
+      "physical": 2,
+      "name": "5V",
+      "type": "power5v"
+    },
+    {
+      "physical": 3,
+      "name": "PJ23",
+      "type": "i2c",
+      "bankName": "PJ23",
+      "altFunctions": [
+        "TWI11-SDA",
+        "TWI3-SDA",
+        "TWI7-SDA",
+        "UART2-CTS",
+        "UART3-RX",
+        "PWM1-5"
+      ]
+    },
+    {
+      "physical": 4,
+      "name": "5V",
+      "type": "power5v"
+    },
+    {
+      "physical": 5,
+      "name": "PJ22",
+      "type": "i2c",
+      "bankName": "PJ22",
+      "altFunctions": [
+        "TWI11-SCK",
+        "TWI3-SCK",
+        "TWI7-SCK",
+        "UART2-RTS",
+        "UART3-TX",
+        "PWM1-4"
+      ]
+    },
+    {
+      "physical": 6,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 7,
+      "name": "PB0",
+      "type": "uart",
+      "bankName": "PB0",
+      "altFunctions": [
+        "UART2-TX",
+        "UART0-TX",
+        "DSI-TRIG-LCD-TE1",
+        "LCD0-D0",
+        "JTAG-MS",
+        "PB-EINT0"
+      ]
+    },
+    {
+      "physical": 8,
+      "name": "PB9",
+      "type": "gpio",
+      "bankName": "PB9",
+      "altFunctions": [
+        "UART0-TX",
+        "I2S0-DIN2",
+        "I2S0-DOUT2",
+        "PWM1-1",
+        "WATCHDOG-SIG",
+        "TWI8-SCK",
+        "TWI0-SCK",
+        "PB-EINT9"
+      ]
+    },
+    {
+      "physical": 9,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 10,
+      "name": "PB10",
+      "type": "gpio",
+      "bankName": "PB10",
+      "altFunctions": [
+        "UART0-RX",
+        "I2S0-DIN3",
+        "I2S0-DOUT3",
+        "PWM1-2",
+        "PLL-LOCK-DBG",
+        "TWI8-SDA",
+        "TWI0-SDA",
+        "PB-EINT10",
+        "SPI2-CS0"
+      ]
+    },
+    {
+      "physical": 11,
+      "name": "PB1",
+      "type": "uart",
+      "bankName": "PB1",
+      "altFunctions": [
+        "PB-EINT1",
+        "JTAG-CK",
+        "LCD0-D1",
+        "UART0-RX",
+        "UART2-RX"
+      ]
+    },
+    {
+      "physical": 12,
+      "name": "PB5",
+      "type": "gpio",
+      "bankName": "PB5",
+      "altFunctions": [
+        "I2S0-BCLK",
+        "SPI2-CS2",
+        "PWM0-1",
+        "TRACE-DATA0",
+        "TWI1-SDA",
+        "PB-EINT5"
+      ]
+    },
+    {
+      "physical": 13,
+      "name": "PL6",
+      "type": "uart",
+      "bankName": "PL6",
+      "altFunctions": [
+        "S-PWM0-4",
+        "S-IR-RX",
+        "S-SPI0-MOSI",
+        "S-UART0-TX",
+        "S-JTAG-DO",
+        "PL-EINT6"
+      ]
+    },
+    {
+      "physical": 14,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 15,
+      "name": "PL7",
+      "type": "uart",
+      "bankName": "PL7",
+      "altFunctions": [
+        "S-PWM0-5",
+        "S-SPI0-MISO",
+        "S-UART0-RX",
+        "S-JTAG-DI",
+        "PL-EINT7"
+      ]
+    },
+    {
+      "physical": 16,
+      "name": "PJ24",
+      "type": "gpio",
+      "bankName": "PJ24",
+      "altFunctions": [
+        "PWM1-6",
+        "UART4-TX",
+        "TWI4-SCK",
+        "SPI3-CLK",
+        "PJ-EINT24"
+      ]
+    },
+    {
+      "physical": 17,
+      "name": "3.3V",
+      "type": "power3v3"
+    },
+    {
+      "physical": 18,
+      "name": "PJ25",
+      "type": "gpio",
+      "bankName": "PJ25",
+      "altFunctions": [
+        "PWM1-7",
+        "UART4-RX",
+        "TWI4-SDA",
+        "SPI3-MOSI",
+        "PJ-EINT25"
+      ]
+    },
+    {
+      "physical": 19,
+      "name": "PD12",
+      "type": "spi",
+      "bankName": "PD12",
+      "altFunctions": [
+        "PWM1-2",
+        "SPI1-MOSI",
+        "EINK-D12",
+        "DSI1-D1P",
+        "LVDS1-D1P",
+        "PD-EINT12"
+      ]
+    },
+    {
+      "physical": 20,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 21,
+      "name": "PD13",
+      "type": "spi",
+      "bankName": "PD13",
+      "altFunctions": [
+        "PWM1-3",
+        "SPI1-MISO",
+        "EINK-D13",
+        "DSI1-D1N",
+        "LVDS1-D1N",
+        "PD-EINT13"
+      ]
+    },
+    {
+      "physical": 22,
+      "name": "PL5",
+      "type": "gpio",
+      "bankName": "PL5",
+      "altFunctions": [
+        "S-JTAG-CK",
+        "S-TWI2-SDA",
+        "S-SPI0-CLK",
+        "S-PWM0-3",
+        "PL-EINT5"
+      ]
+    },
+    {
+      "physical": 23,
+      "name": "PD11",
+      "type": "spi",
+      "bankName": "PD11",
+      "altFunctions": [
+        "PWM1-1",
+        "SPI1-CLK",
+        "EINK-D11",
+        "DSI1-D0N",
+        "LVDS1-D0N",
+        "PD-EINT11"
+      ]
+    },
+    {
+      "physical": 24,
+      "name": "PD10",
+      "type": "gpio",
+      "bankName": "PD10",
+      "altFunctions": [
+        "LVDS1-D0P",
+        "DSI1-D0P",
+        "EINK-D10",
+        "SPI1-CS0",
+        "PWM1-0",
+        "PD-EINT10"
+      ]
+    },
+    {
+      "physical": 25,
+      "name": "GND",
+      "type": "ground"
+    },
+    {
+      "physical": 26,
+      "name": "PD14",
+      "type": "gpio",
+      "bankName": "PD14",
+      "altFunctions": [
+        "LVDS1-D2P",
+        "DSI1-CKP",
+        "EINK-D14",
+        "SPI1-HOLD",
+        "UART3-RTS",
+        "PD-EINT14"
+      ]
+    },
+    {
+      "physical": 27,
+      "name": "PD17",
+      "type": "spi",
+      "bankName": "PD17",
+      "altFunctions": [
+        "UART3-RX",
+        "TWI2-SDA",
+        "EINK-LEH",
+        "DSI1-D2N",
+        "LVDS1-CKN",
+        "PD-EINT17"
+      ]
+    },
+    {
+      "physical": 28,
+      "name": "PD16",
+      "type": "gpio",
+      "bankName": "PD16",
+      "altFunctions": [
+        "LVDS1-CKP",
+        "DSI1-D2P",
+        "EINK-OEH",
+        "TWI2-SCK",
+        "UART3-TX",
+        "PD-EINT16"
+      ]
+    },
+    {
+      "physical": 29,
+      "name": "PB2",
+      "type": "i2c",
+      "bankName": "PB2",
+      "altFunctions": [
+        "TWI0-SCK",
+        "JTAG-DO",
+        "HDMI-SCL",
+        "SPI2-MOSI",
+        "UART2-RTS",
+        "PB-EINT2"
+      ]
+    },
+    {
+      "physical": 30,
+      "name": "GND",
+      "type": "ground"
+    }
+  ],
+  "spiBuses": [
+    {
+      "id": "spi1",
+      "name": "SPI1",
+      "description": "SPI1 bus on the 30-pin header (/dev/spidev1.0).",
+      "defaultNote": "Chip select SPI1-CS0 on pin 24 (PD10).",
+      "signals": [
+        {
+          "signal": "MOSI",
+          "physical": 19
+        },
+        {
+          "signal": "MISO",
+          "physical": 21
+        },
+        {
+          "signal": "SCLK",
+          "physical": 23
+        },
+        {
+          "signal": "CS0",
+          "physical": 24
+        },
+        {
+          "signal": "HOLD",
+          "physical": 26
+        }
+      ]
+    }
+  ]
+}
