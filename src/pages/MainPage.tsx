@@ -14,86 +14,75 @@ import type { DeviceTreeOverlay } from '../hardware';
 import { getOverlayPhysicalPins } from '../hardware/deviceTree';
 import { hardwareRegistry, isSpiVisualizationActive } from '../hardware';
 import { useI18n } from '../i18n';
-
-interface MainPageProps {
-  platformId: string;
-  comparePlatformId: string | null;
-  onPlatformChange: (platformId: string) => void;
-  onComparePlatformChange: (platformId: string | null) => void;
-  onSwapComparePlatforms: () => void;
-}
+import { useBoardRoute } from '../routing/useBoardRoute';
 
 function buildSelectedIds(primaryId: string, compareId: string | null): string[] {
   return compareId ? [primaryId, compareId] : [primaryId];
 }
 
-export function MainPage({
-  platformId,
-  comparePlatformId,
-  onPlatformChange,
-  onComparePlatformChange,
-  onSwapComparePlatforms,
-}: MainPageProps) {
+export function MainPage() {
   const { t } = useI18n();
-  const platform = hardwareRegistry.getPlatform(platformId);
-  const platformDevices = hardwareRegistry.getDevices(platformId);
-  const defaultId = platformDevices[0]?.id ?? '';
+  const {
+    platform,
+    platformId,
+    comparePlatformId,
+    primaryHatId,
+    compareHatId,
+    legendFilters,
+    selectedPins,
+    focusPin,
+    pinoutView,
+    highlightedOverlayId,
+    setPlatformId,
+    setComparePlatformId,
+    swapComparePlatforms,
+    setPrimaryHatId,
+    setCompareHatId,
+    setLegendFilters,
+    setSelectedPins,
+    setFocusPin,
+    setPinoutView,
+    setHighlightedOverlayId,
+  } = useBoardRoute();
 
-  const [primaryId, setPrimaryId] = useState(defaultId);
-  const [compareId, setCompareId] = useState<string | null>(null);
-  const [prevPlatformId, setPrevPlatformId] = useState(platformId);
   const [hoveredPin, setHoveredPin] = useState<number | null>(null);
-  const [selectedPins, setSelectedPins] = useState<ReadonlySet<number>>(() => new Set());
-  const [focusPin, setFocusPin] = useState<number | null>(null);
   const detailPin = hoveredPin ?? focusPin;
 
-  const toggleSelectedPin = useCallback((physical: number) => {
-    setSelectedPins((prev) => {
-      const next = new Set(prev);
-      if (next.has(physical)) {
-        next.delete(physical);
-        setFocusPin((current) => {
-          if (current !== physical) return current;
-          const remaining = [...next].sort((a, b) => a - b);
-          return remaining.length > 0 ? remaining[remaining.length - 1]! : null;
-        });
-      } else {
-        next.add(physical);
-        setFocusPin(physical);
-      }
-      return next;
-    });
-  }, []);
-
-  const clearSelectedPins = useCallback(() => {
-    setSelectedPins(new Set());
-    setFocusPin(null);
-  }, []);
-
-  if (platformId !== prevPlatformId) {
-    setPrevPlatformId(platformId);
-    setPrimaryId(defaultId);
-    setCompareId(null);
-    setSelectedPins(new Set());
-    setFocusPin(null);
-  }
-
-  const handlePlatformChange = (nextId: string) => {
-    onPlatformChange(nextId);
-    if (comparePlatformId === nextId) {
-      onComparePlatformChange(null);
-    }
-  };
-
-  const [legendFilters, setLegendFilters] = useState<string[]>([]);
-  const [highlightedOverlayId, setHighlightedOverlayId] = useState<string | null>(
-    null,
-  );
-
+  const platformDevices = hardwareRegistry.getDevices(platformId);
   const comparePlatform = comparePlatformId
     ? hardwareRegistry.getPlatform(comparePlatformId)
     : undefined;
   const isPlatformComparing = comparePlatform != null;
+
+  const handlePlatformChange = (nextId: string) => {
+    setPlatformId(nextId);
+    if (comparePlatformId === nextId) {
+      setComparePlatformId(null);
+    }
+  };
+
+  const toggleSelectedPin = useCallback(
+    (physical: number) => {
+      const next = new Set(selectedPins);
+      if (next.has(physical)) {
+        next.delete(physical);
+        if (focusPin === physical) {
+          const remaining = [...next].sort((a, b) => a - b);
+          setFocusPin(remaining.length > 0 ? remaining[remaining.length - 1]! : null);
+        }
+      } else {
+        next.add(physical);
+        setFocusPin(physical);
+      }
+      setSelectedPins(next);
+    },
+    [focusPin, selectedPins, setFocusPin, setSelectedPins],
+  );
+
+  const clearSelectedPins = useCallback(() => {
+    setSelectedPins(new Set());
+    setFocusPin(null);
+  }, [setFocusPin, setSelectedPins]);
 
   const handleHighlightOverlay = (overlay: DeviceTreeOverlay | null) => {
     if (!overlay) {
@@ -105,6 +94,7 @@ export function MainPage({
     const pins = getOverlayPhysicalPins(overlay);
     if (pins.length > 0) {
       setHoveredPin(pins[0]);
+      setFocusPin(pins[0]);
     }
   };
 
@@ -114,33 +104,32 @@ export function MainPage({
       return new Set<number>();
     }
 
-    const overlay = deviceTree.overlays.find(
-      (item) => item.id === highlightedOverlayId,
-    );
+    const overlay = deviceTree.overlays.find((item) => item.id === highlightedOverlayId);
     if (!overlay) return new Set<number>();
 
     return new Set(getOverlayPhysicalPins(overlay));
   }, [platform?.deviceTree, highlightedOverlayId]);
 
   const toggleLegendFilter = (key: string) => {
-    setLegendFilters((prev) =>
-      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key],
-    );
+    const next = legendFilters.includes(key)
+      ? legendFilters.filter((item) => item !== key)
+      : [...legendFilters, key];
+    setLegendFilters(next);
   };
 
   const clearPinTypeFilters = () => {
-    setLegendFilters((prev) => prev.filter((key) => !key.startsWith('pin-type:')));
+    setLegendFilters(legendFilters.filter((key) => !key.startsWith('pin-type:')));
   };
 
   const clearOverlayFilters = () => {
-    setLegendFilters((prev) =>
-      prev.filter((key) => !key.startsWith('device:') && !key.startsWith('status:')),
+    setLegendFilters(
+      legendFilters.filter((key) => !key.startsWith('device:') && !key.startsWith('status:')),
     );
   };
 
   const selectedIds = useMemo(
-    () => buildSelectedIds(primaryId, compareId),
-    [primaryId, compareId],
+    () => buildSelectedIds(primaryHatId, compareHatId),
+    [primaryHatId, compareHatId],
   );
 
   const selectedDevices = useMemo(
@@ -153,10 +142,7 @@ export function MainPage({
     [selectedIds],
   );
 
-  const conflictPins = useMemo(
-    () => new Set(conflicts.keys()),
-    [conflicts],
-  );
+  const conflictPins = useMemo(() => new Set(conflicts.keys()), [conflicts]);
 
   const showSpiBusPrimary = useMemo(
     () => isSpiVisualizationActive(platformId, legendFilters, selectedDevices),
@@ -181,8 +167,8 @@ export function MainPage({
             platformId={platformId}
             comparePlatformId={comparePlatformId}
             onPlatformChange={handlePlatformChange}
-            onComparePlatformChange={onComparePlatformChange}
-            onSwapComparePlatforms={onSwapComparePlatforms}
+            onComparePlatformChange={setComparePlatformId}
+            onSwapComparePlatforms={swapComparePlatforms}
           />
 
           {!isPlatformComparing && platformDevices.length > 0 && (
@@ -190,10 +176,10 @@ export function MainPage({
               <span className="app-controls__divider" aria-hidden="true" />
               <HardwareSelector
                 devices={platformDevices}
-                primaryId={primaryId}
-                compareId={compareId}
-                onPrimaryChange={setPrimaryId}
-                onCompareChange={setCompareId}
+                primaryId={primaryHatId}
+                compareId={compareHatId}
+                onPrimaryChange={setPrimaryHatId}
+                onCompareChange={setCompareHatId}
               />
             </>
           )}
@@ -277,6 +263,8 @@ export function MainPage({
                 hoveredPin={detailPin}
                 onHoverPin={setHoveredPin}
                 showSpi={showSpiBusPrimary}
+                activeTab={pinoutView}
+                onTabChange={setPinoutView}
               />
             </>
           )}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import type { PinoutView } from '../routing/boardSearchParams';
 import type { GpioPlatform, HardwareDevice } from '../hardware';
 import { useI18n } from '../i18n';
 import { HardwarePinTable } from './HardwarePinTable';
@@ -6,14 +6,14 @@ import { PinoutSection } from './PinoutSection';
 import { SectionTabPanel, SectionTabs } from './SectionTabs';
 import { SpiBusVisualization } from './SpiBusVisualization';
 
-type PinoutTab = 'hats' | 'spi';
-
 interface HatSpiPinoutSectionProps {
   platform: GpioPlatform;
   selectedDevices: HardwareDevice[];
   hoveredPin: number | null;
   onHoverPin: (physical: number | null) => void;
   showSpi: boolean;
+  activeTab?: PinoutView | null;
+  onTabChange?: (tab: PinoutView | null) => void;
 }
 
 export function HatSpiPinoutSection({
@@ -22,13 +22,15 @@ export function HatSpiPinoutSection({
   hoveredPin,
   onHoverPin,
   showSpi,
+  activeTab = null,
+  onTabChange,
 }: HatSpiPinoutSectionProps) {
   const { t } = useI18n();
   const hasHats = selectedDevices.length > 0;
   const hasSpi = showSpi;
   const hasTabs = hasHats && hasSpi;
-  const [activeTab, setActiveTab] = useState<PinoutTab>('hats');
-  const safeTab: PinoutTab =
+
+  const safeTab: PinoutView =
     !hasHats && hasSpi
       ? 'spi'
       : hasHats && !hasSpi
@@ -37,13 +39,13 @@ export function HatSpiPinoutSection({
           ? 'hats'
           : activeTab === 'hats' && !hasHats
             ? 'spi'
-            : activeTab;
+            : activeTab ?? 'hats';
 
   if (!hasHats && !hasSpi) {
     return null;
   }
 
-  const tabLabels: Record<PinoutTab, string> = {
+  const tabLabels: Record<PinoutView, string> = {
     hats: t('hatSpi.tabs.hats'),
     spi: t('hatSpi.tabs.spi'),
   };
@@ -66,7 +68,7 @@ export function HatSpiPinoutSection({
               label: tabLabels[tab],
             }))}
             activeTab={safeTab}
-            onTabChange={(tabId) => setActiveTab(tabId as PinoutTab)}
+            onTabChange={(tabId) => onTabChange?.(tabId as PinoutView)}
             ariaLabel={t('hatSpi.viewsAria')}
             idPrefix="hat-spi-pinout"
           />

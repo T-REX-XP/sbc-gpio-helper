@@ -127,6 +127,7 @@
 }
 
 .app-nav__tab {
+  display: inline-block;
   padding: 0.35rem 0.75rem;
   border: none;
   border-radius: 7px;
@@ -135,6 +136,7 @@
   font-family: inherit;
   font-size: 0.8125rem;
   font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
   transition: background 0.12s, color 0.12s, box-shadow 0.12s;
   white-space: nowrap;

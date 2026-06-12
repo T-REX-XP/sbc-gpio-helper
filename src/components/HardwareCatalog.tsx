@@ -1,9 +1,8 @@
-import { Fragment, useMemo, useState } from 'react';
+import { Fragment, useMemo } from 'react';
 import type { HardwareDevice } from '../hardware';
 import { getFormFactorClassLabel, hardwareRegistry } from '../hardware';
 import {
   buildRegistryTableRows,
-  EMPTY_COLUMN_FILTERS,
   filterRegistryRows,
   hasActiveColumnFilters,
   type RegistryCategoryFilter,
@@ -11,6 +10,7 @@ import {
   type RegistryTableRow,
 } from '../hardware/registryTable';
 import { createFormFactorClassTranslator, useI18n } from '../i18n';
+import { useRegistryRoute } from '../routing/useRegistryRoute';
 import { HardwareImage } from './HardwareImage';
 
 interface HardwareCatalogProps {
@@ -266,10 +266,15 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
   );
 
   const allRows = useMemo(() => buildRegistryTableRows(sbcs, hats), [sbcs, hats]);
-  const [categoryFilter, setCategoryFilter] = useState<RegistryCategoryFilter>('all');
-  const [columnFilters, setColumnFilters] =
-    useState<RegistryColumnFilters>(EMPTY_COLUMN_FILTERS);
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const {
+    category: categoryFilter,
+    columnFilters,
+    expandedId,
+    setCategoryFilter,
+    updateColumnFilter,
+    clearFilters,
+    toggleExpanded,
+  } = useRegistryRoute();
 
   const filteredRows = useMemo(
     () => filterRegistryRows(allRows, categoryFilter, columnFilters),
@@ -286,19 +291,6 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
 
   const filtersActive =
     categoryFilter !== 'all' || hasActiveColumnFilters(columnFilters);
-
-  const updateColumnFilter = (key: keyof RegistryColumnFilters, value: string) => {
-    setColumnFilters((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const clearFilters = () => {
-    setCategoryFilter('all');
-    setColumnFilters(EMPTY_COLUMN_FILTERS);
-  };
-
-  const toggleExpanded = (id: string) => {
-    setExpandedId((current) => (current === id ? null : id));
-  };
 
   return (
     <section className="hardware-catalog">
