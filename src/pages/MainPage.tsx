@@ -46,7 +46,9 @@ export function MainPage() {
   } = useBoardRoute();
 
   const [hoveredPin, setHoveredPin] = useState<number | null>(null);
-  const detailPin = hoveredPin ?? focusPin;
+  const selectedDetailPin =
+    selectedPins.size > 0 ? Math.min(...selectedPins) : null;
+  const detailPin = hoveredPin ?? focusPin ?? selectedDetailPin;
 
   const platformDevices = hardwareRegistry.getDevices(platformId);
   const comparePlatform = comparePlatformId
@@ -64,25 +66,29 @@ export function MainPage() {
   const toggleSelectedPin = useCallback(
     (physical: number) => {
       const next = new Set(selectedPins);
+      let nextFocus: number | null;
+
       if (next.has(physical)) {
         next.delete(physical);
         if (focusPin === physical) {
           const remaining = [...next].sort((a, b) => a - b);
-          setFocusPin(remaining.length > 0 ? remaining[remaining.length - 1]! : null);
+          nextFocus = remaining.length > 0 ? remaining[remaining.length - 1]! : null;
+        } else {
+          nextFocus = focusPin;
         }
       } else {
         next.add(physical);
-        setFocusPin(physical);
+        nextFocus = physical;
       }
-      setSelectedPins(next);
+
+      setSelectedPins(next, nextFocus);
     },
-    [focusPin, selectedPins, setFocusPin, setSelectedPins],
+    [focusPin, selectedPins, setSelectedPins],
   );
 
   const clearSelectedPins = useCallback(() => {
-    setSelectedPins(new Set());
-    setFocusPin(null);
-  }, [setFocusPin, setSelectedPins]);
+    setSelectedPins(new Set(), null);
+  }, [setSelectedPins]);
 
   const handleHighlightOverlay = (overlay: DeviceTreeOverlay | null) => {
     if (!overlay) {

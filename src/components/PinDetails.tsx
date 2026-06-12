@@ -82,7 +82,9 @@ export function PinDetails({
   selectedDevices,
 }: PinDetailsProps) {
   const { t } = useI18n();
-  const detailPin = hoveredPin ?? focusPin;
+  const selectedDetailPin =
+    selectedPins.size > 0 ? Math.min(...selectedPins) : null;
+  const detailPin = hoveredPin ?? focusPin ?? selectedDetailPin;
   const sortedSelection = [...selectedPins].sort((a, b) => a - b);
   const selectionKey =
     sortedSelection.length === 1
