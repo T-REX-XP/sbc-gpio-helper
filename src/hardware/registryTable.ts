@@ -171,3 +171,18 @@ export function filterRegistryRows(
 export function hasActiveColumnFilters(columnFilters: RegistryColumnFilters): boolean {
   return Object.values(columnFilters).some((value) => value.trim().length > 0);
 }
+
+export interface RegistryCategoryCounts {
+  all: number;
+  sbc: number;
+  hats: number;
+  libraries: number;
+}
+
+export function computeCategoryCounts(rows: readonly RegistryTableRow[]): RegistryCategoryCounts {
+  const counts: RegistryCategoryCounts = { all: rows.length, sbc: 0, hats: 0, libraries: 0 };
+  for (const row of rows) {
+    counts[row.registryCategory] += 1;
+  }
+  return counts;
+}

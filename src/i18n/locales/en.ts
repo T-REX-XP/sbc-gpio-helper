@@ -228,6 +228,14 @@ export const en = {
   },
   registry: {
     title: 'Hardware registry',
+    statsAria: 'Registry totals',
+    stats: {
+      items: 'Items',
+      sbcs: 'SBCs',
+      hats: 'HATs',
+      libraries: 'Libraries',
+      platforms: 'Pinout profiles',
+    },
     categoryAria: 'Category',
     categories: {
       all: 'All',
@@ -281,6 +289,11 @@ export const en = {
     deviceTreeOverlays: 'Device-tree overlays',
     orientation: 'Orientation',
     gpioLibraries: 'GPIO libraries',
+    libraryDetection: 'Library detection',
+    wiringXSetup: 'wiringX setup ID',
+    wiringXDocs: 'wiringX manual path',
+    wiringOpRelease: 'wiringOP release prefix',
+    wiringOpModel: 'wiringOP board model',
     libraryDetails: 'Library details',
     libraryMaintainer: 'Maintainer',
     libraryPrimaryTargets: 'Primary targets',

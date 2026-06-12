@@ -1,7 +1,16 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { ButtonIcon } from '../components/icons';
+import { hardwareRegistry } from '../hardware';
 import { useI18n } from '../i18n';
 import { getLastPlatformId } from '../routing/lastPlatform';
+
+function getRegistryItemCount(): number {
+  return (
+    hardwareRegistry.getSbcs().length +
+    hardwareRegistry.getHats().length +
+    hardwareRegistry.getGpioLibraries().length
+  );
+}
 
 function resolveMainPath(location: ReturnType<typeof useLocation>): string {
   const boardMatch = location.pathname.match(/\/board\/([^/]+)$/);
@@ -20,6 +29,7 @@ export function AppNav() {
   const registryPath = isRegistry
     ? `${location.pathname}${location.search}`
     : '/registry';
+  const registryItemCount = getRegistryItemCount();
 
   const tabs = [
     { id: 'main', labelKey: 'nav.main' as const, to: mainPath, active: !isRegistry, icon: 'board' as const },
@@ -42,6 +52,11 @@ export function AppNav() {
             >
               <ButtonIcon name={tab.icon} />
               <span>{t(tab.labelKey)}</span>
+              {tab.id === 'registry' && (
+                <span className="app-nav__count" aria-label={t('registry.stats.items')}>
+                  {registryItemCount}
+                </span>
+              )}
             </NavLink>
           </li>
         ))}

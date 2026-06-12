@@ -1,8 +1,9 @@
 import { Fragment, useMemo } from 'react';
 import type { GpioLibraryEntry, HardwareDevice } from '../hardware';
-import { getFormFactorClassLabel, hardwareRegistry } from '../hardware';
+import { getFormFactorClassLabel, hardwareRegistry, PLATFORM_CONFIGS } from '../hardware';
 import {
   buildRegistryTableRows,
+  computeCategoryCounts,
   filterRegistryRows,
   hasActiveColumnFilters,
   type RegistryCategoryFilter,
@@ -27,14 +28,22 @@ function formatWiringPiCompatibility(
   return t(`registry.wiringPiCompat.${value}`);
 }
 
+function formatLibrarySupportedBoards(platformIds: readonly string[]): string {
+  const names = new Set<string>();
+  for (const platformId of platformIds) {
+    const sbcs = hardwareRegistry.getSbcsForPlatform(platformId);
+    if (sbcs.length > 0) {
+      for (const sbc of sbcs) names.add(sbc.shortName ?? sbc.name);
+    } else {
+      names.add(platformId);
+    }
+  }
+  return [...names].sort((a, b) => a.localeCompare(b)).join(' · ');
+}
+
 function LibraryRowDetails({ library }: { library: GpioLibraryEntry }) {
   const { t } = useI18n();
-  const supportedBoards = library.supportedPlatformIds
-    .map((platformId) => {
-      const sbc = hardwareRegistry.getSbcForPlatform(platformId);
-      return sbc?.shortName ?? platformId;
-    })
-    .join(' · ');
+  const supportedBoards = formatLibrarySupportedBoards(library.supportedPlatformIds);
 
   return (
     <div className="registry-table__details">
@@ -110,6 +119,54 @@ function SbcGpioLibraries({ platformId }: { platformId: string }) {
           </li>
         ))}
       </ul>
+    </>
+  );
+}
+
+function SbcLibraryMetadata({ sbc }: { sbc: NonNullable<RegistryTableRow['sbc']> }) {
+  const { t } = useI18n();
+  if (!sbc.wiringX && !sbc.wiringOp) return null;
+
+  const wiringXIds = sbc.wiringX
+    ? [sbc.wiringX.setupId, ...(sbc.wiringX.alternateSetupIds ?? [])]
+    : [];
+  const emDash = t('common.emDash');
+
+  return (
+    <>
+      <h4 className="registry-table__details-heading">{t('registry.libraryDetection')}</h4>
+      <dl className="registry-table__details-meta">
+        {sbc.wiringX && (
+          <div className="registry-table__details-meta--wide">
+            <dt>{t('registry.wiringXSetup')}</dt>
+            <dd>
+              <code>{wiringXIds.join(' · ')}</code>
+            </dd>
+          </div>
+        )}
+        {sbc.wiringOp && (
+          <>
+            <div>
+              <dt>{t('registry.wiringOpRelease')}</dt>
+              <dd>
+                <code>{sbc.wiringOp.releaseId}</code>
+              </dd>
+            </div>
+            <div>
+              <dt>{t('registry.wiringOpModel')}</dt>
+              <dd>
+                <code>{sbc.wiringOp.model}</code>
+              </dd>
+            </div>
+          </>
+        )}
+        {sbc.wiringX?.documentationPath && (
+          <div className="registry-table__details-meta--wide">
+            <dt>{t('registry.wiringXDocs')}</dt>
+            <dd>{sbc.wiringX.documentationPath ?? emDash}</dd>
+          </div>
+        )}
+      </dl>
     </>
   );
 }
@@ -258,6 +315,7 @@ function RegistryRowDetails({ row }: { row: RegistryTableRow }) {
           )}
         </dl>
         {platform?.notes && <p className="registry-table__details-note">{platform.notes}</p>}
+        <SbcLibraryMetadata sbc={row.sbc} />
         <SbcGpioLibraries platformId={row.platformId} />
       </div>
     );
@@ -386,13 +444,17 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
     [allRows, categoryFilter, columnFilters],
   );
 
+  const columnFilteredRows = useMemo(
+    () => filterRegistryRows(allRows, 'all', columnFilters),
+    [allRows, columnFilters],
+  );
+
+  const totals = useMemo(() => computeCategoryCounts(allRows), [allRows]);
+
   const categoryCounts = useMemo(() => {
-    const counts = { all: allRows.length, sbc: 0, hats: 0, libraries: 0 };
-    for (const row of allRows) {
-      counts[row.registryCategory] += 1;
-    }
-    return counts;
-  }, [allRows]);
+    const source = hasActiveColumnFilters(columnFilters) ? columnFilteredRows : allRows;
+    return computeCategoryCounts(source);
+  }, [allRows, columnFilteredRows, columnFilters]);
 
   const filtersActive =
     categoryFilter !== 'all' || hasActiveColumnFilters(columnFilters);
@@ -401,6 +463,28 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
     <section className="hardware-catalog">
       <div className="hardware-catalog__header">
         <h2 className="section-title">{t('registry.title')}</h2>
+        <ul className="registry-summary" aria-label={t('registry.statsAria')}>
+          <li className="registry-summary__item">
+            <span className="registry-summary__value">{totals.all}</span>
+            <span className="registry-summary__label">{t('registry.stats.items')}</span>
+          </li>
+          <li className="registry-summary__item">
+            <span className="registry-summary__value">{totals.sbc}</span>
+            <span className="registry-summary__label">{t('registry.stats.sbcs')}</span>
+          </li>
+          <li className="registry-summary__item">
+            <span className="registry-summary__value">{totals.hats}</span>
+            <span className="registry-summary__label">{t('registry.stats.hats')}</span>
+          </li>
+          <li className="registry-summary__item">
+            <span className="registry-summary__value">{totals.libraries}</span>
+            <span className="registry-summary__label">{t('registry.stats.libraries')}</span>
+          </li>
+          <li className="registry-summary__item">
+            <span className="registry-summary__value">{PLATFORM_CONFIGS.length}</span>
+            <span className="registry-summary__label">{t('registry.stats.platforms')}</span>
+          </li>
+        </ul>
       </div>
 
       <div className="registry-table__toolbar">

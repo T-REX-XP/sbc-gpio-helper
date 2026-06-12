@@ -230,6 +230,14 @@ export const uk: Messages = {
   },
   registry: {
     title: 'Реєстр обладнання',
+    statsAria: 'Підсумки реєстру',
+    stats: {
+      items: 'Записів',
+      sbcs: 'SBC',
+      hats: 'HAT',
+      libraries: 'Бібліотеки',
+      platforms: 'Профілі розводки',
+    },
     categoryAria: 'Категорія',
     categories: {
       all: 'Усі',
@@ -283,6 +291,11 @@ export const uk: Messages = {
     deviceTreeOverlays: 'Оверлеї device tree',
     orientation: 'Орієнтація',
     gpioLibraries: 'Бібліотеки GPIO',
+    libraryDetection: 'Визначення бібліотекою',
+    wiringXSetup: 'ID wiringXSetup()',
+    wiringXDocs: 'Шлях у мануалі wiringX',
+    wiringOpRelease: 'Префікс wiringOP release',
+    wiringOpModel: 'Модель wiringOP',
     libraryDetails: 'Деталі бібліотеки',
     libraryMaintainer: 'Супровід',
     libraryPrimaryTargets: 'Основні платформи',

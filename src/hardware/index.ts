@@ -9,11 +9,13 @@ export type { LegendFilter } from './legendFilters';
 export { hardwareRegistry, HardwareRegistry } from './registry';
 export {
   buildRegistryTableRows,
+  computeCategoryCounts,
   EMPTY_COLUMN_FILTERS,
   filterRegistryRows,
   hasActiveColumnFilters,
 } from './registryTable';
 export type {
+  RegistryCategoryCounts,
   RegistryCategoryFilter,
   RegistryColumnFilters,
   RegistryTableRow,

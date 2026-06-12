@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "build:pages": "node scripts/build-pages.mjs",
     "generate:og-image": "node scripts/generate-og-image.mjs",
+    "generate:sbc-images": "node scripts/generate-sbc-images.mjs",
     "import:wiringop": "node scripts/import-wiringop-devices.mjs",
     "import:wiringx": "node scripts/import-wiringx-devices.mjs",
     "lint": "eslint .",

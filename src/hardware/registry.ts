@@ -39,6 +39,11 @@ function normalizeDevice(config: HardwareDeviceConfig): HardwareDevice {
   };
 }
 
+function withDefaultImageUrl(sbc: SbcRegistryEntry): SbcRegistryEntry {
+  if (sbc.imageUrl) return sbc;
+  return { ...sbc, imageUrl: `/sbcs/${sbc.id}.webp` };
+}
+
 function wiringOpSlugFromCuratedSbc(sbc: SbcRegistryEntry): string | undefined {
   if (sbc.shortName) {
     return sbc.shortName.toLowerCase().replace(/\s+/g, '-');
@@ -244,7 +249,7 @@ export class HardwareRegistry {
     const wiringxSbcs = wiringxSbcsConfig.sbcs.filter((sbc) =>
       shouldIncludeWiringxSbc(sbc, mergedBeforeWiringx),
     );
-    this.sbcs = applyWiringxOverlays([...mergedBeforeWiringx, ...wiringxSbcs]);
+    this.sbcs = applyWiringxOverlays([...mergedBeforeWiringx, ...wiringxSbcs]).map(withDefaultImageUrl);
     this.gpioLibraries = config.gpioLibraries ?? [];
 
     this.platformById = new Map(PLATFORM_CONFIGS.map((platform) => [platform.id, platform]));
@@ -303,6 +308,10 @@ export class HardwareRegistry {
 
   getSbcForPlatform(platformId: string): SbcRegistryEntry | undefined {
     return this.sbcs.find((sbc) => sbc.platformId === platformId);
+  }
+
+  getSbcsForPlatform(platformId: string): readonly SbcRegistryEntry[] {
+    return this.sbcs.filter((sbc) => sbc.platformId === platformId);
   }
 
   getSbcs(): readonly SbcRegistryEntry[] {
