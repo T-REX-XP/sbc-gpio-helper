@@ -1,0 +1,248 @@
+import hardwareRegistryConfig from '../config/hardware-registry.json';
+import { getCanonicalDeviceColor } from './colors';
+import { PLATFORM_CONFIGS } from './platforms';
+import type {
+  DevicePinUsage,
+  GpioPin,
+  GpioPlatform,
+  HardwareCategory,
+  HardwareDevice,
+  HardwareDeviceConfig,
+  HardwareKind,
+  HardwareRegistryConfig,
+  PinAssignment,
+  SbcRegistryEntry,
+} from './types';
+
+function indexPinAssignments(assignments: PinAssignment[]): Map<number, PinAssignment> {
+  const map = new Map<number, PinAssignment>();
+  for (const assignment of assignments) {
+    if (map.has(assignment.physical)) {
+      throw new Error(
+        `Duplicate pin assignment on physical pin ${assignment.physical}`,
+      );
+    }
+    map.set(assignment.physical, assignment);
+  }
+  return map;
+}
+
+function normalizeDevice(config: HardwareDeviceConfig): HardwareDevice {
+  return {
+    ...config,
+    color: getCanonicalDeviceColor(config.id),
+    pinsByPhysical: indexPinAssignments(config.pinAssignments),
+  };
+}
+
+function validateRegistry(config: HardwareRegistryConfig): void {
+  const platformIds = new Set(PLATFORM_CONFIGS.map((platform) => platform.id));
+
+  if (!platformIds.has(config.defaultPlatformId)) {
+    throw new Error(`Unknown default platform "${config.defaultPlatformId}"`);
+  }
+
+  const sbcIds = new Set<string>();
+  const registeredPlatformIds = new Set<string>();
+
+  for (const sbc of config.sbcs) {
+    if (sbcIds.has(sbc.id)) {
+      throw new Error(`Duplicate SBC id "${sbc.id}" in hardware registry`);
+    }
+    sbcIds.add(sbc.id);
+
+    if (!platformIds.has(sbc.platformId)) {
+      throw new Error(`SBC "${sbc.id}" references unknown platform "${sbc.platformId}"`);
+    }
+    registeredPlatformIds.add(sbc.platformId);
+  }
+
+  if (!registeredPlatformIds.has(config.defaultPlatformId)) {
+    throw new Error(
+      `defaultPlatformId "${config.defaultPlatformId}" is not listed in registry sbcs`,
+    );
+  }
+
+  const hatIds = new Set<string>();
+  for (const device of config.hats) {
+    if (hatIds.has(device.id)) {
+      throw new Error(`Duplicate hat id "${device.id}" in hardware registry`);
+    }
+    hatIds.add(device.id);
+
+    if (!registeredPlatformIds.has(device.platformId)) {
+      throw new Error(
+        `Hat "${device.id}" references platform "${device.platformId}" which is not registered as an SBC`,
+      );
+    }
+
+    const platform = PLATFORM_CONFIGS.find((entry) => entry.id === device.platformId)!;
+    for (const assignment of device.pinAssignments) {
+      if (assignment.physical < 1 || assignment.physical > platform.pinCount) {
+        throw new Error(
+          `Hat "${device.id}" references invalid pin ${assignment.physical}`,
+        );
+      }
+    }
+  }
+}
+
+export class HardwareRegistry {
+  readonly version: number;
+  readonly defaultPlatformId: string;
+  readonly sbcs: readonly SbcRegistryEntry[];
+  readonly hats: readonly HardwareDevice[];
+  readonly platforms: readonly GpioPlatform[];
+
+  private readonly platformById: ReadonlyMap<string, GpioPlatform>;
+  private readonly pinsByPlatform: ReadonlyMap<string, readonly GpioPin[]>;
+  private readonly pinByPlatform: ReadonlyMap<string, ReadonlyMap<number, GpioPin>>;
+  private readonly hatById: ReadonlyMap<string, HardwareDevice>;
+  private readonly hatsByPlatform: ReadonlyMap<string, HardwareDevice[]>;
+
+  constructor(config: HardwareRegistryConfig) {
+    validateRegistry(config);
+
+    this.version = config.version;
+    this.defaultPlatformId = config.defaultPlatformId;
+    this.sbcs = config.sbcs;
+
+    this.platformById = new Map(PLATFORM_CONFIGS.map((platform) => [platform.id, platform]));
+    this.platforms = config.sbcs
+      .map((sbc) => this.platformById.get(sbc.platformId))
+      .filter((platform): platform is GpioPlatform => platform !== undefined);
+
+    this.pinsByPlatform = new Map(
+      PLATFORM_CONFIGS.map((platform) => [platform.id, platform.pins]),
+    );
+    this.pinByPlatform = new Map(
+      PLATFORM_CONFIGS.map((platform) => [
+        platform.id,
+        new Map(platform.pins.map((pin) => [pin.physical, pin])),
+      ]),
+    );
+
+    this.hats = config.hats.map(normalizeDevice);
+    this.hatById = new Map(this.hats.map((device) => [device.id, device]));
+
+    const hatsByPlatform = new Map<string, HardwareDevice[]>();
+    for (const platform of this.platforms) {
+      hatsByPlatform.set(platform.id, []);
+    }
+    for (const hat of this.hats) {
+      hatsByPlatform.get(hat.platformId)!.push(hat);
+    }
+    this.hatsByPlatform = hatsByPlatform;
+  }
+
+  getPlatform(platformId: string): GpioPlatform | undefined {
+    return this.platformById.get(platformId);
+  }
+
+  getSbc(id: string): SbcRegistryEntry | undefined {
+    return this.sbcs.find((sbc) => sbc.id === id);
+  }
+
+  getSbcForPlatform(platformId: string): SbcRegistryEntry | undefined {
+    return this.sbcs.find((sbc) => sbc.platformId === platformId);
+  }
+
+  getSbcs(): readonly SbcRegistryEntry[] {
+    return this.sbcs;
+  }
+
+  getHats(platformId?: string): readonly HardwareDevice[] {
+    if (platformId === undefined) return this.hats;
+    return this.hatsByPlatform.get(platformId) ?? [];
+  }
+
+  /** @deprecated Use getHats() — kept for existing call sites. */
+  getDevices(platformId?: string): readonly HardwareDevice[] {
+    return this.getHats(platformId);
+  }
+
+  getPins(platformId: string): readonly GpioPin[] {
+    return this.pinsByPlatform.get(platformId) ?? [];
+  }
+
+  getPinByPhysical(platformId: string, physical: number): GpioPin | undefined {
+    return this.pinByPlatform.get(platformId)?.get(physical);
+  }
+
+  getDevice(id: string): HardwareDevice | undefined {
+    return this.hatById.get(id);
+  }
+
+  getDeviceColor(deviceId: string): string {
+    return getCanonicalDeviceColor(deviceId);
+  }
+
+  getDevicesByIds(ids: string[]): HardwareDevice[] {
+    return ids
+      .map((id) => this.hatById.get(id))
+      .filter((device): device is HardwareDevice => device !== undefined);
+  }
+
+  getDevicesByKind(kind: HardwareKind, platformId?: string): HardwareDevice[] {
+    return this.getHats(platformId).filter((device) => device.kind === kind);
+  }
+
+  getDevicesByCategory(category: HardwareCategory, platformId?: string): HardwareDevice[] {
+    return this.getHats(platformId).filter((device) => device.category === category);
+  }
+
+  getPinUsages(devices: HardwareDevice[], physical: number): DevicePinUsage[] {
+    return devices
+      .map((device) => {
+        const assignment = device.pinsByPhysical.get(physical);
+        return assignment ? { device, assignment } : null;
+      })
+      .filter((usage): usage is DevicePinUsage => usage !== null)
+      .sort((a, b) => a.device.id.localeCompare(b.device.id));
+  }
+
+  getUniqueDevicesFromUsages(usages: DevicePinUsage[]): HardwareDevice[] {
+    const seen = new Set<string>();
+    const result: HardwareDevice[] = [];
+    for (const usage of usages) {
+      if (!seen.has(usage.device.id)) {
+        seen.add(usage.device.id);
+        result.push(usage.device);
+      }
+    }
+    return result.sort((a, b) => a.id.localeCompare(b.id));
+  }
+
+  isShareablePin(assignment: PinAssignment): boolean {
+    return assignment.group === 'power' || assignment.group === 'ground';
+  }
+
+  hasPinConflict(usages: DevicePinUsage[]): boolean {
+    if (usages.length <= 1) return false;
+    if (usages.every((usage) => this.isShareablePin(usage.assignment))) {
+      return false;
+    }
+    const signals = new Set(usages.map((usage) => usage.assignment.signal));
+    return signals.size > 1;
+  }
+
+  findConflicts(deviceIds: string[]): Map<number, DevicePinUsage[]> {
+    const devices = this.getDevicesByIds(deviceIds);
+    const conflicts = new Map<number, DevicePinUsage[]>();
+    const platformId = devices[0]?.platformId;
+    if (!platformId) return conflicts;
+
+    for (const pin of this.getPins(platformId)) {
+      const usages = this.getPinUsages(devices, pin.physical);
+      if (this.hasPinConflict(usages)) {
+        conflicts.set(pin.physical, usages);
+      }
+    }
+
+    return conflicts;
+  }
+}
+
+export const hardwareRegistry = new HardwareRegistry(
+  hardwareRegistryConfig as HardwareRegistryConfig,
+);

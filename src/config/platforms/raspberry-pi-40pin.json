@@ -1,0 +1,108 @@
+{
+  "id": "raspberry-pi-40pin",
+  "name": "Raspberry Pi 40-pin GPIO Header",
+  "shortName": "Raspberry Pi",
+  "pinCount": 40,
+  "orientationHint": "USB ports face you — pin 1 is top-left, pin 2 top-right",
+  "gpioNumberLabel": "BCM",
+  "spiPinoutDescription": "SPI0 and SPI1 signal mapping with HAT usage.",
+  "formFactor": {
+    "widthMm": 65,
+    "heightMm": 56,
+    "label": "Raspberry Pi 40-pin models",
+    "mountingHoles": [
+      { "x": 3.5, "y": 3.5, "diameterMm": 2.75 },
+      { "x": 3.5, "y": 52.5, "diameterMm": 2.75 },
+      { "x": 61.5, "y": 3.5, "diameterMm": 2.75 },
+      { "x": 61.5, "y": 52.5, "diameterMm": 2.75 }
+    ],
+    "gpioHeader": {
+      "pin1": { "x": 1.27, "y": 0 },
+      "pitchMm": 2.54,
+      "columns": 2,
+      "rows": 20
+    },
+    "notes": "Outline shown at Rpi A size (65 × 56 mm). PCB dimensions vary by model — see family diagram.",
+    "family": {
+      "referenceWidthMm": 85,
+      "referenceHeightMm": 56,
+      "label": "Raspberry Pi form factors",
+      "variants": [
+        { "id": "rpi-b", "label": "Rpi B", "formFactorClass": "rpi-b", "widthMm": 85, "heightMm": 56, "offsetXMm": 0, "offsetYMm": 0 },
+        { "id": "rpi-a", "label": "Rpi A", "formFactorClass": "rpi-a", "widthMm": 65, "heightMm": 56, "offsetXMm": 0, "offsetYMm": 0 },
+        { "id": "rpi-zero", "label": "Rpi Zero", "formFactorClass": "rpi-zero", "widthMm": 65, "heightMm": 30, "offsetXMm": 20, "offsetYMm": 0 }
+      ]
+    }
+  },
+  "pins": [
+    { "physical": 1, "name": "3.3V", "type": "power3v3" },
+    { "physical": 2, "name": "5V", "type": "power5v" },
+    { "physical": 3, "name": "GPIO2", "bcm": 2, "type": "i2c", "altFunctions": ["SDA1"] },
+    { "physical": 4, "name": "5V", "type": "power5v" },
+    { "physical": 5, "name": "GPIO3", "bcm": 3, "type": "i2c", "altFunctions": ["SCL1"] },
+    { "physical": 6, "name": "GND", "type": "ground" },
+    { "physical": 7, "name": "GPIO4", "bcm": 4, "type": "gpio" },
+    { "physical": 8, "name": "GPIO14", "bcm": 14, "type": "uart", "altFunctions": ["TXD"] },
+    { "physical": 9, "name": "GND", "type": "ground" },
+    { "physical": 10, "name": "GPIO15", "bcm": 15, "type": "uart", "altFunctions": ["RXD"] },
+    { "physical": 11, "name": "GPIO17", "bcm": 17, "type": "gpio" },
+    { "physical": 12, "name": "GPIO18", "bcm": 18, "type": "pcm", "altFunctions": ["PCM_CLK"] },
+    { "physical": 13, "name": "GPIO27", "bcm": 27, "type": "gpio" },
+    { "physical": 14, "name": "GND", "type": "ground" },
+    { "physical": 15, "name": "GPIO22", "bcm": 22, "type": "gpio" },
+    { "physical": 16, "name": "GPIO23", "bcm": 23, "type": "gpio" },
+    { "physical": 17, "name": "3.3V", "type": "power3v3" },
+    { "physical": 18, "name": "GPIO24", "bcm": 24, "type": "gpio" },
+    { "physical": 19, "name": "GPIO10", "bcm": 10, "type": "spi", "altFunctions": ["MOSI"] },
+    { "physical": 20, "name": "GND", "type": "ground" },
+    { "physical": 21, "name": "GPIO9", "bcm": 9, "type": "spi", "altFunctions": ["MISO"] },
+    { "physical": 22, "name": "GPIO25", "bcm": 25, "type": "gpio" },
+    { "physical": 23, "name": "GPIO11", "bcm": 11, "type": "spi", "altFunctions": ["SCLK"] },
+    { "physical": 24, "name": "GPIO8", "bcm": 8, "type": "spi", "altFunctions": ["CE0"] },
+    { "physical": 25, "name": "GND", "type": "ground" },
+    { "physical": 26, "name": "GPIO7", "bcm": 7, "type": "spi", "altFunctions": ["CE1"] },
+    { "physical": 27, "name": "GPIO0", "bcm": 0, "type": "i2c", "altFunctions": ["ID_SD"] },
+    { "physical": 28, "name": "GPIO1", "bcm": 1, "type": "i2c", "altFunctions": ["ID_SC"] },
+    { "physical": 29, "name": "GPIO5", "bcm": 5, "type": "gpio" },
+    { "physical": 30, "name": "GND", "type": "ground" },
+    { "physical": 31, "name": "GPIO6", "bcm": 6, "type": "gpio" },
+    { "physical": 32, "name": "GPIO12", "bcm": 12, "type": "gpio", "altFunctions": ["PWM0"] },
+    { "physical": 33, "name": "GPIO13", "bcm": 13, "type": "gpio", "altFunctions": ["PWM1"] },
+    { "physical": 34, "name": "GND", "type": "ground" },
+    { "physical": 35, "name": "GPIO19", "bcm": 19, "type": "pcm", "altFunctions": ["PCM_FS"] },
+    { "physical": 36, "name": "GPIO16", "bcm": 16, "type": "gpio" },
+    { "physical": 37, "name": "GPIO26", "bcm": 26, "type": "gpio" },
+    { "physical": 38, "name": "GPIO20", "bcm": 20, "type": "pcm", "altFunctions": ["PCM_DIN"] },
+    { "physical": 39, "name": "GND", "type": "ground" },
+    { "physical": 40, "name": "GPIO21", "bcm": 21, "type": "pcm", "altFunctions": ["PCM_DOUT"] }
+  ],
+  "spiBuses": [
+    {
+      "id": "spi0",
+      "name": "SPI0",
+      "description": "Primary SPI bus. Four-wire serial bus with chip-select lines to talk to multiple devices.",
+      "defaultNote": "By default SPI0 uses CE0 on GPIO 8 and CE1 on GPIO 7.",
+      "signals": [
+        { "signal": "MOSI", "physical": 19, "bcm": 10 },
+        { "signal": "MISO", "physical": 21, "bcm": 9 },
+        { "signal": "SCLK", "physical": 23, "bcm": 11 },
+        { "signal": "CE0", "physical": 24, "bcm": 8 },
+        { "signal": "CE1", "physical": 26, "bcm": 7 }
+      ]
+    },
+    {
+      "id": "spi1",
+      "name": "SPI1",
+      "description": "Secondary SPI bus with three chip-select lines. Not enabled by default.",
+      "enableOverlay": "dtoverlay=spi1-3cs",
+      "signals": [
+        { "signal": "MOSI", "physical": 38, "bcm": 20 },
+        { "signal": "MISO", "physical": 35, "bcm": 19 },
+        { "signal": "SCLK", "physical": 40, "bcm": 21 },
+        { "signal": "CE0", "physical": 12, "bcm": 18 },
+        { "signal": "CE1", "physical": 11, "bcm": 17 },
+        { "signal": "CE2", "physical": 36, "bcm": 16 }
+      ]
+    }
+  ]
+}

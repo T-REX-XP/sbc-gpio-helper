@@ -1,0 +1,475 @@
+import { Fragment, useMemo, useState } from 'react';
+import type { HardwareDevice } from '../hardware';
+import { getFormFactorClassLabel, hardwareRegistry } from '../hardware';
+import {
+  buildRegistryTableRows,
+  EMPTY_COLUMN_FILTERS,
+  filterRegistryRows,
+  hasActiveColumnFilters,
+  type RegistryCategoryFilter,
+  type RegistryColumnFilters,
+  type RegistryTableRow,
+} from '../hardware/registryTable';
+import { createFormFactorClassTranslator, useI18n } from '../i18n';
+import { HardwareImage } from './HardwareImage';
+
+interface HardwareCatalogProps {
+  sbcs: Parameters<typeof buildRegistryTableRows>[0];
+  hats: Parameters<typeof buildRegistryTableRows>[1];
+}
+
+function RegistryRowDetails({ row }: { row: RegistryTableRow }) {
+  const { t } = useI18n();
+  const translateClass = createFormFactorClassTranslator(t);
+  const platform = hardwareRegistry.getPlatform(row.platformId);
+  const gpioLabel = platform?.gpioNumberLabel ?? t('common.gpio');
+
+  if (row.registryCategory === 'sbc' && row.sbc) {
+    const hw = row.sbc.hardware;
+    const spiBusCount = platform?.spiBuses?.length ?? 0;
+    const overlayCount = platform?.deviceTree?.overlays.length ?? 0;
+    const formFactorClassLabel = platform?.formFactor
+      ? getFormFactorClassLabel(platform.formFactor, translateClass)
+      : '';
+
+    return (
+      <div className="registry-table__details">
+        {row.sbc.imageUrl && (
+          <HardwareImage
+            imageUrl={row.sbc.imageUrl}
+            alt={row.name}
+            size="lg"
+            className="registry-table__details-image"
+          />
+        )}
+        <p className="registry-table__details-desc">{row.description}</p>
+
+        {hw && (
+          <>
+            <h4 className="registry-table__details-heading">{t('registry.hardware')}</h4>
+            <dl className="registry-table__details-meta">
+              <div>
+                <dt>{t('registry.columns.soc')}</dt>
+                <dd>{hw.soc}</dd>
+              </div>
+              {hw.socFamily && (
+                <div>
+                  <dt>{t('registry.socFamily')}</dt>
+                  <dd>{hw.socFamily}</dd>
+                </div>
+              )}
+              {hw.cpu && (
+                <div>
+                  <dt>{t('registry.cpu')}</dt>
+                  <dd>{hw.cpu}</dd>
+                </div>
+              )}
+              {hw.gpu && (
+                <div>
+                  <dt>{t('registry.gpu')}</dt>
+                  <dd>{hw.gpu}</dd>
+                </div>
+              )}
+              {hw.ram && (
+                <div>
+                  <dt>{t('registry.ram')}</dt>
+                  <dd>{hw.ram}</dd>
+                </div>
+              )}
+              {hw.storage && (
+                <div>
+                  <dt>{t('registry.storage')}</dt>
+                  <dd>{hw.storage}</dd>
+                </div>
+              )}
+              {hw.formFactor && (
+                <div>
+                  <dt>{t('registry.columns.formFactor')}</dt>
+                  <dd>{hw.formFactor}</dd>
+                </div>
+              )}
+              {hw.connectivity && hw.connectivity.length > 0 && (
+                <div className="registry-table__details-meta--wide">
+                  <dt>{t('registry.connectivity')}</dt>
+                  <dd>{hw.connectivity.join(' · ')}</dd>
+                </div>
+              )}
+            </dl>
+          </>
+        )}
+
+        {platform?.formFactor && (
+          <>
+            <h4 className="registry-table__details-heading">{t('registry.columns.formFactor')}</h4>
+            <dl className="registry-table__details-meta">
+              <div>
+                <dt>{t('registry.pcbSize')}</dt>
+                <dd>
+                  {platform.formFactor.widthMm} × {platform.formFactor.heightMm} mm
+                </dd>
+              </div>
+              <div>
+                <dt>{t('registry.profile')}</dt>
+                <dd>{platform.formFactor.label}</dd>
+              </div>
+              {formFactorClassLabel && (
+                <div>
+                  <dt>{t('registry.formFactorType')}</dt>
+                  <dd>{formFactorClassLabel}</dd>
+                </div>
+              )}
+              {platform.formFactor.mountingHoles && (
+                <div>
+                  <dt>{t('registry.mountingHoles')}</dt>
+                  <dd>{platform.formFactor.mountingHoles.length}</dd>
+                </div>
+              )}
+            </dl>
+          </>
+        )}
+
+        <h4 className="registry-table__details-heading">{t('registry.gpioHeader')}</h4>
+        <dl className="registry-table__details-meta">
+          {row.sbc.specifications?.gpioHeader && (
+            <div>
+              <dt>{t('registry.header')}</dt>
+              <dd>{row.sbc.specifications.gpioHeader}</dd>
+            </div>
+          )}
+          {platform?.gpioNumberLabel && (
+            <div>
+              <dt>{t('registry.gpioNumbering')}</dt>
+              <dd>{platform.gpioNumberLabel}</dd>
+            </div>
+          )}
+          {spiBusCount > 0 && (
+            <div>
+              <dt>{t('registry.spiBuses')}</dt>
+              <dd>{spiBusCount}</dd>
+            </div>
+          )}
+          {overlayCount > 0 && (
+            <div>
+              <dt>{t('registry.deviceTreeOverlays')}</dt>
+              <dd>{overlayCount}</dd>
+            </div>
+          )}
+          {platform?.orientationHint && (
+            <div className="registry-table__details-meta--wide">
+              <dt>{t('registry.orientation')}</dt>
+              <dd>{platform.orientationHint}</dd>
+            </div>
+          )}
+        </dl>
+        {platform?.notes && <p className="registry-table__details-note">{platform.notes}</p>}
+      </div>
+    );
+  }
+
+  if (row.hat) {
+    return <HatPinDetails device={row.hat} gpioLabel={gpioLabel} description={row.description} />;
+  }
+
+  return null;
+}
+
+function HatPinDetails({
+  device,
+  gpioLabel,
+  description,
+}: {
+  device: HardwareDevice;
+  gpioLabel: string;
+  description: string;
+}) {
+  const { t } = useI18n();
+  const emDash = t('common.emDash');
+
+  return (
+    <div className="registry-table__details">
+      <p className="registry-table__details-desc">{description}</p>
+      <table className="registry-table__pin-table">
+        <thead>
+          <tr>
+            <th>{t('common.phys')}</th>
+            <th>{gpioLabel}</th>
+            <th>{t('common.group')}</th>
+            <th>{t('common.signal')}</th>
+            <th>{t('common.description')}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[...device.pinAssignments]
+            .sort((a, b) => a.physical - b.physical)
+            .map((assignment) => (
+              <tr key={assignment.physical}>
+                <td>{assignment.physical}</td>
+                <td>{assignment.bcm ?? emDash}</td>
+                <td>{assignment.group}</td>
+                <td>
+                  <code>{assignment.signal}</code>
+                </td>
+                <td>{assignment.description}</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
+  const { t } = useI18n();
+  const emDash = t('common.emDash');
+
+  const categoryOptions = useMemo(
+    (): { id: RegistryCategoryFilter; label: string }[] => [
+      { id: 'all', label: t('registry.categories.all') },
+      { id: 'sbc', label: t('registry.categories.sbc') },
+      { id: 'hats', label: t('registry.categories.hats') },
+    ],
+    [t],
+  );
+
+  const columnDefs = useMemo(
+    (): {
+      key: keyof RegistryColumnFilters | null;
+      label: string;
+      filterPlaceholder?: string;
+    }[] => [
+      { key: null, label: t('registry.columns.category') },
+      { key: 'name', label: t('registry.columns.name'), filterPlaceholder: t('registry.filters.name') },
+      { key: 'vendor', label: t('registry.columns.vendor'), filterPlaceholder: t('registry.filters.vendor') },
+      { key: 'soc', label: t('registry.columns.soc'), filterPlaceholder: t('registry.filters.soc') },
+      {
+        key: 'platform',
+        label: t('registry.columns.platform'),
+        filterPlaceholder: t('registry.filters.platform'),
+      },
+      { key: 'kind', label: t('registry.columns.kind'), filterPlaceholder: t('registry.filters.kind') },
+      {
+        key: 'productCategory',
+        label: t('registry.columns.productCategory'),
+        filterPlaceholder: t('registry.filters.productCategory'),
+      },
+      {
+        key: 'interfaces',
+        label: t('registry.columns.interfaces'),
+        filterPlaceholder: t('registry.filters.interfaces'),
+      },
+      { key: null, label: t('registry.columns.pins') },
+      { key: null, label: t('registry.columns.formFactor') },
+      { key: 'tags', label: t('registry.columns.tags'), filterPlaceholder: t('registry.filters.tags') },
+      { key: null, label: t('registry.columns.links') },
+    ],
+    [t],
+  );
+
+  const allRows = useMemo(() => buildRegistryTableRows(sbcs, hats), [sbcs, hats]);
+  const [categoryFilter, setCategoryFilter] = useState<RegistryCategoryFilter>('all');
+  const [columnFilters, setColumnFilters] =
+    useState<RegistryColumnFilters>(EMPTY_COLUMN_FILTERS);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const filteredRows = useMemo(
+    () => filterRegistryRows(allRows, categoryFilter, columnFilters),
+    [allRows, categoryFilter, columnFilters],
+  );
+
+  const categoryCounts = useMemo(() => {
+    const counts = { all: allRows.length, sbc: 0, hats: 0 };
+    for (const row of allRows) {
+      counts[row.registryCategory] += 1;
+    }
+    return counts;
+  }, [allRows]);
+
+  const filtersActive =
+    categoryFilter !== 'all' || hasActiveColumnFilters(columnFilters);
+
+  const updateColumnFilter = (key: keyof RegistryColumnFilters, value: string) => {
+    setColumnFilters((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const clearFilters = () => {
+    setCategoryFilter('all');
+    setColumnFilters(EMPTY_COLUMN_FILTERS);
+  };
+
+  const toggleExpanded = (id: string) => {
+    setExpandedId((current) => (current === id ? null : id));
+  };
+
+  return (
+    <section className="hardware-catalog">
+      <div className="hardware-catalog__header">
+        <h2 className="section-title">{t('registry.title')}</h2>
+        <p className="section-desc">
+          {t('registry.desc')}{' '}
+          <code>src/config/hardware-registry.json</code>.
+        </p>
+      </div>
+
+      <div className="registry-table__toolbar">
+        <div className="registry-table__category-filter" role="group" aria-label={t('registry.categoryAria')}>
+          {categoryOptions.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              className={[
+                'registry-table__category-btn',
+                categoryFilter === option.id ? 'registry-table__category-btn--active' : '',
+              ]
+                .filter(Boolean)
+                .join(' ')}
+              aria-pressed={categoryFilter === option.id}
+              onClick={() => setCategoryFilter(option.id)}
+            >
+              {option.label}
+              <span className="registry-table__category-count">
+                {categoryCounts[option.id]}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <div className="registry-table__toolbar-meta">
+          <span className="registry-table__result-count">
+            {t('registry.showing', { count: filteredRows.length, total: allRows.length })}
+          </span>
+          {filtersActive && (
+            <button
+              type="button"
+              className="registry-table__clear-btn"
+              onClick={clearFilters}
+            >
+              {t('registry.clearFilters')}
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="registry-table__wrap">
+        <table className="registry-table">
+          <thead>
+            <tr>
+              {columnDefs.map((column) => (
+                <th key={column.label} scope="col">
+                  {column.label}
+                </th>
+              ))}
+            </tr>
+            <tr className="registry-table__filter-row">
+              {columnDefs.map((column) => (
+                <th key={`${column.label}-filter`} scope="col">
+                  {column.key ? (
+                    <input
+                      type="search"
+                      className="registry-table__filter-input"
+                      value={columnFilters[column.key]}
+                      placeholder={column.filterPlaceholder}
+                      aria-label={t('registry.filters.aria', { column: column.label })}
+                      onChange={(event) =>
+                        updateColumnFilter(column.key!, event.target.value)
+                      }
+                    />
+                  ) : null}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {filteredRows.length === 0 ? (
+              <tr>
+                <td colSpan={columnDefs.length} className="registry-table__empty">
+                  {t('registry.empty')}
+                </td>
+              </tr>
+            ) : (
+              filteredRows.map((row) => {
+                const isExpanded = expandedId === row.id;
+                return (
+                  <Fragment key={row.id}>
+                    <tr
+                      className={[
+                        'registry-table__row',
+                        `registry-table__row--${row.registryCategory}`,
+                        isExpanded ? 'registry-table__row--expanded' : '',
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
+                      onClick={() => toggleExpanded(row.id)}
+                    >
+                      <td>
+                        <span
+                          className={[
+                            'registry-table__category-badge',
+                            `registry-table__category-badge--${row.registryCategory}`,
+                          ].join(' ')}
+                        >
+                          {row.registryCategory === 'sbc'
+                            ? t('registry.categories.sbc')
+                            : t('registry.categories.hats')}
+                        </span>
+                      </td>
+                      <td>
+                        <div className="registry-table__title-cell">
+                          <HardwareImage
+                            imageUrl={row.hat?.imageUrl ?? row.sbc?.imageUrl}
+                            alt={row.name}
+                            size="sm"
+                            className="registry-table__thumb"
+                          />
+                          <div className="registry-table__title-stack">
+                            <span className="registry-table__title">{row.name}</span>
+                            <code className="registry-table__subtitle">{row.id}</code>
+                          </div>
+                        </div>
+                      </td>
+                      <td>{row.vendor}</td>
+                      <td className="registry-table__soc">{row.soc || emDash}</td>
+                      <td>
+                        <code>{row.platformId}</code>
+                      </td>
+                      <td>{row.kind}</td>
+                      <td>{row.productCategory}</td>
+                      <td className="registry-table__interfaces">{row.interfaces || emDash}</td>
+                      <td>{row.pinCount > 0 ? row.pinCount : emDash}</td>
+                      <td className="registry-table__form-factor">
+                        {row.formFactor || emDash}
+                      </td>
+                      <td className="registry-table__tags">{row.tags || emDash}</td>
+                      <td className="registry-table__links" onClick={(e) => e.stopPropagation()}>
+                        {row.documentationUrl && (
+                          <a
+                            href={row.documentationUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {t('common.docs')}
+                          </a>
+                        )}
+                        {row.productUrl && (
+                          <a href={row.productUrl} target="_blank" rel="noopener noreferrer">
+                            {t('common.product')}
+                          </a>
+                        )}
+                      </td>
+                    </tr>
+                    {isExpanded && (
+                      <tr className="registry-table__details-row">
+                        <td colSpan={columnDefs.length}>
+                          <RegistryRowDetails row={row} />
+                        </td>
+                      </tr>
+                    )}
+                  </Fragment>
+                );
+              })
+            )}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,88 @@
+{
+  "id": "orangepi-zero-3w-40pin",
+  "name": "Orange Pi Zero 3W 40-pin GPIO Header",
+  "shortName": "Orange Pi Zero 3W",
+  "pinCount": 40,
+  "orientationHint": "USB-C ports to the left, 40-pin header on the right — pin 1 is top-left, pin 2 top-right",
+  "documentationUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-3W.html",
+  "productUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-3W.html",
+  "notes": "Pin 4 is GND (not +5V like Raspberry Pi). Pin 40 is unassigned on the v1.2 pinout diagram. Not mechanically HAT-compatible with Pi mounting despite 40-pin header.",
+  "gpioNumberLabel": "Line",
+  "spiPinoutDescription": "SPI3 on header pins 19–24 (MOSI, MISO, CLK, CS0, CS1).",
+  "formFactor": {
+    "widthMm": 65,
+    "heightMm": 32,
+    "formFactorClass": "rpi-zero",
+    "label": "Rpi Zero class stick",
+    "mountingHoles": [
+      { "x": 3.0, "y": 3.0, "diameterMm": 2.5 },
+      { "x": 3.0, "y": 29.0, "diameterMm": 2.5 },
+      { "x": 62.0, "y": 3.0, "diameterMm": 2.5 },
+      { "x": 62.0, "y": 29.0, "diameterMm": 2.5 }
+    ],
+    "gpioHeader": {
+      "pin1": { "x": 1.27, "y": 0 },
+      "pitchMm": 2.54,
+      "columns": 2,
+      "rows": 20
+    },
+    "notes": "Rpi Zero class stick (65 × 32 mm). Power and ground pins differ from Raspberry Pi pinout."
+  },
+  "pins": [
+    { "physical": 1, "name": "+3.3V", "type": "power3v3" },
+    { "physical": 2, "name": "+5.0V", "type": "power5v" },
+    { "physical": 3, "name": "PB3", "bankName": "PB3", "type": "i2c", "altFunctions": ["TWI0_SDA"] },
+    { "physical": 4, "name": "GND", "type": "ground", "notes": "GND — not +5V (differs from Raspberry Pi pin 4)" },
+    { "physical": 5, "name": "PB2", "bankName": "PB2", "type": "i2c", "altFunctions": ["TWI0_SCK"] },
+    { "physical": 6, "name": "PB9", "bankName": "PB9", "type": "uart", "altFunctions": ["UART0_TX"] },
+    { "physical": 7, "name": "PB4", "bankName": "PB4", "type": "gpio", "altFunctions": ["PWM0_0"] },
+    { "physical": 8, "name": "PB10", "bankName": "PB10", "type": "uart", "altFunctions": ["UART0_RX"] },
+    { "physical": 9, "name": "GND", "type": "ground" },
+    { "physical": 10, "name": "PB5", "bankName": "PB5", "type": "gpio" },
+    { "physical": 11, "name": "PB0", "bankName": "PB0", "type": "uart", "altFunctions": ["UART2_TX"] },
+    { "physical": 12, "name": "GND", "type": "ground" },
+    { "physical": 13, "name": "PB1", "bankName": "PB1", "type": "uart", "altFunctions": ["UART2_RX"] },
+    { "physical": 14, "name": "PL2", "bankName": "PL2", "type": "uart", "altFunctions": ["UART7_TX"] },
+    { "physical": 15, "name": "PE11", "bankName": "PE11", "type": "gpio" },
+    { "physical": 16, "name": "PL3", "bankName": "PL3", "type": "uart", "altFunctions": ["UART7_RX"] },
+    { "physical": 17, "name": "+3.3V", "type": "power3v3" },
+    { "physical": 18, "name": "GND", "type": "ground" },
+    { "physical": 19, "name": "PE2", "bankName": "PE2", "type": "spi", "altFunctions": ["TWI2_SDA", "SPI3_MOSI"] },
+    { "physical": 20, "name": "PD0", "bankName": "PD0", "type": "gpio" },
+    { "physical": 21, "name": "PE3", "bankName": "PE3", "type": "spi", "altFunctions": ["TWI3_SCK", "SPI3_MISO"] },
+    { "physical": 22, "name": "PE0", "bankName": "PE0", "type": "spi", "altFunctions": ["SPI3_CS0", "UART6_TX"] },
+    { "physical": 23, "name": "PE1", "bankName": "PE1", "type": "spi", "altFunctions": ["UART6_RX", "TWI2_SCK", "SPI3_CLK"] },
+    { "physical": 24, "name": "PE4", "bankName": "PE4", "type": "spi", "altFunctions": ["SPI3_CS1", "TWI3_SDA"] },
+    { "physical": 25, "name": "GND", "type": "ground" },
+    { "physical": 26, "name": "PL4", "bankName": "PL4", "type": "gpio" },
+    { "physical": 27, "name": "PL5", "bankName": "PL5", "type": "gpio" },
+    { "physical": 28, "name": "GND", "type": "ground" },
+    { "physical": 29, "name": "PE12", "bankName": "PE12", "type": "gpio" },
+    { "physical": 30, "name": "PD1", "bankName": "PD1", "type": "gpio", "altFunctions": ["PWM0_1"] },
+    { "physical": 31, "name": "PE13", "bankName": "PE13", "type": "gpio", "altFunctions": ["PWM0_3"] },
+    { "physical": 32, "name": "GND", "type": "ground" },
+    { "physical": 33, "name": "PD3", "bankName": "PD3", "type": "gpio", "altFunctions": ["PWM0_8"] },
+    { "physical": 34, "name": "PD2", "bankName": "PD2", "type": "gpio", "altFunctions": ["PWM0_2"] },
+    { "physical": 35, "name": "PB6", "bankName": "PB6", "type": "gpio", "altFunctions": ["PWM0_4"] },
+    { "physical": 36, "name": "PB8", "bankName": "PB8", "type": "i2c", "altFunctions": ["TWI1_SDA"] },
+    { "physical": 37, "name": "PD4", "bankName": "PD4", "type": "gpio" },
+    { "physical": 38, "name": "PB7", "bankName": "PB7", "type": "i2c", "altFunctions": ["TWI1_SCL", "PWM0_9"] },
+    { "physical": 39, "name": "GND", "type": "ground" },
+    { "physical": 40, "name": "NC", "type": "gpio", "notes": "Unassigned on v1.2 pinout diagram" }
+  ],
+  "spiBuses": [
+    {
+      "id": "spi3",
+      "name": "SPI3",
+      "description": "SPI3 bus on the 40-pin expansion header.",
+      "defaultNote": "Chip select SPI3_CS0 on pin 22 (PE0); SPI3_CS1 on pin 24 (PE4).",
+      "signals": [
+        { "signal": "MOSI", "physical": 19 },
+        { "signal": "MISO", "physical": 21 },
+        { "signal": "SCLK", "physical": 23 },
+        { "signal": "CS0", "physical": 22 },
+        { "signal": "CS1", "physical": 24 }
+      ]
+    }
+  ]
+}

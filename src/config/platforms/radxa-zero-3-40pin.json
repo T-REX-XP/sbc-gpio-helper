@@ -1,0 +1,222 @@
+{
+  "id": "radxa-zero-3-40pin",
+  "name": "Radxa ZERO 3 40-pin GPIO Header",
+  "shortName": "Radxa Zero 3",
+  "pinCount": 40,
+  "orientationHint": "HDMI port to the left, GPIO header on the right — pin 1 is top-left, pin 2 top-right",
+  "documentationUrl": "https://docs.radxa.com/en/zero/zero3/hardware-design/hardware-interface",
+  "notes": "Pins 3, 5, 27, and 28 have extra I²C pull-ups and may behave abnormally when used as GPIO.",
+  "gpioNumberLabel": "GPIO",
+  "spiPinoutDescription": "SPI3 signal mapping on the 40-pin header (M1 mux).",
+  "formFactor": {
+    "widthMm": 65,
+    "heightMm": 30,
+    "formFactorClass": "rpi-zero",
+    "label": "Rpi Zero class stick",
+    "mountingHoles": [
+      { "x": 3.0, "y": 3.0, "diameterMm": 2.5 },
+      { "x": 3.0, "y": 27.0, "diameterMm": 2.5 },
+      { "x": 62.0, "y": 3.0, "diameterMm": 2.5 },
+      { "x": 62.0, "y": 27.0, "diameterMm": 2.5 }
+    ],
+    "gpioHeader": {
+      "pin1": { "x": 1.27, "y": 0 },
+      "pitchMm": 2.54,
+      "columns": 2,
+      "rows": 20
+    },
+    "notes": "Rpi Zero class stick (65 × 30 mm). Same height class as Raspberry Pi Zero; mounting differs."
+  },
+  "pins": [
+    { "physical": 1, "name": "+3.3V", "type": "power3v3" },
+    { "physical": 2, "name": "+5.0V", "type": "power5v" },
+    { "physical": 3, "name": "GPIO1_A0", "bankName": "GPIO1_A0", "gpioNumber": 32, "type": "gpio", "altFunctions": ["UART3_RX_M0"], "notes": "I²C pull-up" },
+    { "physical": 4, "name": "+5.0V", "type": "power5v" },
+    { "physical": 5, "name": "GPIO1_A1", "bankName": "GPIO1_A1", "gpioNumber": 33, "type": "gpio", "altFunctions": ["UART3_TX_M0"], "notes": "I²C pull-up" },
+    { "physical": 6, "name": "GND", "type": "ground" },
+    { "physical": 7, "name": "GPIO3_C4", "bankName": "GPIO3_C4", "gpioNumber": 116, "type": "gpio", "altFunctions": ["PWM14_M0"] },
+    { "physical": 8, "name": "GPIO0_D1", "bankName": "GPIO0_D1", "gpioNumber": 25, "type": "uart", "altFunctions": ["UART2_TX_M0"] },
+    { "physical": 9, "name": "GND", "type": "ground" },
+    { "physical": 10, "name": "GPIO0_D0", "bankName": "GPIO0_D0", "gpioNumber": 24, "type": "uart", "altFunctions": ["UART2_RX_M0"] },
+    { "physical": 11, "name": "GPIO3_A1", "bankName": "GPIO3_A1", "gpioNumber": 97, "type": "gpio" },
+    { "physical": 12, "name": "GPIO3_A3", "bankName": "GPIO3_A3", "gpioNumber": 99, "type": "pcm", "altFunctions": ["I2S3_SCLK_M0"] },
+    { "physical": 13, "name": "GPIO3_A2", "bankName": "GPIO3_A2", "gpioNumber": 98, "type": "pcm", "altFunctions": ["I2S3_MCLK_M0"] },
+    { "physical": 14, "name": "GND", "type": "ground" },
+    { "physical": 15, "name": "GPIO3_B0", "bankName": "GPIO3_B0", "gpioNumber": 104, "type": "gpio" },
+    { "physical": 16, "name": "GPIO3_B1", "bankName": "GPIO3_B1", "gpioNumber": 105, "type": "gpio", "altFunctions": ["UART4_RX_M1", "PWM8_M0"] },
+    { "physical": 17, "name": "+3.3V", "type": "power3v3" },
+    { "physical": 18, "name": "GPIO3_B2", "bankName": "GPIO3_B2", "gpioNumber": 106, "type": "gpio", "altFunctions": ["UART4_TX_M1", "PWM9_M0"] },
+    { "physical": 19, "name": "GPIO4_C3", "bankName": "GPIO4_C3", "gpioNumber": 147, "type": "spi", "altFunctions": ["SPI3_MOSI_M1", "I2S3_SCLK_M1", "PWM15_IR_M1"] },
+    { "physical": 20, "name": "GND", "type": "ground" },
+    { "physical": 21, "name": "GPIO4_C5", "bankName": "GPIO4_C5", "gpioNumber": 149, "type": "spi", "altFunctions": ["SPI3_MISO_M1", "I2S3_SDO_M1", "PWM12_M1", "UART9_TX_M1"] },
+    { "physical": 22, "name": "GPIO3_C1", "bankName": "GPIO3_C1", "gpioNumber": 113, "type": "pcm", "altFunctions": ["I2S1_SDO2_M2"] },
+    { "physical": 23, "name": "GPIO4_C2", "bankName": "GPIO4_C2", "gpioNumber": 146, "type": "spi", "altFunctions": ["SPI3_CLK_M1", "I2S3_MCLK_M1", "PWM14_M1"] },
+    { "physical": 24, "name": "GPIO4_C6", "bankName": "GPIO4_C6", "gpioNumber": 150, "type": "spi", "altFunctions": ["SPI3_CS0_M1", "PWM13_M1", "UART9_RX_M1", "I2S3_SDI_M1"] },
+    { "physical": 25, "name": "GND", "type": "ground" },
+    { "physical": 26, "name": "NC", "type": "gpio", "notes": "Not connected" },
+    { "physical": 27, "name": "GPIO4_B2", "bankName": "GPIO4_B2", "gpioNumber": 138, "type": "i2c", "altFunctions": ["I2C4_SDA_M0", "I2S2_SDI_M1"], "notes": "I²C pull-up" },
+    { "physical": 28, "name": "GPIO4_B3", "bankName": "GPIO4_B3", "gpioNumber": 139, "type": "i2c", "altFunctions": ["I2C4_SCL_M0", "I2S2_SDO_M1"], "notes": "I²C pull-up" },
+    { "physical": 29, "name": "GPIO3_B3", "bankName": "GPIO3_B3", "gpioNumber": 107, "type": "i2c", "altFunctions": ["I2C5_SCL_M0"] },
+    { "physical": 30, "name": "GND", "type": "ground" },
+    { "physical": 31, "name": "GPIO3_B4", "bankName": "GPIO3_B4", "gpioNumber": 108, "type": "i2c", "altFunctions": ["I2C5_SDA_M0"] },
+    { "physical": 32, "name": "GPIO3_C2", "bankName": "GPIO3_C2", "gpioNumber": 114, "type": "gpio", "altFunctions": ["UART5_TX_M1", "I2S1_SDO3_M2"] },
+    { "physical": 33, "name": "GPIO3_C3", "bankName": "GPIO3_C3", "gpioNumber": 115, "type": "gpio", "altFunctions": ["UART5_RX_M1", "I2S1_SCLK_RX_M2"] },
+    { "physical": 34, "name": "GND", "type": "ground" },
+    { "physical": 35, "name": "GPIO3_A4", "bankName": "GPIO3_A4", "gpioNumber": 100, "type": "pcm", "altFunctions": ["I2S3_LRCK_M0"] },
+    { "physical": 36, "name": "GPIO3_A7", "bankName": "GPIO3_A7", "gpioNumber": 103, "type": "gpio" },
+    { "physical": 37, "name": "GPIO1_A4", "bankName": "GPIO1_A4", "gpioNumber": 36, "type": "pcm", "altFunctions": ["I2S1_SCLK_RX_M0"] },
+    { "physical": 38, "name": "GPIO3_A6", "bankName": "GPIO3_A6", "gpioNumber": 102, "type": "pcm", "altFunctions": ["I2S3_SDI_M0"] },
+    { "physical": 39, "name": "GND", "type": "ground" },
+    { "physical": 40, "name": "GPIO3_A5", "bankName": "GPIO3_A5", "gpioNumber": 101, "type": "pcm", "altFunctions": ["I2S3_SDO_M0"] }
+  ],
+  "spiBuses": [
+    {
+      "id": "spi3",
+      "name": "SPI3",
+      "description": "SPI3 bus on the 40-pin header (M1 mux). Primary SPI interface for accessories.",
+      "enableOverlay": "rk3568-spi3-m1-cs0-spidev",
+      "defaultNote": "Chip select is SPI3_CS0 on pin 24 (GPIO 150 / GPIO4_C6).",
+      "signals": [
+        { "signal": "MOSI", "physical": 19, "gpioNumber": 147 },
+        { "signal": "MISO", "physical": 21, "gpioNumber": 149 },
+        { "signal": "SCLK", "physical": 23, "gpioNumber": 146 },
+        { "signal": "CS0", "physical": 24, "gpioNumber": 150 }
+      ]
+    }
+  ],
+  "deviceTree": {
+    "documentationUrl": "https://wiki.radxa.com/Device-tree-overlays",
+    "modernDocumentationUrl": "https://docs.radxa.com/en/radxa-os/rsetup/devicetree",
+    "chipFamily": "RK3566 / RK3568",
+    "overlayDirectory": "/boot/dtbs/$(uname -r)/rockchip/overlay/",
+    "configPath": "/boot/uEnv.txt",
+    "intro": "RK3566/RK3568 overlays from the Radxa kernel packages. Add names to overlays= in /boot/uEnv.txt (space-separated), one parameter per line when required.",
+    "exampleConfig": "overlays=rk3568-spi3-m1-cs0-spidev rk3568-uart3-m0 rk3568-pwm14-m0",
+    "overlays": [
+      {
+        "id": "rk3568-spi3-m1-cs0-spidev",
+        "category": "spi",
+        "description": "Activates SPI3 M1 spidev",
+        "deviceNode": "/dev/spidev3.0",
+        "signals": [
+          { "name": "CS0", "bankName": "GPIO4_C6", "physical": 24 },
+          { "name": "CLK", "bankName": "GPIO4_C2", "physical": 23 },
+          { "name": "MOSI", "bankName": "GPIO4_C3", "physical": 19 },
+          { "name": "MISO", "bankName": "GPIO4_C5", "physical": 21 }
+        ],
+        "usage": "overlays=rk3568-spi3-m1-cs0-spidev"
+      },
+      {
+        "id": "rk3568-uart3-m0",
+        "category": "uart",
+        "description": "Activates UART3 M0",
+        "deviceNode": "/dev/ttyS3",
+        "signals": [
+          { "name": "RX", "bankName": "GPIO1_A0", "physical": 3 },
+          { "name": "TX", "bankName": "GPIO1_A1", "physical": 5 }
+        ],
+        "usage": "overlays=rk3568-uart3-m0",
+        "notes": "Pins 3 & 5 have I²C pull-ups on the Zero 3."
+      },
+      {
+        "id": "rk3568-uart5-m1",
+        "category": "uart",
+        "description": "Activates UART5 M1",
+        "deviceNode": "/dev/ttyS5",
+        "signals": [
+          { "name": "RX", "bankName": "GPIO3_C3", "physical": 33 },
+          { "name": "TX", "bankName": "GPIO3_C2", "physical": 32 }
+        ],
+        "usage": "overlays=rk3568-uart5-m1"
+      },
+      {
+        "id": "rk3568-uart9-m1",
+        "category": "uart",
+        "description": "Activates UART9 M1",
+        "deviceNode": "/dev/ttyS9",
+        "signals": [
+          { "name": "TX", "bankName": "GPIO4_C5", "physical": 21 },
+          { "name": "RX", "bankName": "GPIO4_C6", "physical": 24 }
+        ],
+        "usage": "overlays=rk3568-uart9-m1",
+        "notes": "Conflicts with SPI3 chip select on pin 24."
+      },
+      {
+        "id": "rk3568-i2c2-m0",
+        "category": "i2c",
+        "description": "Activates I2C bus 2 M0",
+        "signals": [
+          { "name": "SDA", "bankName": "I2C2_SDA_M0" },
+          { "name": "SCL", "bankName": "I2C2_SCL_M0" }
+        ],
+        "usage": "overlays=rk3568-i2c2-m0",
+        "notes": "SoC mux — verify header pin routing on your board revision."
+      },
+      {
+        "id": "rk3568-i2c3-m0",
+        "category": "i2c",
+        "description": "Activates I2C bus 3 M0",
+        "signals": [
+          { "name": "SDA", "bankName": "I2C3_SDA_M0" },
+          { "name": "SCL", "bankName": "I2C3_SCL_M0" }
+        ],
+        "usage": "overlays=rk3568-i2c3-m0",
+        "notes": "SoC mux — verify header pin routing on your board revision."
+      },
+      {
+        "id": "rk3568-pwm14-m0",
+        "category": "pwm",
+        "description": "Activates PWM14 M0",
+        "signals": [{ "name": "PWM", "bankName": "GPIO3_C4", "physical": 7 }],
+        "usage": "overlays=rk3568-pwm14-m0"
+      },
+      {
+        "id": "rk3568-pwm14-m1",
+        "category": "pwm",
+        "description": "Activates PWM14 M1",
+        "signals": [{ "name": "PWM", "bankName": "GPIO4_C2", "physical": 23 }],
+        "usage": "overlays=rk3568-pwm14-m1",
+        "notes": "Conflicts with SPI3 SCLK on pin 23."
+      },
+      {
+        "id": "rk3568-pwm15-m1",
+        "category": "pwm",
+        "description": "Activates PWM15 M1",
+        "signals": [{ "name": "PWM", "bankName": "GPIO4_C3", "physical": 19 }],
+        "usage": "overlays=rk3568-pwm15-m1",
+        "notes": "Conflicts with SPI3 MOSI on pin 19."
+      },
+      {
+        "id": "rk3568-pwm12-m1",
+        "category": "pwm",
+        "description": "Activates PWM12 M1",
+        "signals": [{ "name": "PWM", "bankName": "GPIO4_C5", "physical": 21 }],
+        "usage": "overlays=rk3568-pwm12-m1",
+        "notes": "Conflicts with SPI3 MISO on pin 21."
+      },
+      {
+        "id": "rk3568-pwm13-m1",
+        "category": "pwm",
+        "description": "Activates PWM13 M1",
+        "signals": [{ "name": "PWM", "bankName": "GPIO4_C6", "physical": 24 }],
+        "usage": "overlays=rk3568-pwm13-m1",
+        "notes": "Conflicts with SPI3 CS0 on pin 24."
+      },
+      {
+        "id": "rk3568-w1-gpio",
+        "category": "other",
+        "description": "Activates 1-Wire GPIO master",
+        "signals": [{ "name": "Data", "bankName": "GPIO3_A5", "physical": 40 }],
+        "usage": "overlays=rk3568-w1-gpio",
+        "parameters": [
+          {
+            "name": "param_w1_pin",
+            "description": "1-Wire data pin",
+            "default": "GPIO3_A5"
+          }
+        ],
+        "notes": "Requires an external pull-up resistor on the data pin."
+      }
+    ]
+  }
+}

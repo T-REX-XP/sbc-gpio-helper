@@ -1,0 +1,73 @@
+{
+  "id": "orangepi-5-26pin",
+  "name": "Orange Pi 5 26-pin Expansion Header",
+  "shortName": "Orange Pi 5",
+  "pinCount": 26,
+  "orientationHint": "26-pin header on the board edge — pin 1 is top-left, pin 2 top-right (not a 40-pin HAT header)",
+  "documentationUrl": "http://www.orangepi.org/orangepiwiki/index.php/26_Pin_Interface_Pin_Description",
+  "productUrl": "http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5.html",
+  "notes": "26-pin header only — do not confuse with Orange Pi 5 Plus (40-pin). SPI, I²C, UART, PWM, and CAN require device-tree overlays in /boot/orangepiEnv.txt. All GPIO lines are 3.3 V.",
+  "gpioNumberLabel": "GPIO",
+  "spiPinoutDescription": "SPI4 on header pins 19–24 (MOSI, MISO, CLK, CS1). Use overlay spi4-m0-cs1-spidev and /dev/spidev4.1.",
+  "formFactor": {
+    "widthMm": 62,
+    "heightMm": 100,
+    "label": "Orange Pi 5 PCB (26-pin)",
+    "mountingHoles": [
+      { "x": 3.0, "y": 3.0, "diameterMm": 2.5 },
+      { "x": 3.0, "y": 97.0, "diameterMm": 2.5 },
+      { "x": 59.0, "y": 3.0, "diameterMm": 2.5 },
+      { "x": 59.0, "y": 97.0, "diameterMm": 2.5 }
+    ],
+    "gpioHeader": {
+      "pin1": { "x": 1.27, "y": 0 },
+      "pitchMm": 2.54,
+      "columns": 2,
+      "rows": 13
+    },
+    "notes": "62 × 100 mm PCB with 26-pin header (2×13). Not an Rpi A / B / Zero form factor."
+  },
+  "pins": [
+    { "physical": 1, "name": "+3.3V", "type": "power3v3" },
+    { "physical": 2, "name": "+5.0V", "type": "power5v" },
+    { "physical": 3, "name": "GPIO1_B7", "bankName": "GPIO1_B7", "gpioNumber": 47, "type": "i2c", "altFunctions": ["I2C5_SDA", "UART1_RX"] },
+    { "physical": 4, "name": "+5.0V", "type": "power5v" },
+    { "physical": 5, "name": "GPIO1_B6", "bankName": "GPIO1_B6", "gpioNumber": 46, "type": "i2c", "altFunctions": ["I2C5_SCL", "UART1_TX"] },
+    { "physical": 6, "name": "GND", "type": "ground" },
+    { "physical": 7, "name": "GPIO1_C6", "bankName": "GPIO1_C6", "gpioNumber": 54, "type": "gpio", "altFunctions": ["PWM15_M2"] },
+    { "physical": 8, "name": "GPIO4_A3", "bankName": "GPIO4_A3", "gpioNumber": 131, "type": "uart", "altFunctions": ["UART0_TX"] },
+    { "physical": 9, "name": "GND", "type": "ground" },
+    { "physical": 10, "name": "GPIO4_A4", "bankName": "GPIO4_A4", "gpioNumber": 132, "type": "uart", "altFunctions": ["UART0_RX"] },
+    { "physical": 11, "name": "GPIO4_B2", "bankName": "GPIO4_B2", "gpioNumber": 138, "type": "gpio", "altFunctions": ["CAN1_TX", "PWM14_M1"] },
+    { "physical": 12, "name": "GPIO0_D5", "bankName": "GPIO0_D5", "gpioNumber": 29, "type": "i2c", "altFunctions": ["I2C1_SDA_M2", "CAN2_TX"] },
+    { "physical": 13, "name": "GPIO4_B3", "bankName": "GPIO4_B3", "gpioNumber": 139, "type": "gpio", "altFunctions": ["CAN1_RX"] },
+    { "physical": 14, "name": "GND", "type": "ground" },
+    { "physical": 15, "name": "GPIO0_D4", "bankName": "GPIO0_D4", "gpioNumber": 28, "type": "gpio", "altFunctions": ["I2C1_SCL_M2", "PWM3_M0", "CAN2_RX"] },
+    { "physical": 16, "name": "GPIO1_D3", "bankName": "GPIO1_D3", "gpioNumber": 59, "type": "uart", "altFunctions": ["UART4_TX", "I2C1_SDA_M4", "PWM1_M1"] },
+    { "physical": 17, "name": "+3.3V", "type": "power3v3" },
+    { "physical": 18, "name": "GPIO1_D2", "bankName": "GPIO1_D2", "gpioNumber": 58, "type": "uart", "altFunctions": ["UART4_RX", "I2C1_SCL_M4"] },
+    { "physical": 19, "name": "GPIO1_C1", "bankName": "GPIO1_C1", "gpioNumber": 49, "type": "spi", "altFunctions": ["SPI4_MOSI", "UART3_TX", "I2C3_SDA"] },
+    { "physical": 20, "name": "GND", "type": "ground" },
+    { "physical": 21, "name": "GPIO1_C0", "bankName": "GPIO1_C0", "gpioNumber": 48, "type": "spi", "altFunctions": ["SPI4_MISO", "UART3_RX", "I2C3_SCL"] },
+    { "physical": 22, "name": "GPIO2_D4", "bankName": "GPIO2_D4", "gpioNumber": 92, "type": "gpio" },
+    { "physical": 23, "name": "GPIO1_C2", "bankName": "GPIO1_C2", "gpioNumber": 50, "type": "spi", "altFunctions": ["SPI4_CLK", "PWM3_M2"] },
+    { "physical": 24, "name": "GPIO1_C4", "bankName": "GPIO1_C4", "gpioNumber": 52, "type": "spi", "altFunctions": ["SPI4_CS1", "I2C1_SDA"] },
+    { "physical": 25, "name": "GND", "type": "ground" },
+    { "physical": 26, "name": "GPIO1_A3", "bankName": "GPIO1_A3", "gpioNumber": 35, "type": "gpio", "altFunctions": ["PWM1_M2"] }
+  ],
+  "spiBuses": [
+    {
+      "id": "spi4",
+      "name": "SPI4",
+      "description": "SPI4 bus on the 26-pin expansion header. Device node /dev/spidev4.1 (CS1).",
+      "enableOverlay": "spi4-m0-cs1-spidev",
+      "defaultNote": "SPI4 is disabled by default — add overlay in /boot/orangepiEnv.txt. Use /dev/spidev4.1, not spidev4.0.",
+      "signals": [
+        { "signal": "MOSI", "physical": 19, "gpioNumber": 49 },
+        { "signal": "MISO", "physical": 21, "gpioNumber": 48 },
+        { "signal": "SCLK", "physical": 23, "gpioNumber": 50 },
+        { "signal": "CS1", "physical": 24, "gpioNumber": 52 }
+      ]
+    }
+  ]
+}

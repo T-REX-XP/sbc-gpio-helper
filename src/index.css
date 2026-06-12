@@ -1,0 +1,64 @@
+:root {
+  --surface: #f1f5f9;
+  --surface-raised: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --accent: #2563eb;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(15, 23, 42, 0.06);
+  --danger: #dc2626;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+
+  /* Raspberry Pi GPIO header palette */
+  --gpio-board: #3d4a2a;
+  --gpio-board-stripe: #2f3920;
+  --gpio-pin-power3v3: #e8a317;
+  --gpio-pin-power5v: #c62828;
+  --gpio-pin-ground: #1a1a1a;
+  --gpio-pin-i2c: #1e88e5;
+  --gpio-pin-uart: #8e44c3;
+  --gpio-pin-spi: #d81b87;
+  --gpio-pin-pcm: #00acc1;
+  --gpio-pin-gpio: #6d7f3c;
+  --gpio-pin-label: #ffffff;
+  --gpio-pin-label-muted: #b0b8a8;
+
+  font-family:
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text);
+  background-color: var(--surface);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+}
+
+code {
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+}

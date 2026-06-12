@@ -1,0 +1,259 @@
+{
+  "id": "radxa-zero-40pin",
+  "name": "Radxa ZERO 40-pin GPIO Header",
+  "shortName": "Radxa Zero",
+  "pinCount": 40,
+  "orientationHint": "Micro HDMI to the left — pin 1 is top-left, pin 2 top-right",
+  "documentationUrl": "https://wiki.radxa.com/Zero/hardware/gpio",
+  "productUrl": "https://docs.radxa.com/en/zero/zero",
+  "notes": "Pins 3 & 5 (I2C_EE_M3) have pull-ups and cannot be used as GPIO. Pin 35 or 38 may be tied to the power LED depending on board revision. Pins 22 & 36 are open-drain.",
+  "gpioNumberLabel": "GPIO",
+  "spiPinoutDescription": "SPI_A (/dev/spidev0.0) and SPI_B (/dev/spidev1.0) on the 40-pin header.",
+  "formFactor": {
+    "widthMm": 69,
+    "heightMm": 32,
+    "formFactorClass": "rpi-zero",
+    "label": "Rpi Zero class stick",
+    "mountingHoles": [
+      { "x": 3.0, "y": 3.0, "diameterMm": 2.5 },
+      { "x": 3.0, "y": 29.0, "diameterMm": 2.5 },
+      { "x": 66.0, "y": 3.0, "diameterMm": 2.5 },
+      { "x": 66.0, "y": 29.0, "diameterMm": 2.5 }
+    ],
+    "gpioHeader": {
+      "pin1": { "x": 1.27, "y": 0 },
+      "pitchMm": 2.54,
+      "columns": 2,
+      "rows": 20
+    },
+    "notes": "Rpi Zero class stick (69 × 32 mm). 40-pin header; mounting holes differ from Raspberry Pi boards."
+  },
+  "pins": [
+    { "physical": 1, "name": "+3.3V", "type": "power3v3" },
+    { "physical": 2, "name": "+5.0V", "type": "power5v" },
+    { "physical": 3, "name": "GPIOA_14", "bankName": "GPIOA_14", "gpioNumber": 490, "type": "i2c", "altFunctions": ["I2C_EE_M3_SDA"], "notes": "Not usable as GPIO — USB-C pull-up" },
+    { "physical": 4, "name": "+5.0V", "type": "power5v" },
+    { "physical": 5, "name": "GPIOA_15", "bankName": "GPIOA_15", "gpioNumber": 491, "type": "i2c", "altFunctions": ["I2C_EE_M3_SCL"], "notes": "Not usable as GPIO — USB-C pull-up" },
+    { "physical": 6, "name": "GND", "type": "ground" },
+    { "physical": 7, "name": "GPIOAO_3", "bankName": "GPIOAO_3", "gpioNumber": 415, "type": "i2c", "altFunctions": ["I2C_AO_M0_SDA", "UART_AO_B_RX", "I2C_AO_S0_SDA"] },
+    { "physical": 8, "name": "GPIOAO_0", "bankName": "GPIOAO_0", "gpioNumber": 412, "type": "uart", "altFunctions": ["UART_AO_A_TXD"], "notes": "Debug console" },
+    { "physical": 9, "name": "GND", "type": "ground" },
+    { "physical": 10, "name": "GPIOAO_1", "bankName": "GPIOAO_1", "gpioNumber": 413, "type": "uart", "altFunctions": ["UART_AO_A_RXD"], "notes": "Debug console" },
+    { "physical": 11, "name": "GPIOAO_2", "bankName": "GPIOAO_2", "gpioNumber": 414, "type": "i2c", "altFunctions": ["I2C_AO_M0_SCL", "UART_AO_B_TX", "I2C_AO_S0_SCL"] },
+    { "physical": 12, "name": "GPIOX_9", "bankName": "GPIOX_9", "gpioNumber": 501, "type": "spi", "altFunctions": ["SPI_A_MISO", "TDMA_D0"] },
+    { "physical": 13, "name": "GPIOX_11", "bankName": "GPIOX_11", "gpioNumber": 503, "type": "spi", "altFunctions": ["SPI_A_SCLK", "I2C_EE_M1_SCL", "TDMA_SCLK"] },
+    { "physical": 14, "name": "GND", "type": "ground" },
+    { "physical": 15, "name": "SARADC_CH1", "type": "gpio" },
+    { "physical": 16, "name": "GPIOX_10", "bankName": "GPIOX_10", "gpioNumber": 502, "type": "spi", "altFunctions": ["SPI_A_SS0", "I2C_EE_M1_SDA", "TDMA_FS"] },
+    { "physical": 17, "name": "+3.3V", "type": "power3v3" },
+    { "physical": 18, "name": "GPIOX_8", "bankName": "GPIOX_8", "gpioNumber": 500, "type": "spi", "altFunctions": ["SPI_A_MOSI", "PWM_C", "TDMA_D1"] },
+    { "physical": 19, "name": "GPIOH_4", "bankName": "GPIOH_4", "gpioNumber": 447, "type": "spi", "altFunctions": ["SPI_B_MOSI", "UART_EE_C_RTS"] },
+    { "physical": 20, "name": "GND", "type": "ground" },
+    { "physical": 21, "name": "GPIOH_5", "bankName": "GPIOH_5", "gpioNumber": 448, "type": "spi", "altFunctions": ["SPI_B_MISO", "UART_EE_C_CTS", "PWM_F"] },
+    { "physical": 22, "name": "GPIOC_7", "bankName": "GPIOC_7", "gpioNumber": 475, "type": "gpio", "notes": "Open drain — needs pull-up for output" },
+    { "physical": 23, "name": "GPIOH_7", "bankName": "GPIOH_7", "gpioNumber": 450, "type": "spi", "altFunctions": ["SPI_B_SCLK", "UART_EE_C_TX", "I2C_EE_M1_SCL"] },
+    { "physical": 24, "name": "GPIOH_6", "bankName": "GPIOH_6", "gpioNumber": 449, "type": "spi", "altFunctions": ["SPI_B_SS0", "UART_EE_C_RX", "I2C_EE_M1_SDA"] },
+    { "physical": 25, "name": "GND", "type": "ground" },
+    { "physical": 26, "name": "SARADC_CH2", "type": "gpio" },
+    { "physical": 27, "name": "GPIOAO_3", "bankName": "GPIOAO_3", "gpioNumber": 415, "type": "i2c", "altFunctions": ["I2C_AO_M0_SDA", "UART_AO_B_RX", "I2C_AO_S0_SDA"] },
+    { "physical": 28, "name": "GPIOAO_2", "bankName": "GPIOAO_2", "gpioNumber": 414, "type": "i2c", "altFunctions": ["I2C_AO_M0_SCL", "UART_AO_B_TX", "I2C_AO_S0_SCL"] },
+    { "physical": 29, "name": "NC", "type": "gpio", "notes": "Not connected" },
+    { "physical": 30, "name": "GND", "type": "ground" },
+    { "physical": 31, "name": "NC", "type": "gpio", "notes": "Not connected" },
+    { "physical": 32, "name": "GPIOAO_4", "bankName": "GPIOAO_4", "gpioNumber": 416, "type": "gpio", "altFunctions": ["PWMAO_C"] },
+    { "physical": 33, "name": "NC", "type": "gpio", "notes": "Not connected" },
+    { "physical": 34, "name": "GND", "type": "ground" },
+    { "physical": 35, "name": "GPIOAO_8", "bankName": "GPIOAO_8", "gpioNumber": 420, "type": "uart", "altFunctions": ["UART_AO_B_TX"], "notes": "v1.51+ only — or power LED on some revisions" },
+    { "physical": 36, "name": "GPIOH_8", "bankName": "GPIOH_8", "gpioNumber": 451, "type": "gpio", "notes": "Open drain, 5V logic — needs pull-up for output" },
+    { "physical": 37, "name": "GPIOAO_9", "bankName": "GPIOAO_9", "gpioNumber": 421, "type": "uart", "altFunctions": ["UART_AO_B_RX"] },
+    { "physical": 38, "name": "GPIOAO_10", "bankName": "GPIOAO_10", "gpioNumber": 422, "type": "gpio", "altFunctions": ["PWMAO_D"], "notes": "Up to v1.5 only — or power LED on some revisions" },
+    { "physical": 39, "name": "GND", "type": "ground" },
+    { "physical": 40, "name": "GPIOAO_11", "bankName": "GPIOAO_11", "gpioNumber": 423, "type": "gpio", "altFunctions": ["PWMAO_A"] }
+  ],
+  "spiBuses": [
+    {
+      "id": "spi-a",
+      "name": "SPI_A",
+      "description": "Primary SPI bus on the 40-pin header. Device node /dev/spidev0.0.",
+      "enableOverlay": "meson-g12a-spi-spidev + param_spidev_spi_bus=0",
+      "defaultNote": "Chip select is SPI_A_SS0 on pin 16 (GPIO 502 / GPIOX_10).",
+      "signals": [
+        { "signal": "MOSI", "physical": 18, "gpioNumber": 500 },
+        { "signal": "MISO", "physical": 12, "gpioNumber": 501 },
+        { "signal": "SCLK", "physical": 13, "gpioNumber": 503 },
+        { "signal": "SS0", "physical": 16, "gpioNumber": 502 }
+      ]
+    },
+    {
+      "id": "spi-b",
+      "name": "SPI_B",
+      "description": "Secondary SPI bus on the 40-pin header. Device node /dev/spidev1.0.",
+      "enableOverlay": "meson-g12a-spi-spidev + param_spidev_spi_bus=1",
+      "defaultNote": "Chip select is SPI_B_SS0 on pin 24 (GPIO 449 / GPIOH_6).",
+      "signals": [
+        { "signal": "MOSI", "physical": 19, "gpioNumber": 447 },
+        { "signal": "MISO", "physical": 21, "gpioNumber": 448 },
+        { "signal": "SCLK", "physical": 23, "gpioNumber": 450 },
+        { "signal": "SS0", "physical": 24, "gpioNumber": 449 }
+      ]
+    }
+  ],
+  "deviceTree": {
+    "documentationUrl": "https://wiki.radxa.com/Device-tree-overlays",
+    "modernDocumentationUrl": "https://docs.radxa.com/en/radxa-os/rsetup/devicetree",
+    "chipFamily": "Meson G12A (S905Y2)",
+    "overlayDirectory": "/boot/dtbs/$(uname -r)/amlogic/overlay/",
+    "configPath": "/boot/uEnv.txt",
+    "fdtfileExample": "amlogic/meson-g12a-radxa-zero.dtb",
+    "intro": "Add overlay names to the overlays= line in /boot/uEnv.txt (space-separated). Required parameters go on separate lines. Reboot after editing.",
+    "exampleConfig": "overlays=meson-g12a-i2c-ao-m0-gpioao-2-gpioao-3 meson-g12a-i2c-ee-m1-gpioh-6-gpioh-7 meson-g12a-i2c-ee-m3-gpioa-14-gpioa-15 meson-g12a-spi-spidev\nparam_spidev_spi_bus=0\nparam_spidev_max_freq=10000000",
+    "overlays": [
+      {
+        "id": "meson-g12a-i2c-ee-m3-gpioa-14-gpioa-15",
+        "category": "i2c",
+        "description": "Activates I2C EE M3",
+        "deviceNode": "/dev/i2c-3",
+        "signals": [
+          { "name": "SDA", "bankName": "GPIOA_14", "physical": 3 },
+          { "name": "SCL", "bankName": "GPIOA_15", "physical": 5 }
+        ],
+        "usage": "overlays=meson-g12a-i2c-ee-m3-gpioa-14-gpioa-15",
+        "notes": "Pins 3 & 5 have USB-C pull-ups and are not usable as GPIO."
+      },
+      {
+        "id": "meson-g12a-i2c-ao-m0-gpioao-2-gpioao-3",
+        "category": "i2c",
+        "description": "Activates I2C AO M0",
+        "deviceNode": "/dev/i2c-4",
+        "signals": [
+          { "name": "SDA", "bankName": "GPIOAO_3", "physical": 7 },
+          { "name": "SCL", "bankName": "GPIOAO_2", "physical": 11 }
+        ],
+        "usage": "overlays=meson-g12a-i2c-ao-m0-gpioao-2-gpioao-3",
+        "notes": "Alternate mux: SDA on pin 27, SCL on pin 28."
+      },
+      {
+        "id": "meson-g12a-i2c-ee-m1-gpioh-6-gpioh-7",
+        "category": "i2c",
+        "description": "Activates I2C EE M1 (GPIOH mux)",
+        "deviceNode": "/dev/i2c-1",
+        "signals": [
+          { "name": "SDA", "bankName": "GPIOH_6", "physical": 24 },
+          { "name": "SCL", "bankName": "GPIOH_7", "physical": 23 }
+        ],
+        "usage": "overlays=meson-g12a-i2c-ee-m1-gpioh-6-gpioh-7"
+      },
+      {
+        "id": "meson-g12a-i2c-ee-m1-gpiox-10-gpiox-11",
+        "category": "i2c",
+        "description": "Activates I2C EE M1 (GPIOX mux)",
+        "deviceNode": "/dev/i2c-1",
+        "signals": [
+          { "name": "SDA", "bankName": "GPIOX_10", "physical": 16 },
+          { "name": "SCL", "bankName": "GPIOX_11", "physical": 13 }
+        ],
+        "usage": "overlays=meson-g12a-i2c-ee-m1-gpiox-10-gpiox-11",
+        "notes": "Conflicts with SPI_A on the same pins."
+      },
+      {
+        "id": "meson-g12a-spi-spidev",
+        "category": "spi",
+        "description": "Activates spidev userspace SPI (/dev/spidevX.0)",
+        "signals": [
+          { "name": "SPI A SS0", "bankName": "GPIOX_10", "physical": 16 },
+          { "name": "SPI A SCLK", "bankName": "GPIOX_11", "physical": 13 },
+          { "name": "SPI A MOSI", "bankName": "GPIOX_8", "physical": 18 },
+          { "name": "SPI A MISO", "bankName": "GPIOX_9", "physical": 12 },
+          { "name": "SPI B SS0", "bankName": "GPIOH_6", "physical": 24 },
+          { "name": "SPI B SCLK", "bankName": "GPIOH_7", "physical": 23 },
+          { "name": "SPI B MOSI", "bankName": "GPIOH_4", "physical": 19 },
+          { "name": "SPI B MISO", "bankName": "GPIOH_5", "physical": 21 }
+        ],
+        "usage": "overlays=meson-g12a-spi-spidev",
+        "parameters": [
+          {
+            "name": "param_spidev_spi_bus",
+            "description": "SPI bus to activate",
+            "required": true,
+            "values": "0 (SPI A → /dev/spidev0.0), 1 (SPI B → /dev/spidev1.0)"
+          },
+          {
+            "name": "param_spidev_spi_cs",
+            "description": "Chip select number",
+            "default": "0",
+            "values": "0"
+          },
+          {
+            "name": "param_spidev_max_freq",
+            "description": "Maximum SPI frequency (Hz)",
+            "default": "10000000",
+            "values": "3000–100000000"
+          }
+        ]
+      },
+      {
+        "id": "meson-g12a-uart-ao-a-on-gpioao-0-gpioao-1",
+        "category": "uart",
+        "description": "Activates UART AO A",
+        "deviceNode": "/dev/ttyAML0",
+        "signals": [
+          { "name": "RX", "bankName": "GPIOAO_1", "physical": 10 },
+          { "name": "TX", "bankName": "GPIOAO_0", "physical": 8 }
+        ],
+        "usage": "overlays=meson-g12a-uart-ao-a-on-gpioao-0-gpioao-1",
+        "notes": "For serial console add console=ttyAML0,115200 on a separate line."
+      },
+      {
+        "id": "meson-g12a-uart-ao-b-on-gpioao-2-gpioao-3",
+        "category": "uart",
+        "description": "Activates UART AO B (GPIOAO_2/3 mux)",
+        "deviceNode": "/dev/ttyAML1",
+        "signals": [
+          { "name": "RX", "bankName": "GPIOAO_3", "physical": 7 },
+          { "name": "TX", "bankName": "GPIOAO_2", "physical": 11 }
+        ],
+        "usage": "overlays=meson-g12a-uart-ao-b-on-gpioao-2-gpioao-3",
+        "notes": "Alternate mux: RX pin 27, TX pin 28."
+      },
+      {
+        "id": "meson-g12a-uart-ao-b-on-gpioao-8-gpioao-9",
+        "category": "uart",
+        "description": "Activates UART AO B (GPIOAO_8/9 mux)",
+        "deviceNode": "/dev/ttyAML1",
+        "signals": [
+          { "name": "RX", "bankName": "GPIOAO_9", "physical": 37 },
+          { "name": "TX", "bankName": "GPIOAO_8", "physical": 35 }
+        ],
+        "usage": "overlays=meson-g12a-uart-ao-b-on-gpioao-8-gpioao-9"
+      },
+      {
+        "id": "meson-g12a-uart-ee-c",
+        "category": "uart",
+        "description": "Activates UART EE C (full modem signals)",
+        "deviceNode": "/dev/ttyAML4",
+        "signals": [
+          { "name": "RX", "bankName": "GPIOH_6", "physical": 24 },
+          { "name": "TX", "bankName": "GPIOH_7", "physical": 23 },
+          { "name": "RTS", "bankName": "GPIOH_4", "physical": 19 },
+          { "name": "CTS", "bankName": "GPIOH_5", "physical": 21 }
+        ],
+        "usage": "overlays=meson-g12a-uart-ee-c",
+        "notes": "Conflicts with SPI_B on the same pins."
+      },
+      {
+        "id": "meson-g12a-pwm-c-on-gpiox-8",
+        "category": "pwm",
+        "description": "Activates PWM_C",
+        "signals": [{ "name": "PWM", "bankName": "GPIOX_8", "physical": 18 }],
+        "usage": "overlays=meson-g12a-pwm-c-on-gpiox-8"
+      },
+      {
+        "id": "meson-g12a-pwmao-a-on-gpioao-11",
+        "category": "pwm",
+        "description": "Activates PWMAO_A",
+        "signals": [{ "name": "PWM", "bankName": "GPIOAO_11", "physical": 40 }],
+        "usage": "overlays=meson-g12a-pwmao-a-on-gpioao-11"
+      }
+    ]
+  }
+}
