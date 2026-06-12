@@ -2,6 +2,8 @@ import { useCallback, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import type { RegistryCategoryFilter, RegistryColumnFilters } from '../hardware/registryTable';
 import { EMPTY_COLUMN_FILTERS } from '../hardware/registryTable';
+import { MAX_SBC_COMPARE, resolveCompareSbcIds } from '../hardware/sbcCompare';
+import { hardwareRegistry } from '../hardware';
 import {
   applyRegistrySearchPatch,
   parseRegistrySearchParams,
@@ -11,10 +13,14 @@ import {
 export function useRegistryRoute() {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const registryState = useMemo(
-    () => parseRegistrySearchParams(searchParams),
-    [searchParams],
-  );
+  const registryState = useMemo(() => {
+    const parsed = parseRegistrySearchParams(searchParams);
+    const compareSbcIds = resolveCompareSbcIds(
+      parsed.compareSbcIds,
+      hardwareRegistry.getSbcs(),
+    );
+    return { ...parsed, compareSbcIds };
+  }, [searchParams]);
 
   const patchSearch = useCallback(
     (patch: Record<string, string | null>, replace = false) => {
@@ -71,6 +77,30 @@ export function useRegistryRoute() {
     [registryState.expandedId, setExpandedId],
   );
 
+  const setCompareSbcIds = useCallback(
+    (compareSbcIds: string[]) => {
+      patchSearch(registrySearchPatch({ compare: compareSbcIds }));
+    },
+    [patchSearch],
+  );
+
+  const toggleCompareSbc = useCallback(
+    (sbcId: string) => {
+      const current = registryState.compareSbcIds;
+      if (current.includes(sbcId)) {
+        setCompareSbcIds(current.filter((id) => id !== sbcId));
+        return;
+      }
+      if (current.length >= MAX_SBC_COMPARE) return;
+      setCompareSbcIds([...current, sbcId]);
+    },
+    [registryState.compareSbcIds, setCompareSbcIds],
+  );
+
+  const clearCompareSbcs = useCallback(() => {
+    setCompareSbcIds([]);
+  }, [setCompareSbcIds]);
+
   return {
     ...registryState,
     setCategoryFilter,
@@ -79,5 +109,7 @@ export function useRegistryRoute() {
     clearFilters,
     setExpandedId,
     toggleExpanded,
+    toggleCompareSbc,
+    clearCompareSbcs,
   };
 }

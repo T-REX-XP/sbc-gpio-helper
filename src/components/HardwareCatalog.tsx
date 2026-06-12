@@ -1,6 +1,7 @@
 import { Fragment, useMemo } from 'react';
 import type { GpioLibraryEntry, HardwareDevice } from '../hardware';
 import { getFormFactorClassLabel, hardwareRegistry, PLATFORM_CONFIGS } from '../hardware';
+import { MAX_SBC_COMPARE } from '../hardware/sbcCompare';
 import {
   buildRegistryTableRows,
   computeCategoryCounts,
@@ -13,6 +14,7 @@ import {
 import { createFormFactorClassTranslator, useI18n } from '../i18n';
 import { useRegistryRoute } from '../routing/useRegistryRoute';
 import { HardwareImage } from './HardwareImage';
+import { SbcComparePanel } from './SbcComparePanel';
 import { ButtonIcon, ButtonLabel, type ButtonIconName } from './icons';
 
 interface HardwareCatalogProps {
@@ -396,7 +398,9 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
       key: keyof RegistryColumnFilters | null;
       label: string;
       filterPlaceholder?: string;
+      compare?: boolean;
     }[] => [
+      { key: null, label: t('sbcCompare.column'), compare: true },
       { key: null, label: t('registry.columns.category') },
       { key: 'name', label: t('registry.columns.name'), filterPlaceholder: t('registry.filters.name') },
       { key: 'vendor', label: t('registry.columns.vendor'), filterPlaceholder: t('registry.filters.vendor') },
@@ -433,10 +437,13 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
     category: categoryFilter,
     columnFilters,
     expandedId,
+    compareSbcIds,
     setCategoryFilter,
     updateColumnFilter,
     clearFilters,
     toggleExpanded,
+    toggleCompareSbc,
+    clearCompareSbcs,
   } = useRegistryRoute();
 
   const filteredRows = useMemo(
@@ -458,6 +465,8 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
 
   const filtersActive =
     categoryFilter !== 'all' || hasActiveColumnFilters(columnFilters);
+
+  const compareAtMax = compareSbcIds.length >= MAX_SBC_COMPARE;
 
   return (
     <section className="hardware-catalog">
@@ -528,6 +537,14 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
         </div>
       </div>
 
+      {compareSbcIds.length > 0 && (
+        <SbcComparePanel
+          compareIds={compareSbcIds}
+          onRemove={toggleCompareSbc}
+          onClear={clearCompareSbcs}
+        />
+      )}
+
       <div className="registry-table__wrap">
         <table className="registry-table">
           <thead>
@@ -567,6 +584,9 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
             ) : (
               filteredRows.map((row) => {
                 const isExpanded = expandedId === row.id;
+                const isSbc = row.registryCategory === 'sbc';
+                const isCompared = isSbc && compareSbcIds.includes(row.id);
+                const compareDisabled = isSbc && !isCompared && compareAtMax;
                 return (
                   <Fragment key={row.id}>
                     <tr
@@ -574,11 +594,29 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
                         'registry-table__row',
                         `registry-table__row--${row.registryCategory}`,
                         isExpanded ? 'registry-table__row--expanded' : '',
+                        isCompared ? 'registry-table__row--compared' : '',
                       ]
                         .filter(Boolean)
                         .join(' ')}
                       onClick={() => toggleExpanded(row.id)}
                     >
+                      <td className="registry-table__compare-cell" onClick={(e) => e.stopPropagation()}>
+                        {isSbc ? (
+                          <input
+                            type="checkbox"
+                            className="registry-table__compare-input"
+                            checked={isCompared}
+                            disabled={compareDisabled}
+                            aria-label={t('sbcCompare.toggleBoard', { name: row.name })}
+                            title={
+                              compareDisabled
+                                ? t('sbcCompare.maxReached', { max: MAX_SBC_COMPARE })
+                                : t('sbcCompare.toggleBoard', { name: row.name })
+                            }
+                            onChange={() => toggleCompareSbc(row.id)}
+                          />
+                        ) : null}
+                      </td>
                       <td>
                         <span
                           className={[

@@ -5,6 +5,7 @@ export interface RegistrySearchState {
   category: RegistryCategoryFilter;
   columnFilters: RegistryColumnFilters;
   expandedId: string | null;
+  compareSbcIds: string[];
 }
 
 const CATEGORY_VALUES = new Set<RegistryCategoryFilter>(['all', 'sbc', 'hats', 'libraries']);
@@ -33,7 +34,12 @@ export function parseRegistrySearchParams(params: URLSearchParams): RegistrySear
 
   const expandedId = params.get('expand') || null;
 
-  return { category, columnFilters, expandedId };
+  const compareRaw = params.get('compare');
+  const compareSbcIds = compareRaw
+    ? compareRaw.split(',').map((id) => id.trim()).filter(Boolean)
+    : [];
+
+  return { category, columnFilters, expandedId, compareSbcIds };
 }
 
 export function registrySearchPatch(
@@ -41,6 +47,7 @@ export function registrySearchPatch(
     category: RegistryCategoryFilter | null;
     columnFilters: RegistryColumnFilters | null;
     expand: string | null;
+    compare: string[] | null;
   }>,
 ): Record<string, string | null> {
   const result: Record<string, string | null> = {};
@@ -58,6 +65,11 @@ export function registrySearchPatch(
 
   if ('expand' in patch) {
     result.expand = patch.expand ?? null;
+  }
+
+  if ('compare' in patch) {
+    result.compare =
+      patch.compare && patch.compare.length > 0 ? patch.compare.join(',') : null;
   }
 
   return result;
