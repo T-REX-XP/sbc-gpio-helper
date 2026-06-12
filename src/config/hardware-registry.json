@@ -189,6 +189,34 @@
         "gpioNumbering": "Rockchip GPIO bank name",
         "interface": ["SPI0", "SPI1", "I2C2", "I2C5", "UART", "PWM"]
       }
+    },
+    {
+      "id": "cubie-a7z-40pin",
+      "platformId": "cubie-a7z-40pin",
+      "name": "Radxa Cubie A7Z 40-pin GPIO Header",
+      "shortName": "Cubie A7Z",
+      "vendor": "Radxa",
+      "description": "40-pin header on the Radxa Cubie A7Z (Allwinner A733). Pi-compatible power layout with 3.3V GPIO. Compact AI board with 3 TOPS NPU, Wi-Fi 6, and PCIe 3.0 expansion.",
+      "documentationUrl": "https://docs.radxa.com/en/cubie/a7z/hardware-use/pin-gpio",
+      "productUrl": "https://radxa.com/products/cubie/a7z",
+      "imageUrl": "/sbcs/cubie-a7z-40pin.webp",
+      "tags": ["radxa", "cubie", "allwinner-a733", "40-pin", "npu", "wifi6"],
+      "hardware": {
+        "soc": "Allwinner A733",
+        "socFamily": "Allwinner A733",
+        "cpu": "2× Cortex-A76 + 6× Cortex-A55 @ up to 2.0 GHz",
+        "gpu": "Imagination BXM-4-64 MC1",
+        "npu": "3 TOPS @ INT8",
+        "ram": "1 GB / 2 GB / 4 GB / 8 GB / 16 GB LPDDR4/4x",
+        "storage": "MicroSD; optional onboard UFS (up to 512 GB)",
+        "connectivity": ["Wi-Fi 6", "Bluetooth 5.4 / BLE", "USB-C 2.0", "USB-C 3.1", "Micro HDMI", "MIPI CSI 4-lane", "PCIe 3.0 x1"],
+        "formFactor": "Rpi Zero · 65 × 30 mm"
+      },
+      "specifications": {
+        "gpioHeader": "40-pin",
+        "gpioNumbering": "SoC port name (PB/PJ/PD/PL/PM)",
+        "interface": ["SPI1", "SPI2", "SPI3", "TWI2", "TWI7", "UART", "PWM"]
+      }
     }
   ],
   "hats": [
