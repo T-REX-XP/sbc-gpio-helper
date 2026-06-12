@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="GPIO Visualizer">
+  <rect x="4" y="6" width="40" height="36" rx="7" fill="#3d4a2a" stroke="#252d18" stroke-width="1.5"/>
+  <rect x="22" y="10" width="4" height="28" rx="1.5" fill="#1a2f4a"/>
+  <circle cx="14" cy="14" r="3" fill="#c62828"/>
+  <circle cx="14" cy="21" r="3" fill="#6d7f3c"/>
+  <circle cx="14" cy="28" r="3" fill="#1e88e5"/>
+  <circle cx="14" cy="35" r="3" fill="#1a1a1a"/>
+  <circle cx="34" cy="14" r="3" fill="#e8a317"/>
+  <circle cx="34" cy="21" r="3" fill="#d81b87"/>
+  <circle cx="34" cy="28" r="3" fill="#8e44c3"/>
+  <circle cx="34" cy="35" r="3" fill="#6d7f3c"/>
+  <rect x="12.5" y="12.5" width="3" height="3" rx="0.75" fill="#fff" opacity="0.85"/>
+</svg>

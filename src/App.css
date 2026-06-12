@@ -19,6 +19,19 @@
 }
 
 .app-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.app-logo {
+  width: 2.35rem;
+  height: 2.35rem;
+  flex-shrink: 0;
+}
+
+.app-header__titles {
   min-width: 0;
 }
 

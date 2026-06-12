@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AppLogo } from './components/AppLogo';
 import { AppNav, type AppPage } from './components/AppNav';
 import { DeviceColorStyles } from './components/DeviceColorStyles';
 import { GitHubLink } from './components/GitHubLink';
@@ -30,8 +31,11 @@ function App() {
       <header className="app-header">
         <div className="app-header__top">
           <div className="app-header__brand">
-            <h1>{t('app.title')}</h1>
-            <p className="app-header__version">{APP_VERSION}</p>
+            <AppLogo />
+            <div className="app-header__titles">
+              <h1>{t('app.title')}</h1>
+              <p className="app-header__version">{APP_VERSION}</p>
+            </div>
           </div>
           <div className="app-header__actions">
             <GitHubLink />
