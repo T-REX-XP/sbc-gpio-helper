@@ -208,6 +208,8 @@ export function MainPage({
                 id="platform-compare-pinout"
                 title={t('main.gpioHeaderComparison')}
                 description={t('main.gpioHeaderComparisonDesc')}
+                exportable
+                exportFileName={`gpio-compare-${platform.id}-${comparePlatform.id}.png`}
               >
                 <PlatformCompareHeaders
                   primary={platform}
@@ -238,6 +240,8 @@ export function MainPage({
                 id="gpio-header-pinout"
                 title={t('main.gpioHeaderPinout')}
                 description={t('main.gpioHeaderPinoutDesc')}
+                exportable
+                exportFileName={`gpio-${platform.id}.png`}
               >
                 <GpioHeader
                   platform={platform}

@@ -2,7 +2,7 @@ import type { Messages } from '../types';
 
 export const uk: Messages = {
   app: {
-    titleSuffix: 'Візуалізатор',
+    title: 'GPIO Візуалізатор',
     taglineMain:
       'Оберіть платформу плати та дисплейний HAT, щоб побачити використання GPIO. Порівняйте дві платформи або два HAT, щоб знайти відмінності.',
     taglineRegistry:
@@ -67,6 +67,15 @@ export const uk: Messages = {
     pinConflicts: 'Конфлікти контактів',
     pinConflictEntry: 'Контакт {{physical}}: {{usages}}',
     conflictVs: ' проти ',
+  },
+  imageExport: {
+    aria: 'Експорт розводки як зображення',
+    copy: 'Копіювати зображення',
+    save: 'Зберегти зображення',
+    copying: 'Копіювання…',
+    saving: 'Збереження…',
+    copied: 'Скопійовано',
+    error: 'Не вдалося експортувати зображення',
   },
   legend: {
     aria: 'Кольорова легенда GPIO',

@@ -17,6 +17,19 @@ function getBasePath(): string {
   return '/'
 }
 
+function formatBuildDate(date: Date): string {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}.${month}.${day}`
+}
+
+function getAppVersion(): string {
+  const buildDate = process.env.VITE_BUILD_DATE ?? formatBuildDate(new Date())
+  const buildNumber = process.env.VITE_BUILD_NUMBER ?? 'dev'
+  return `${buildDate}.${buildNumber}`
+}
+
 /** Copy index.html → 404.html so GitHub Pages serves the SPA on unknown paths. */
 function githubPagesSpaFallback(): Plugin {
   return {
@@ -38,4 +51,7 @@ function githubPagesSpaFallback(): Plugin {
 export default defineConfig({
   base: getBasePath(),
   plugins: [react(), githubPagesSpaFallback()],
+  define: {
+    'import.meta.env.VITE_APP_VERSION': JSON.stringify(getAppVersion()),
+  },
 })

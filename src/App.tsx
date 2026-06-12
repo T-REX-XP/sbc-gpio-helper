@@ -6,6 +6,7 @@ import { LocaleSwitcher } from './components/LocaleSwitcher';
 import { UmamiAnalytics } from './components/UmamiAnalytics';
 import { hardwareRegistry } from './hardware';
 import { useI18n } from './i18n';
+import { APP_VERSION } from './config/version';
 import { HardwareRegistryPage } from './pages/HardwareRegistryPage';
 import { MainPage } from './pages/MainPage';
 import './App.css';
@@ -15,7 +16,6 @@ function App() {
   const [page, setPage] = useState<AppPage>('main');
   const [platformId, setPlatformId] = useState(hardwareRegistry.defaultPlatformId);
   const [comparePlatformId, setComparePlatformId] = useState<string | null>(null);
-  const platform = hardwareRegistry.getPlatform(platformId);
 
   const swapComparePlatforms = () => {
     if (!comparePlatformId) return;
@@ -29,9 +29,10 @@ function App() {
       <DeviceColorStyles />
       <header className="app-header">
         <div className="app-header__top">
-          <h1>
-            {platform?.shortName ?? platform?.name ?? 'GPIO'} {t('app.titleSuffix')}
-          </h1>
+          <div className="app-header__brand">
+            <h1>{t('app.title')}</h1>
+            <p className="app-header__version">{APP_VERSION}</p>
+          </div>
           <div className="app-header__actions">
             <GitHubLink />
             <LocaleSwitcher />

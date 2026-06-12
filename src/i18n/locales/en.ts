@@ -1,6 +1,6 @@
 export const en = {
   app: {
-    titleSuffix: 'Visualizer',
+    title: 'GPIO Visualizer',
     taglineMain:
       'Select a board platform and display HAT to see GPIO usage. Compare two platforms or two HATs to spot differences.',
     taglineRegistry:
@@ -65,6 +65,15 @@ export const en = {
     pinConflicts: 'Pin conflicts',
     pinConflictEntry: 'Pin {{physical}}: {{usages}}',
     conflictVs: ' vs ',
+  },
+  imageExport: {
+    aria: 'Export pinout as image',
+    copy: 'Copy image',
+    save: 'Save image',
+    copying: 'Copying…',
+    saving: 'Saving…',
+    copied: 'Copied',
+    error: 'Could not export image',
   },
   legend: {
     aria: 'GPIO color legend',
