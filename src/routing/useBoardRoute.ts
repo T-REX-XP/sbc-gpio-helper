@@ -46,9 +46,9 @@ export function useBoardRoute() {
 
   const patchSearch = useCallback(
     (patch: Record<string, string | null>, replace = false) => {
-      setSearchParams(applySearchPatch(searchParams, patch), { replace });
+      setSearchParams((prev) => applySearchPatch(prev, patch), { replace });
     },
-    [searchParams, setSearchParams],
+    [setSearchParams],
   );
 
   const setPlatformId = useCallback(
@@ -73,13 +73,19 @@ export function useBoardRoute() {
   );
 
   const swapComparePlatforms = useCallback(() => {
-    if (!boardState.comparePlatformId) return;
-    const nextSearch = sanitizeBoardSearchForPlatform(searchParams, boardState.comparePlatformId);
+    const currentCompare = boardState.comparePlatformId;
+    if (!currentCompare || currentCompare === platformId) return;
+
+    const nextSearch = applySearchPatch(
+      sanitizeBoardSearchForPlatform(searchParams, currentCompare),
+      boardSearchPatch({ compare: platformId }),
+    );
+
     navigate({
-      pathname: `/board/${boardState.comparePlatformId}`,
+      pathname: `/board/${currentCompare}`,
       search: nextSearch.toString(),
     });
-  }, [boardState.comparePlatformId, navigate, searchParams]);
+  }, [boardState.comparePlatformId, platformId, navigate, searchParams]);
 
   const setPrimaryHatId = useCallback(
     (hatId: string) => {
@@ -103,8 +109,12 @@ export function useBoardRoute() {
   );
 
   const setSelectedPins = useCallback(
-    (pins: ReadonlySet<number>) => {
-      patchSearch(boardSearchPatch({ pins }));
+    (pins: ReadonlySet<number>, focus?: number | null) => {
+      const patch = boardSearchPatch({ pins });
+      if (focus !== undefined) {
+        Object.assign(patch, boardSearchPatch({ pin: focus }));
+      }
+      patchSearch(patch);
     },
     [patchSearch],
   );
