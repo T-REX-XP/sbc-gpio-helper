@@ -1,4 +1,4 @@
-import type { GpioPlatform, PinType } from '../hardware';
+import type { PinType } from '../hardware';
 import { legendFilterKey } from '../hardware/legendFilters';
 import { useI18n } from '../i18n';
 
@@ -14,14 +14,12 @@ const PIN_TYPES: PinType[] = [
 ];
 
 interface ColorLegendProps {
-  platform: GpioPlatform;
   activeFilters: readonly string[];
   onToggleFilter: (key: string) => void;
   onClearFilters: () => void;
 }
 
 export function ColorLegend({
-  platform,
   activeFilters,
   onToggleFilter,
   onClearFilters,
@@ -36,7 +34,6 @@ export function ColorLegend({
     <section className="color-legend" aria-label={t('legend.aria')}>
       <header className="color-legend__header">
         <h2 className="color-legend__title">{t('legend.title')}</h2>
-        <p className="color-legend__orientation">{platform.orientationHint}</p>
       </header>
 
       {hasPinTypeFilters && (

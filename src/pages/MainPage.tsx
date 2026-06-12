@@ -272,7 +272,6 @@ export function MainPage() {
 
         <aside className="app-sidebar">
           <ColorLegend
-            platform={platform}
             activeFilters={legendFilters}
             onToggleFilter={toggleLegendFilter}
             onClearFilters={clearPinTypeFilters}

@@ -24,6 +24,9 @@ interface GpioHeaderProps {
   conflictPins: ReadonlySet<number>;
   showSpiBus?: boolean;
   overlayHighlightPins?: ReadonlySet<number>;
+  /** When set (e.g. side-by-side compare), both headers use the same row count. */
+  sharedRowCount?: number;
+  showNotes?: boolean;
 }
 
 function pinCellStyle(
@@ -244,6 +247,8 @@ export function GpioHeader({
   conflictPins,
   showSpiBus = false,
   overlayHighlightPins = EMPTY_PIN_SET,
+  sharedRowCount,
+  showNotes = true,
 }: GpioHeaderProps) {
   const { t } = useI18n();
   const pinLabelStrings = createPinLabelStrings(t);
@@ -251,7 +256,7 @@ export function GpioHeader({
   const oddColumn = pins.filter((p) => p.physical % 2 === 1);
   const evenColumn = pins.filter((p) => p.physical % 2 === 0);
   const lastPin = platform.pinCount;
-  const rowCount = getPlatformHeaderRowCount(platform);
+  const rowCount = sharedRowCount ?? getPlatformHeaderRowCount(platform);
   const firstSelectedPin =
     selectedPins.size > 0 ? Math.min(...selectedPins) : null;
   const highlightedPhysical = hoveredPin ?? firstSelectedPin;
@@ -312,8 +317,7 @@ export function GpioHeader({
             <span>{t('gpioHeader.pin1')}</span>
             <span>{t('gpioHeader.pin40', { last: lastPin })}</span>
           </div>
-          <p className="gpio-header__orientation">{platform.orientationHint}</p>
-          {platform.notes && (
+          {showNotes && platform.notes && (
             <p className="gpio-header__note">{platform.notes}</p>
           )}
         </div>

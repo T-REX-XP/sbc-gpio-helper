@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 import { GpioHeader } from './GpioHeader';
-import { getPlatformAccentColor } from '../hardware';
+import { getPlatformAccentColor, getPlatformHeaderRowCount } from '../hardware';
 import type { GpioPlatform, HardwareDevice } from '../hardware';
 
 interface PlatformCompareHeadersProps {
@@ -32,9 +32,25 @@ export function PlatformCompareHeaders({
 }: PlatformCompareHeadersProps) {
   const primaryColor = getPlatformAccentColor(primary.id);
   const compareColor = getPlatformAccentColor(compare.id);
+  const uniformPinCount = primary.pinCount === compare.pinCount;
+  const sharedRowCount = uniformPinCount
+    ? Math.max(
+        getPlatformHeaderRowCount(primary),
+        getPlatformHeaderRowCount(compare),
+      )
+    : undefined;
 
   return (
-    <div className="platform-compare-headers">
+    <div
+      className="platform-compare-headers"
+      data-uniform={uniformPinCount ? '' : undefined}
+      data-pin-count={uniformPinCount ? primary.pinCount : undefined}
+      style={
+        sharedRowCount != null
+          ? ({ '--gpio-rows': sharedRowCount } as CSSProperties)
+          : undefined
+      }
+    >
       <div
         className="platform-compare-headers__col"
         style={{ '--platform-accent': primaryColor } as CSSProperties}
@@ -50,6 +66,8 @@ export function PlatformCompareHeaders({
           legendFilters={legendFilters}
           conflictPins={conflictPins}
           showSpiBus={showSpiBusPrimary}
+          sharedRowCount={sharedRowCount}
+          showNotes={false}
         />
       </div>
       <div
@@ -67,6 +85,8 @@ export function PlatformCompareHeaders({
           legendFilters={legendFilters}
           conflictPins={new Set()}
           showSpiBus={showSpiBusCompare}
+          sharedRowCount={sharedRowCount}
+          showNotes={false}
         />
       </div>
     </div>
