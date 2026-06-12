@@ -220,7 +220,6 @@ export const uk: Messages = {
   },
   registry: {
     title: 'Реєстр обладнання',
-    desc: 'Каталог зареєстрованих SBC та HAT з фільтрами. Редагуйте',
     categoryAria: 'Категорія',
     categories: {
       all: 'Усі',

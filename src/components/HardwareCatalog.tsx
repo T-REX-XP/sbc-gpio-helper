@@ -304,10 +304,6 @@ export function HardwareCatalog({ sbcs, hats }: HardwareCatalogProps) {
     <section className="hardware-catalog">
       <div className="hardware-catalog__header">
         <h2 className="section-title">{t('registry.title')}</h2>
-        <p className="section-desc">
-          {t('registry.desc')}{' '}
-          <code>src/config/hardware-registry.json</code>.
-        </p>
       </div>
 
       <div className="registry-table__toolbar">

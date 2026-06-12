@@ -218,7 +218,6 @@ export const en = {
   },
   registry: {
     title: 'Hardware registry',
-    desc: 'Filterable catalog of registered SBCs and HATs. Edit',
     categoryAria: 'Category',
     categories: {
       all: 'All',
