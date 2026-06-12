@@ -7,6 +7,6 @@ export const SITE_REPO_URL = 'https://github.com/T-REX-XP/sbc-gpio-helper';
 
 export const OG_IMAGE_PATH = 'og-image.png';
 
-export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_WIDTH = 1536;
 
-export const OG_IMAGE_HEIGHT = 630;
+export const OG_IMAGE_HEIGHT = 1024;
