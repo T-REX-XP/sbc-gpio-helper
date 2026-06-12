@@ -1,20 +1,19 @@
 import { getSpiBuses } from '../hardware';
 
-const ROW_COUNT = 20;
-
 const HUB_Y: Record<string, number> = {
   spi0: 38,
   spi1: 68,
   'spi-a': 38,
   'spi-b': 68,
   spi3: 50,
+  spi4: 62,
 };
 
-function pinPosition(physical: number): { x: number; y: number } {
+function pinPosition(physical: number, rowCount: number): { x: number; y: number } {
   const row = Math.floor((physical - 1) / 2);
   const isOdd = physical % 2 === 1;
   const x = isOdd ? 22 : 78;
-  const y = 4 + (row / (ROW_COUNT - 1)) * 92;
+  const y = rowCount <= 1 ? 50 : 4 + (row / (rowCount - 1)) * 92;
   return { x, y };
 }
 
@@ -31,10 +30,11 @@ const SIGNAL_COLORS: Record<string, string> = {
 
 interface SpiBusOverlayProps {
   platformId: string;
+  rowCount: number;
   highlightedPhysical?: number | null;
 }
 
-export function SpiBusOverlay({ platformId, highlightedPhysical }: SpiBusOverlayProps) {
+export function SpiBusOverlay({ platformId, rowCount, highlightedPhysical }: SpiBusOverlayProps) {
   const buses = getSpiBuses(platformId);
 
   return (
@@ -51,7 +51,7 @@ export function SpiBusOverlay({ platformId, highlightedPhysical }: SpiBusOverlay
         return (
           <g key={bus.id}>
             {bus.signals.map((signal) => {
-              const point = pinPosition(signal.physical);
+              const point = pinPosition(signal.physical, rowCount);
               const color = SIGNAL_COLORS[signal.signal] ?? '#e879a8';
               const active =
                 highlightedPhysical === null ||

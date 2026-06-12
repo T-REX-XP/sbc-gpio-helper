@@ -38,8 +38,8 @@ export function PlatformCompareHeaders({
       <div
         className="platform-compare-headers__col"
         style={{ '--platform-accent': primaryColor } as CSSProperties}
+        aria-label={primary.shortName ?? primary.name}
       >
-        <h3 className="platform-compare-headers__title">{primary.shortName ?? primary.name}</h3>
         <GpioHeader
           platform={primary}
           selectedDevices={primaryDevices}
@@ -55,8 +55,8 @@ export function PlatformCompareHeaders({
       <div
         className="platform-compare-headers__col"
         style={{ '--platform-accent': compareColor } as CSSProperties}
+        aria-label={compare.shortName ?? compare.name}
       >
-        <h3 className="platform-compare-headers__title">{compare.shortName ?? compare.name}</h3>
         <GpioHeader
           platform={compare}
           selectedDevices={[]}

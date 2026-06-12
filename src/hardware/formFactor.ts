@@ -74,6 +74,15 @@ export function getHeaderRows(header: BoardGpioHeaderPlacement): number {
   return header.rows ?? DEFAULT_HEADER_ROWS;
 }
 
+/** Rows per column for the GPIO header diagram (e.g. 20 for 40-pin, 13 for 26-pin). */
+export function getPlatformHeaderRowCount(platform: GpioPlatform): number {
+  if (platform.formFactor?.gpioHeader) {
+    return getHeaderRows(platform.formFactor.gpioHeader);
+  }
+
+  return Math.max(1, Math.floor(platform.pinCount / 2));
+}
+
 export function getHeaderColumns(header: BoardGpioHeaderPlacement): number {
   return header.columns ?? DEFAULT_HEADER_COLUMNS;
 }

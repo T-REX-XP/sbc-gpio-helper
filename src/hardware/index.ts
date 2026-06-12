@@ -50,6 +50,7 @@ export {
   getHeaderPitch,
   getHeaderRows,
   getHeaderWidthMm,
+  getPlatformHeaderRowCount,
   hasFormFactor,
   PI_FORM_FACTOR_LABELS,
 } from './formFactor';

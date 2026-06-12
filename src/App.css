@@ -318,13 +318,6 @@
   border-top: 3px solid var(--platform-accent, var(--accent));
 }
 
-.platform-compare-headers__title {
-  margin: 0 0 0.65rem;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--platform-accent, var(--text));
-}
-
 .platform-comparison__summary {
   display: flex;
   gap: 0.75rem;
@@ -1012,9 +1005,24 @@
 
 .gpio-header {
   width: 100%;
+  --gpio-rows: 20;
   --pin-size: clamp(1.65rem, 4vw, 2.35rem);
   --pin-gap: clamp(0.1rem, 0.35vw, 0.22rem);
   --gpio-strip: #1a2f4a;
+}
+
+/* 26-pin (2×13) — shorter header, slightly larger pins */
+.gpio-header[data-pin-count='26'] {
+  --pin-size: clamp(1.75rem, 4.25vw, 2.5rem);
+  --pin-gap: clamp(0.12rem, 0.4vw, 0.26rem);
+}
+
+.gpio-header[data-pin-count='26'] .pin-cell__side-label {
+  max-width: 8.5rem;
+}
+
+.gpio-header[data-pin-count='26'] .gpio-header__board {
+  padding-bottom: 0.85rem;
 }
 
 .gpio-header__scroll {
@@ -1034,8 +1042,29 @@
   background: var(--gpio-board);
   border: 2px solid #252d18;
   border-radius: 16px;
-  padding: 0.85rem clamp(0.65rem, 2vw, 1.25rem) 1rem;
+  padding: 1.35rem clamp(0.65rem, 2vw, 1.25rem) 1rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.gpio-header__board-label {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.55rem;
+  z-index: 1;
+  max-width: calc(100% - 1.1rem);
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-align: left;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .gpio-header__body {
@@ -1047,7 +1076,7 @@
 
 .gpio-header__column {
   display: grid;
-  grid-template-rows: repeat(20, minmax(0, 1fr));
+  grid-template-rows: repeat(var(--gpio-rows), minmax(0, 1fr));
   gap: var(--pin-gap);
 }
 
@@ -2297,6 +2326,10 @@
     --pin-size: clamp(1.45rem, 5vw, 2rem);
   }
 
+  .gpio-header[data-pin-count='26'] {
+    --pin-size: clamp(1.55rem, 5.5vw, 2.15rem);
+  }
+
   .pin-cell__side-label {
     max-width: 5.5rem;
   }
@@ -2333,6 +2366,10 @@
 @media (max-width: 480px) {
   .gpio-header {
     --pin-size: clamp(1.25rem, 6vw, 1.65rem);
+  }
+
+  .gpio-header[data-pin-count='26'] {
+    --pin-size: clamp(1.35rem, 6.5vw, 1.85rem);
   }
 
   .pin-cell__side-label {

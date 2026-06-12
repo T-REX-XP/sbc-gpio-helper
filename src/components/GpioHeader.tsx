@@ -3,6 +3,7 @@ import { SpiBusOverlay } from './SpiBusOverlay';
 import type { DevicePinUsage, GpioPin, GpioPlatform, HardwareDevice } from '../hardware';
 import {
   getPinDisplayLabels,
+  getPlatformHeaderRowCount,
   hardwareRegistry,
   pinHasSpiFunction,
   pinMatchesLegendFilters,
@@ -250,14 +251,22 @@ export function GpioHeader({
   const oddColumn = pins.filter((p) => p.physical % 2 === 1);
   const evenColumn = pins.filter((p) => p.physical % 2 === 0);
   const lastPin = platform.pinCount;
+  const rowCount = getPlatformHeaderRowCount(platform);
   const firstSelectedPin =
     selectedPins.size > 0 ? Math.min(...selectedPins) : null;
   const highlightedPhysical = hoveredPin ?? firstSelectedPin;
 
   return (
-    <div className="gpio-header">
+    <div
+      className="gpio-header"
+      data-pin-count={platform.pinCount}
+      style={{ '--gpio-rows': rowCount } as CSSProperties}
+    >
       <div className="gpio-header__scroll">
         <div className="gpio-header__board">
+          <span className="gpio-header__board-label">
+            {platform.shortName ?? platform.name}
+          </span>
           <div className={`gpio-header__body${showSpiBus ? ' gpio-header__body--spi' : ''}`}>
             <PinColumn
               pins={oddColumn}
@@ -278,6 +287,7 @@ export function GpioHeader({
               {showSpiBus && (
                 <SpiBusOverlay
                   platformId={platform.id}
+                  rowCount={rowCount}
                   highlightedPhysical={highlightedPhysical}
                 />
               )}
