@@ -204,6 +204,8 @@ export const uk: Messages = {
     toggleBoard: 'Порівняти {{name}}',
     maxReached: 'Можна порівняти щонайбільше {{max}} плати одночасно',
     openPinout: 'Відкрити розводку',
+    compareSelected: 'Порівняти {{count}} обраних пристроїв',
+    closeModal: 'Закрити порівняння',
   },
   hatSpi: {
     pinAssignments: 'Призначення контактів',

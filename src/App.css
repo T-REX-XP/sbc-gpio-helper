@@ -1962,6 +1962,26 @@
   border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
 }
 
+.registry-table__compare-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.registry-table__compare-btn:hover {
+  background: color-mix(in srgb, var(--accent) 16%, var(--surface));
+}
+
 .registry-table__wrap {
   overflow-x: auto;
   border: 1px solid var(--border);
@@ -2224,6 +2244,65 @@
 .sbc-compare__table tbody tr:last-child th,
 .sbc-compare__table tbody tr:last-child td {
   border-bottom: none;
+}
+
+.sbc-compare-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgb(15 23 42 / 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.sbc-compare-modal__dialog {
+  position: relative;
+  width: min(100%, 72rem);
+  max-height: min(92vh, 900px);
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: 0 24px 48px rgb(15 23 42 / 0.22);
+}
+
+.sbc-compare-modal__close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sbc-compare-modal__close:hover {
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface-elevated));
+  color: var(--text);
+}
+
+.sbc-compare--in-modal {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sbc-compare--in-modal .sbc-compare__header {
+  padding-right: 2.25rem;
 }
 
 .registry-table__row--hats {

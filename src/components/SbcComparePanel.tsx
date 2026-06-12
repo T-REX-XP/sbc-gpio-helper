@@ -14,6 +14,8 @@ interface SbcComparePanelProps {
   compareIds: readonly string[];
   onRemove: (sbcId: string) => void;
   onClear: () => void;
+  titleId?: string;
+  inModal?: boolean;
 }
 
 const SPEC_LABEL_KEYS: Record<string, string> = {
@@ -83,7 +85,13 @@ function ComparePhotoCard({
   );
 }
 
-export function SbcComparePanel({ compareIds, onRemove, onClear }: SbcComparePanelProps) {
+export function SbcComparePanel({
+  compareIds,
+  onRemove,
+  onClear,
+  titleId,
+  inModal = false,
+}: SbcComparePanelProps) {
   const { t } = useI18n();
   const translateClass = createFormFactorClassTranslator(t);
   const columns = buildSbcCompareColumns(compareIds);
@@ -93,10 +101,15 @@ export function SbcComparePanel({ compareIds, onRemove, onClear }: SbcComparePan
   if (columns.length === 0) return null;
 
   return (
-    <section className="sbc-compare" aria-label={t('sbcCompare.aria')}>
+    <section
+      className={['sbc-compare', inModal ? 'sbc-compare--in-modal' : ''].filter(Boolean).join(' ')}
+      aria-label={t('sbcCompare.aria')}
+    >
       <div className="sbc-compare__header">
         <div className="sbc-compare__heading">
-          <h2 className="sbc-compare__title">{t('sbcCompare.title')}</h2>
+          <h2 className="sbc-compare__title" id={titleId}>
+            {t('sbcCompare.title')}
+          </h2>
           <span className="sbc-compare__count">
             {t('sbcCompare.selectedCount', { count: columns.length, max: MAX_SBC_COMPARE })}
           </span>

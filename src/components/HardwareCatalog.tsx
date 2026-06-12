@@ -1,4 +1,4 @@
-import { Fragment, useMemo } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import type { GpioLibraryEntry, HardwareDevice } from '../hardware';
 import { getFormFactorClassLabel, hardwareRegistry, PLATFORM_CONFIGS } from '../hardware';
 import { MAX_SBC_COMPARE } from '../hardware/sbcCompare';
@@ -14,7 +14,7 @@ import {
 import { createFormFactorClassTranslator, useI18n } from '../i18n';
 import { useRegistryRoute } from '../routing/useRegistryRoute';
 import { HardwareImage } from './HardwareImage';
-import { SbcComparePanel } from './SbcComparePanel';
+import { SbcCompareModal } from './SbcCompareModal';
 import { ButtonIcon, ButtonLabel, type ButtonIconName } from './icons';
 
 interface HardwareCatalogProps {
@@ -467,6 +467,13 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
     categoryFilter !== 'all' || hasActiveColumnFilters(columnFilters);
 
   const compareAtMax = compareSbcIds.length >= MAX_SBC_COMPARE;
+  const [compareModalOpen, setCompareModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (compareSbcIds.length === 0) {
+      setCompareModalOpen(false);
+    }
+  }, [compareSbcIds.length]);
 
   return (
     <section className="hardware-catalog">
@@ -522,6 +529,16 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
         </div>
 
         <div className="registry-table__toolbar-meta">
+          {compareSbcIds.length > 0 && (
+            <button
+              type="button"
+              className="registry-table__compare-btn btn-with-icon"
+              onClick={() => setCompareModalOpen(true)}
+            >
+              <ButtonIcon name="swap" />
+              <span>{t('sbcCompare.compareSelected', { count: compareSbcIds.length })}</span>
+            </button>
+          )}
           <span className="registry-table__result-count">
             {t('registry.showing', { count: filteredRows.length, total: allRows.length })}
           </span>
@@ -537,13 +554,16 @@ export function HardwareCatalog({ sbcs, hats, gpioLibraries }: HardwareCatalogPr
         </div>
       </div>
 
-      {compareSbcIds.length > 0 && (
-        <SbcComparePanel
-          compareIds={compareSbcIds}
-          onRemove={toggleCompareSbc}
-          onClear={clearCompareSbcs}
-        />
-      )}
+      <SbcCompareModal
+        open={compareModalOpen}
+        compareIds={compareSbcIds}
+        onRemove={toggleCompareSbc}
+        onClear={() => {
+          clearCompareSbcs();
+          setCompareModalOpen(false);
+        }}
+        onClose={() => setCompareModalOpen(false)}
+      />
 
       <div className="registry-table__wrap">
         <table className="registry-table">

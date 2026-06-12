@@ -202,6 +202,8 @@ export const en = {
     toggleBoard: 'Compare {{name}}',
     maxReached: 'You can compare up to {{max}} boards at once',
     openPinout: 'Open pinout',
+    compareSelected: 'Compare {{count}} selected devices',
+    closeModal: 'Close comparison',
   },
   hatSpi: {
     pinAssignments: 'Pin assignments',
