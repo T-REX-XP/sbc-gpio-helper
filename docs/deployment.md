@@ -51,6 +51,20 @@ VITE_BASE_PATH=/ npm run build          # site at https://example.com/
 VITE_BASE_PATH=/my-app/ npm run build   # site at https://example.com/my-app/
 ```
 
+### Social preview (Open Graph / Twitter Card)
+
+Build injects `og:*` and `twitter:*` meta tags into `index.html` (and `404.html` on CI). The preview image is `public/og-image.png` (1200×630).
+
+For a **custom domain**, set the public site URL at build time:
+
+```bash
+VITE_SITE_URL=https://your-domain.example npm run build
+```
+
+On GitHub Actions this defaults to `https://<owner>.github.io/<repo>` from `GITHUB_REPOSITORY`.
+
+After deploy, validate with [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) or paste a link in Discord/Slack to refresh the cache.
+
 ### Local “Pages” build test
 
 Simulate the GitHub Actions build locally:
