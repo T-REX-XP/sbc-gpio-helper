@@ -74,10 +74,10 @@ GITHUB_REPOSITORY=your-username/gpio_visualizer node scripts/build-pages.mjs
 
 ## Optional: Umami analytics in production
 
-Add repository **Secrets** (Settings → Secrets and variables → Actions):
+Add **environment variables** on the `github-pages` environment (Settings → Environments → github-pages → Environment variables):
 
-| Secret | Description |
-|--------|-------------|
+| Variable | Description |
+|----------|-------------|
 | `VITE_UMAMI_WEBSITE_ID` | Umami website ID |
 | `VITE_UMAMI_SCRIPT_URL` | Optional; Umami script URL if not using Umami Cloud |
 
@@ -96,4 +96,4 @@ These are injected at build time in the deploy workflow. See [analytics.md](anal
 | Blank page, 404 on assets | Wrong `base` path — verify repo name matches `GITHUB_REPOSITORY` or set `VITE_BASE_PATH` |
 | Pages workflow not listed | Enable **Source: GitHub Actions** under Settings → Pages |
 | Build passes but site stale | Check Actions tab for deploy job; clear browser cache |
-| Umami not tracking | Set secrets and redeploy; values are baked in at build time |
+| Umami not tracking | Set `github-pages` environment variables and redeploy; values are baked in at build time |
